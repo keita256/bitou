@@ -1,0 +1,8 @@
+◆ユーザーの作成
+create user 'laraveluser'@'localhost' identified by 'root';
+
+◆ユーザーに権限を設定
+grant create on homestead.* to laraveluser@localhost;
+grant select on homestead.* to laraveluser@localhost;
+grant alter on homestead.* to laraveluser@localhost;
+grant insert on homestead.* to laraveluser@localhost;
