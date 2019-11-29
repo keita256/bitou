@@ -7,3 +7,5 @@ grant select on homestead.* to laraveluser@localhost;
 grant alter on homestead.* to laraveluser@localhost;
 grant insert on homestead.* to laraveluser@localhost;
 grant drop on homestead.* to laraveluser@localhost;
+grant update on homestead.* to laraveluser@localhost;
+grant delete on homestead.* to laraveluser@localhost;
