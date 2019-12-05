@@ -13,9 +13,14 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('spends', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('payments', function (Blueprint $table) {
+            $table->string('user_id');
+            $table->date('date');
+            $table->integer('number');
+            $table->string('content', 255)->nullable();
+            $table->integer('amount');
+            $table->primary(['user_id', 'date', 'number']);
+            $table->foreign('user_id')->references('user_id')->on('accounts');
         });
     }
 
@@ -26,6 +31,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spends');
+        Schema::dropIfExists('payments');
     }
 }

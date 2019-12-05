@@ -1,10 +1,10 @@
- cvccc<?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountsTable extends Migration
+class CreateExpensesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
-            $table->string('user_id', 16)->primary('user_id');
-            $table->string('password', 32);
-            $table->string('mail_address', 255);
+        Schema::create('expenses', function (Blueprint $table) {
+            $table->string('expense_id', 255)->primary('expense_id');
+            $table->string('name', 16);
+            $table->string('description', 255);
         });
     }
 
@@ -27,6 +27,6 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('expenses');
     }
 }

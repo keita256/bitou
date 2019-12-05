@@ -14,8 +14,13 @@ class CreateMonthlyInputsTable extends Migration
     public function up()
     {
         Schema::create('monthly_inputs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('user_id', 16);
+            $table->date('date');
+            $table->integer('take_amount')->nullable();
+            $table->integer('target_spending')->nullable();
+
+            $table->primary(['user_id', 'date']);
+            $table->foreign('user_id')->references('user_id')->on('accounts');
         });
     }
 
