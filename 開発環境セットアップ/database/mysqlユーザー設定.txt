@@ -10,3 +10,4 @@ grant insert on monelyze.* to laraveluser@localhost;
 grant drop on monelyze.* to laraveluser@localhost;
 grant update on monelyze.* to laraveluser@localhost;
 grant delete on monelyze.* to laraveluser@localhost;
+grant references on monelyze.* to laraveluser@localhost;
