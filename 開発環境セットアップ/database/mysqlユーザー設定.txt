@@ -3,10 +3,10 @@ create user 'laraveluser'@'localhost' identified by 'root';
 ALTER USER 'laraveluser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
 ◆ユーザーに権限を設定
-grant create on homestead.* to laraveluser@localhost;
-grant select on homestead.* to laraveluser@localhost;
-grant alter on homestead.* to laraveluser@localhost;
-grant insert on homestead.* to laraveluser@localhost;
-grant drop on homestead.* to laraveluser@localhost;
-grant update on homestead.* to laraveluser@localhost;
-grant delete on homestead.* to laraveluser@localhost;
+grant create on monelyze.* to laraveluser@localhost;
+grant select on monelyze.* to laraveluser@localhost;
+grant alter on monelyze.* to laraveluser@localhost;
+grant insert on monelyze.* to laraveluser@localhost;
+grant drop on monelyze.* to laraveluser@localhost;
+grant update on monelyze.* to laraveluser@localhost;
+grant delete on monelyze.* to laraveluser@localhost;
