@@ -1,5 +1,6 @@
 ◆ユーザーの作成
 create user 'laraveluser'@'localhost' identified by 'root';
+ALTER USER 'laraveluser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
 ◆ユーザーに権限を設定
 grant create on homestead.* to laraveluser@localhost;
