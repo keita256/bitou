@@ -1,0 +1,9 @@
+◆リネーム
+php.ini-development
+-> php.ini
+
+◆コメントアウト削除 (php.ini)
+;extension_dir = "ext"
+;extension=fileinfo
+;extension=mbstring
+;extension=openssl
