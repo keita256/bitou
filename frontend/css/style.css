@@ -1,0 +1,63 @@
+body {
+    font-family: '游ゴシック';
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.container-fluid{
+    background-image: url(/frontend/image/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+}
+#layer {
+    position: relative;
+
+}
+
+#background {
+    position: absolute;
+}
+
+nav {
+    background-color: rgba(255, 127, 8, 0.5);
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    /* 下から出てくるアニメーションなので基準を下に */
+    transform-origin: center bottom;
+    transform: scaleY(0);
+    backface-visibility: hidden;
+}
+
+.bounce {
+    display: flex;
+    align-items: flex-end;
+}
+
+form {
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+#exampleInputEmail1 {
+    height: 50px;
+}
+
+
+#exampleInputPassword1 {
+    height: 50px;
+}
+
+.btn {
+    margin: 1em;
+    padding: 12px 48px;
+}
