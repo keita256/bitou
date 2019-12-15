@@ -29,8 +29,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1;
-    /* 下から出てくるアニメーションなので基準を下に */
-    transform-origin: center bottom;
+    transform-origin: center top;
     transform: scaleY(0);
     backface-visibility: hidden;
 }
