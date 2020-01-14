@@ -14,7 +14,7 @@ class CreateExpensesTable extends Migration
     public function up()
     {
         Schema::create('expenses', function (Blueprint $table) {
-            $table->string('expense_id', 255)->primary('expense_id');
+            $table->increments('expense_id')->unsigned();
             $table->string('name', 16);
             $table->string('description', 255);
         });
