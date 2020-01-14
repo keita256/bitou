@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Auth;
+use DB;
+use MonelyzeDB;
+use App\Spend;
 
 class HomeController extends Controller
 {
@@ -13,6 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        date_default_timezone_set('Asia/Tokyo');
         $this->middleware('auth');
     }
 
@@ -23,6 +27,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = Auth::id();
+        $date = date("Y-m-d", time());
+        $spends = MonelyzeDB::getSpends($id, $date);
+
+        return view('home', compact('spends'));
+    }
+
+    public function update($spend)
+    {
+
+    }
+
+    public function delete()
+    {
+
     }
 }
