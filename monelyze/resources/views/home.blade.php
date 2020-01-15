@@ -38,7 +38,7 @@
                             <table class="table table-sm table-bordered table-striped table-hover">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col" class="text-nowrap"></th>
+                                        <th scope="col" class="text-nowrap">日付</th>
                                         <th scope="col" class="text-nowrap">費目</th>
                                         <th scope="col" class="text-nowrap">内容</th>
                                         <th scope="col" class="text-nowrap">金額</th>
