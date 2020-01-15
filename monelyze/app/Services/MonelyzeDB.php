@@ -27,12 +27,12 @@ class MonelyzeDB
         foreach($spends as $spend) {
             // 次のレコードに付与する連番の取得
             $num = DB::select(
-                'select ifnull(max(number) + 1, 1) from spends where user_id = :user_id and date = :date',
+                'select ifnull(max(number) + 1, 1) as num from spends where user_id = :user_id and date = :date',
                 [
                     'user_id' => $spend->user_id,
                     'date' => $spend->date
                 ]
-            );
+            )[0]->num;
 
             // データの登録
             $newSpend = new Spend();
@@ -47,11 +47,11 @@ class MonelyzeDB
         }
     }
 
-    public function updateSpend($id, $date, $number, $newSpend)
+    public function updateSpend($newSpend)
     {
-        $spend = Spend::where('user_id', $id)->
-                        where('date', $date)->
-                        where('number', $number)->
+        $spend = Spend::where('user_id', $newSpend->id)->
+                        where('date', $newSpend->date)->
+                        where('number', $newSpend->number)->
                         get()->
                         first();
         
@@ -62,7 +62,7 @@ class MonelyzeDB
         return $spend->save();
     }
 
-    public function delete($id, $date, $number)
+    public function deleteSpend($id, $date, $number)
     {
         $spend = Spend::where('user_id', $id)->
                         where('date', $date)->
