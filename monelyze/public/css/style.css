@@ -1,0 +1,77 @@
+body {
+
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-weight: bold;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container-fluid {
+    background-image: url(../image/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+
+}
+
+#layer {
+    position: relative;
+
+}
+
+#background {
+    position: absolute;
+}
+
+nav {
+    background-color: rgb(111, 216, 255);
+}
+
+.nav-link.disabled {
+    color: rgb(0, 0, 0)
+}
+
+.nav-link {
+    color: rgb(0, 0, 0)
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    transform-origin: center top;
+    transform: scaleY(0);
+    backface-visibility: hidden;
+}
+
+.bounce {
+    display: flex;
+    align-items: flex-end;
+}
+
+form {
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+#exampleInputEmail1 {
+    height: 50px;
+}
+
+
+#exampleInputPassword1 {
+    height: 50px;
+}
+
+.btn {
+    margin: 1em;
+    padding: 12px 48px;
+}
+.container {
+    margin: 2em;
+}
