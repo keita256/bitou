@@ -7,14 +7,14 @@ use App\Spend;
 
 class MonelyzeDB
 {
-    public function getSpends($id, $date)
+    public function getSpends($user_id, $date)
     {
         // 例：$users = DB::select('select * from users where active = ?', [1000]);
         $spends = DB::select(
             'select date, name, content, amount from spends st inner join expenses et on st.expense_id = et.expense_id
             where user_id = :user_id and date = :date',
             [
-                'user_id' => $id,
+                'user_id' => $user_id,
                 'date' => $date
             ]
         );
@@ -35,42 +35,47 @@ class MonelyzeDB
             )[0]->num;
 
             // データの登録
-            $newSpend = new Spend();
-            $newSpend->user_id = $spend->user_id;
-            $newSpend->date = $spend->date;
-            $newSpend->number = $num;
-            $newSpend->expense_id = $spend->expense_id;
-            $newSpend->content = $spend->content;
-            $newSpend->amount = $spend->amount;
+            $new_spend = new Spend();
+            $new_spend->user_id = $spend->user_id;
+            $new_spend->date = $spend->date;
+            $new_spend->number = $num;
+            $new_spend->expense_id = $spend->expense_id;
+            $new_spend->content = $spend->content;
+            $new_spend->amount = $spend->amount;
 
-            $newSpend->save();
+            $new_spend->save();
         }
     }
 
-    public function updateSpend($newSpend)
+    public function updateSpend($new_spend)
     {
-        $spend = Spend::where('user_id', $newSpend->id)->
-                        where('date', $newSpend->date)->
-                        where('number', $newSpend->number)->
+        $spend = Spend::where('user_id', $new_spend->id)->
+                        where('date', $new_spend->date)->
+                        where('number', $new_Spend->number)->
                         get()->
                         first();
         
-        $spend->expense_id = $newSpend->expense_id;
-        $spend->content = $newSpend->content;
-        $spend->amount = $newSpend->amount;
+        $spend->expense_id = $new_spend->expense_id;
+        $spend->content = $new_spend->content;
+        $spend->amount = $new_spend->amount;
 
         return $spend->save();
     }
 
-    public function deleteSpend($id, $date, $number)
+    public function deleteSpend($user_id, $date, $number)
     {
-        $spend = Spend::where('user_id', $id)->
+        $spend = Spend::where('user_id', $user_id)->
                         where('date', $date)->
                         where('number', $number)->
                         get()->
                         first();
 
         return $spend->delete();
+    }
+
+    public function getStatistics()
+    {
+        DB::select('select * from users where active = ?', [1]);
     }
 }
 ?>
