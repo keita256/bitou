@@ -33,14 +33,4 @@ class HomeController extends Controller
 
         return view('home', compact('spends'));
     }
-
-    public function update($spend)
-    {
-
-    }
-
-    public function delete()
-    {
-
-    }
 }

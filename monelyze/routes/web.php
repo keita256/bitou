@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/create', 'SpendController@create');
+
 Route::get('/', function () {
     return view('welcome');
 });
