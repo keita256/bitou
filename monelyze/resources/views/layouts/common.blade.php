@@ -7,7 +7,7 @@
     @yield('header')
 
     <!--コンテンツ-->
-    <div id="wrapper">
+    <div class="continer" id="wrapper">
         @yield('content')
         
         @yield('sidebar')
