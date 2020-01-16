@@ -10,4 +10,9 @@ class SpendController extends Controller
     {
         
     }
+
+    public function spend()
+    {
+        return view('spend');
+    }
 }

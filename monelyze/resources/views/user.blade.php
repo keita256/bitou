@@ -6,5 +6,5 @@
 @include('layouts.header')
 
 @section('content')
-
+    <h1>ユーザー設定画面</h1>
 @endsection

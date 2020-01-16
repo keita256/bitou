@@ -17,6 +17,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/create', 'SpendController@create');
 
+Route::get('/spend', 'SpendController@spend');
+
+Route::get('/users/edit', 'UserController@edit');
+
 Route::get('/', function () {
     return view('welcome');
 });
