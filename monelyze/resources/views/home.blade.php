@@ -6,59 +6,54 @@
 @include('layouts.header')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-md-10 rounded-lg"
-                style="background-color: rgb(255, 255, 255); filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8">
-                        <h3>12月</h3>
+<div class="container"
+    style="background-color: rgb(255, 255, 255); filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
+        <div class="row">
+            <div class="col">
+                <h3>12月</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-striped table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-nowrap">費目</th>
+                                <th scope="col" class="text-nowrap">内容</th>
+                                <th scope="col" class="text-nowrap">金額</th>
+                            </tr>
+                        </thead>
 
-                        <div class="table-responsive">
-                            <table class="table table-sm table-bordered table-striped table-hover">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col" class="text-nowrap">日付</th>
-                                        <th scope="col" class="text-nowrap">費目</th>
-                                        <th scope="col" class="text-nowrap">内容</th>
-                                        <th scope="col" class="text-nowrap">金額</th>
-                                    </tr>
-                                </thead>
+                        <!-- 家計簿データ -->
 
-                                <!-- 家計簿データ -->
-
-                                <tbody data-placement="right">
-                                    @foreach($spends as $spend)
-                                    <tr data-toggle="modal" data-target="#staticBackdrop">
-                                        <td>{{ $spend->date }}</td>
-                                        <td>{{ $spend->name }}</td>
-                                        <td>{{ $spend->content }}</td>
-                                        <td>{{ $spend->amount }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-3">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td><b>合計</b></td>
-                                    <td>???円</td>
-                                </tr>
-
-                                <tr>
-                                    <td><b>平均</b></td>
-                                    <td>???円</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
+                        <tbody data-placement="right">
+                            @foreach($spends as $spend)
+                            <tr data-toggle="modal" data-target="#staticBackdrop">
+                                <td>{{ $spend->name }}</td>
+                                <td>{{ $spend->content }}</td>
+                                <td>{{ $spend->amount }}</td>                                
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+
+            <div class="col-4">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><b>合計</b></td>
+                            <td>???円</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>平均</b></td>
+                            <td>???円</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -30,7 +30,8 @@ class HomeController extends Controller
         $id = Auth::id();
         $date = date("Y-m-d", time());
         $spends = MonelyzeDB::getSpends($id, $date);
+        $name = MonelyzeDB::getUserName($id);
 
-        return view('home', compact('spends'));
+        return view('home', compact('spends', 'name'));
     }
 }
