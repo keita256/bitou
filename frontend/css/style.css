@@ -1,27 +1,43 @@
 body {
 
-    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     font-weight: bold;
-    width: 100vw;
+}
+
+.container {
+    max-width: inherit;
     height: 100vh;
-    overflow: hidden;
-}
-
-.container-fluid {
-    background-image: url(../image/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-
-}
-
-#layer {
     position: relative;
 
 }
 
-#background {
+.container-inner {
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.38);
     position: absolute;
+    margin: auto 716px;
+
+    
+}
+
+.container::before {
+    position: absolute;
+    content: "";
+    background-image: url(../image/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
 }
 
 nav {
@@ -36,15 +52,6 @@ nav {
     color: rgb(0, 0, 0)
 }
 
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    transform-origin: center top;
-    transform: scaleY(0);
-    backface-visibility: hidden;
-}
 
 .bounce {
     display: flex;
@@ -71,7 +78,4 @@ form {
 .btn {
     margin: 1em;
     padding: 12px 48px;
-}
-.container {
-    margin: 2em;
 }
