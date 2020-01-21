@@ -4,7 +4,7 @@
         <field id="tpd3" name="名前" width="220" order="0"/>
         <field id="tpd4" name="開始日" width="100" order="1"/>
         <field id="tpd5" name="終了日" width="100" order="2"/>
-        <option id="color.recent"><![CDATA[#ff3366 #000000 #333333 #ff0000]]></option>
+        <option id="color.recent"><![CDATA[#ff3366 #ff0000 #000000 #333333]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="名前" width="246" order="0"/>
@@ -34,45 +34,49 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="卒業制作アプリケーション開発" color="#8cb6ce" meeting="false" start="2019-10-29" duration="88" complete="8" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
-            <task id="5" name="プロジェクト全体の管理" color="#8cb6ce" meeting="false" start="2019-10-29" duration="88" complete="0" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
-            <task id="8" name="要件管理" color="#000000" meeting="false" start="2019-10-29" duration="20" complete="50" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
+        <task id="0" name="卒業制作アプリケーション開発" color="#8cb6ce" meeting="false" start="2019-10-29" duration="88" complete="61" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
+            <task id="5" name="プロジェクト全体の管理" color="#8cb6ce" meeting="false" start="2019-10-29" duration="88" complete="62" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="8" name="要件管理" color="#000000" meeting="false" start="2019-10-29" duration="20" complete="100" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
                 <depend id="49" type="2" difference="0" hardness="Strong"/>
                 <task id="11" name="コンセプトペーパー作成" color="#8cb6ce" meeting="false" start="2019-10-29" duration="8" complete="100" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="12" name="要求仕様の作成" color="#8cb6ce" meeting="false" start="2019-11-07" duration="13" complete="20" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
+                <task id="12" name="要求仕様の作成" color="#8cb6ce" meeting="false" start="2019-11-07" duration="13" complete="100" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true">
                     <depend id="23" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="22" name="事前調査" meeting="false" start="2019-10-29" duration="20" complete="32" expand="true">
-                <task id="20" name="必要技術の洗い出し" color="#8cb6ce" meeting="false" start="2019-10-29" duration="20" complete="40" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="30" name="ソフトウェア見積もり" color="#8cb6ce" meeting="false" start="2019-11-19" duration="5" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="22" name="事前調査" meeting="false" start="2019-10-29" duration="20" complete="100" expand="true">
+                <task id="20" name="必要技術の洗い出し" color="#8cb6ce" meeting="false" start="2019-10-29" duration="20" complete="100" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="30" name="ソフトウェア見積もり" color="#8cb6ce" meeting="false" start="2019-11-19" duration="5" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="23" name="仕様書作成" meeting="false" start="2019-11-26" duration="3" complete="0" expand="true">
-                <task id="24" name="外部・内部仕様書作成" color="#8cb6ce" meeting="false" start="2019-11-26" duration="3" complete="0" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="23" name="仕様書作成" meeting="false" start="2019-11-26" duration="3" complete="100" expand="true">
+                <task id="24" name="外部・内部仕様書作成" color="#8cb6ce" meeting="false" start="2019-11-26" duration="3" complete="100" thirdDate="2015-10-01" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="42" name="開発計画" color="#000000" meeting="false" start="2019-11-29" duration="3" complete="25" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true">
+            <task id="42" name="開発計画" color="#000000" meeting="false" start="2019-11-29" duration="3" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true">
                 <depend id="49" type="2" difference="0" hardness="Strong"/>
                 <task id="45" name="開発環境検討" color="#8cb6ce" meeting="false" start="2019-11-29" duration="1" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="47" name="仕様決定・作業見積り・計画書作成" color="#8cb6ce" meeting="false" start="2019-11-29" duration="3" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="47" name="仕様決定・作業見積り・計画書作成" color="#8cb6ce" meeting="false" start="2019-11-29" duration="3" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="49" name="アプリケーション開発" color="#000000" meeting="false" start="2019-12-04" duration="35" complete="0" thirdDate="2019-12-04" thirdDate-constraint="0" expand="true">
+            <task id="49" name="アプリケーション開発" color="#000000" meeting="false" start="2019-12-04" duration="43" complete="50" thirdDate="2019-12-04" thirdDate-constraint="0" expand="true">
                 <depend id="64" type="2" difference="0" hardness="Strong"/>
-                <task id="50" name="外部設計" color="#8cb6ce" meeting="false" start="2019-12-04" duration="7" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="51" name="内部設計" color="#8cb6ce" meeting="false" start="2019-12-04" duration="7" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="53" name="開発-画面" color="#8cb6ce" meeting="false" start="2019-12-13" duration="28" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="56" name="開発-サーバ" color="#8cb6ce" meeting="false" start="2019-12-13" duration="28" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="50" name="外部設計" color="#8cb6ce" meeting="false" start="2019-12-04" duration="7" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="51" name="内部設計" color="#8cb6ce" meeting="false" start="2019-12-04" duration="7" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="53" name="開発-画面 冬休み前" color="#8cb6ce" meeting="false" start="2019-12-13" duration="6" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="111" name="開発 -画面 冬休み明け" color="#8cb6ce" meeting="false" start="2020-01-14" duration="14" complete="5" thirdDate="2019-12-04" thirdDate-constraint="0" expand="true"/>
+                <task id="56" name="開発-サーバ 冬休み前" color="#8cb6ce" meeting="false" start="2019-12-13" duration="6" complete="100" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="120" name="開発-サーバ 冬休み明け" color="#8cb6ce" meeting="false" start="2020-01-14" duration="14" complete="5" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
             </task>
-            <task id="64" name="テスト・評価" meeting="false" start="2020-01-22" duration="20" complete="0" expand="true">
-                <task id="65" name="結合テスト" color="#8cb6ce" meeting="false" start="2020-01-22" duration="7" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="66" name="評価" color="#8cb6ce" meeting="false" start="2020-01-28" duration="6" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="68" name="最終調整" color="#8cb6ce" meeting="false" start="2020-02-05" duration="10" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="64" name="テスト・評価" meeting="false" start="2020-02-03" duration="9" complete="0" expand="true">
+                <task id="65" name="結合テスト" color="#8cb6ce" meeting="false" start="2020-02-03" duration="7" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="66" name="評価" color="#8cb6ce" meeting="false" start="2020-02-03" duration="6" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="68" name="最終調整" color="#8cb6ce" meeting="false" start="2020-02-05" duration="7" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="104" name="ドキュメント作成" meeting="false" start="2020-02-05" duration="10" complete="0" expand="true">
-                <task id="106" name="卒業研究発表資料作成" color="#8cb6ce" meeting="false" start="2020-02-05" duration="10" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="104" name="ドキュメント作成" meeting="false" start="2020-01-14" duration="20" complete="33" expand="true">
+                <task id="106" name="卒業研究発表資料作成(プレゼンテーション原稿作成)" color="#8cb6ce" meeting="false" start="2020-01-14" duration="16" complete="50" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
                 <task id="108" name="ソフトウェアマニュアル作成" color="#8cb6ce" meeting="false" start="2020-02-05" duration="4" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
-                <task id="110" name="構成管理" color="#8cb6ce" meeting="false" start="2020-02-11" duration="6" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+                <task id="110" name="構成管理" color="#8cb6ce" meeting="false" start="2020-02-05" duration="4" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="74" name="完成予定日" color="#ff3366" meeting="true" start="2020-02-28" duration="0" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="122" name="卒業制作発表の予行演習" color="#ff0000" meeting="true" start="2020-02-04" duration="0" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="74" name="完成予定日" color="#ff3366" meeting="true" start="2020-02-13" duration="0" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="126" name="卒業制作発表" color="#ff3366" meeting="true" start="2020-02-14" duration="0" complete="0" thirdDate="2019-10-01" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources>
@@ -105,6 +109,7 @@
         <allocation task-id="68" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="108" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
         <allocation task-id="110" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
+        <allocation task-id="120" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="50" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="51" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="11" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
@@ -125,6 +130,7 @@
         <allocation task-id="66" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
         <allocation task-id="68" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
         <allocation task-id="108" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
+        <allocation task-id="120" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
         <allocation task-id="30" resource-id="4" function="SoftwareDevelopment:2" responsible="false" load="25.0"/>
         <allocation task-id="106" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="50.0"/>
     </allocations>
