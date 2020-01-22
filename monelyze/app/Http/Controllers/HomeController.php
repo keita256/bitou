@@ -29,9 +29,14 @@ class HomeController extends Controller
     {
         $id = Auth::id();
         $date = date("Y-m-d", time());
+        $display_date = date("Y年m月d日", time());
+        $month = date("m", time());
+        $year = date("Y", time());
+
         $spends = MonelyzeDB::getSpends($id, $date);
         $name = MonelyzeDB::getUserName($id);
+        $monthly_consumptions = MonelyzeDB::getExpenseConsumption($id, $year, $month);
 
-        return view('home', compact('spends', 'name'));
+        return view('home', compact('spends', 'name', 'display_date', 'year', 'month', 'monthly_consumptions'));
     }
 }
