@@ -22,9 +22,9 @@
 
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="text-nowrap">費目</th>
-                            <th scope="col" class="text-nowrap">内容</th>
-                            <th scope="col" class="text-nowrap">金額</th>
+                            <th scope="col" class="text-nowrap text-center">費目</th>
+                            <th scope="col" class="text-nowrap text-center">内容</th>
+                            <th scope="col" class="text-nowrap text-center">金額</th>
                         </tr>
                     </thead>
 
@@ -33,9 +33,9 @@
                     <tbody data-placement="right">
                         @foreach($spends as $spend)
                         <tr data-toggle="modal" data-target="#staticBackdrop">
-                            <td>{{ $spend->name }}</td>
-                            <td>{{ $spend->content }}</td>
-                            <td>{{ $spend->amount }}</td>
+                            <td class="text-center">{{ $spend->name }}</td>
+                            <td class="text-right">{{ $spend->content }}</td>
+                            <td class="text-right">{{ $spend->amount }}</td>
                         </tr>
                         @endforeach
                     </tbody>
