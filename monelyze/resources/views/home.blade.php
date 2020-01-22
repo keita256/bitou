@@ -6,7 +6,8 @@
 @include('layouts.header')
 
 @section('content')
-<div class="container" style="background-color: rgb(255, 255, 255); filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
+<div class="container"
+    style="background-color: rgb(255, 255, 255); filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
     <div class="row">
         <div class="col">
             <h3>{{ $display_date }}</h3>
@@ -16,7 +17,9 @@
     <div class="row">
         <div class="col-8">
             <div class="table-responsive">
+                @if($spends != null)
                 <table class="table table-sm table-bordered table-striped table-hover">
+
                     <thead class="thead-light">
                         <tr>
                             <th scope="col" class="text-nowrap">費目</th>
@@ -37,6 +40,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                @else
+                <h2>本日の入力データはありません。</h2>
+                @endif
             </div>
         </div>
 
