@@ -6,16 +6,13 @@
 @include('layouts.header')
 
 @section('content')
-<div class="container"
-    style="background-color: rgb(255, 255, 255); filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="offset-3 col-6">
             <h3>{{ $display_date }}</h3>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-8">
+            <hr>
+
             <div class="table-responsive">
                 @if($spends != null)
                 <table class="table table-sm table-bordered table-striped table-hover">
@@ -44,30 +41,13 @@
                 <h2>本日の入力データはありません。</h2>
                 @endif
             </div>
-        </div>
 
-        <div class="col-4">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td><b>合計</b></td>
-                        <td>???円</td>
-                    </tr>
-
-                    <tr>
-                        <td><b>平均</b></td>
-                        <td>???円</td>
-                    </tr>
-                </tbody>
-            </table>
+            <hr>
         </div>
     </div>
 
-</div>
-
-<div class="container" style="background-color: rgb(240, 240, 240)">
     <div class="row">
-        <div class="col">
+        <div class="col-6 offset-3">
             <h2>{{ $year }}年{{ $month }}月の費目ごとの消費額</h2>
 
             <div class="table-responsive">
@@ -83,11 +63,11 @@
 
         </div>
     </div>
+
 </div>
 
 <!-- モーダルの設定 -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -129,5 +109,4 @@
         </div>
     </div>
 </div>
-
 @endsection

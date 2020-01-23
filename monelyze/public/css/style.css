@@ -1,19 +1,10 @@
 body {
-
-    font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-weight: bold;
-    width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 
-.container-fluid {
-    background-image: url(../image/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
 
-}
 
 #layer {
     position: relative;
@@ -72,6 +63,5 @@ form {
     margin: 1em;
     padding: 12px 48px;
 }
-.container {
-    margin: 2em;
-}
+
+.container {}
