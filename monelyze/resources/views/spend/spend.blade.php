@@ -8,6 +8,10 @@
 @section('content')
 <h1>家計簿入力画面</h1>
 
+@foreach($expenses as $expense)
+<p>{{ $expense->name }}</p>
+@endforeach
+
 <div class="spend">
     <div class="row">
         <div class="col-3">費目名</div>
@@ -16,35 +20,35 @@
     </div>
     <div class="row-item">
         <div class="col-3">
-            <input type="text">
+            <input type="text" id="items_name">
         </div>
         <div class="col-3">
-            <input type="text">
+            <input type="text" id="items_content">
         </div>
         <div class="col-3">
-            <input type="text">
+            <input type="text" id="items_amount">
         </div>
     </div>
     <div class="row-item">
-        <div class="col-3 name">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_name">
         </div>
-        <div class="col-3 content">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_content">
         </div>
-        <div class="col-3 amount">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_amount">
         </div>
     </div>
     <div class="row-item">
-        <div class="col-3 name">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_name">
         </div>
-        <div class="col-3 content">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_content">
         </div>
-        <div class="col-3 amount">
-            <input type="text">
+        <div class="col-3">
+            <input type="text" id="items_amount">
         </div>
     </div>
 </div>
@@ -79,5 +83,4 @@
 </div>
 
 <button type="submit">入力</button>
-
 @endsection;

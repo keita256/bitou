@@ -8,4 +8,5 @@ class Expense extends Model
 {
     //
     public $timestamps = false;
+    
 }

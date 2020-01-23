@@ -8,4 +8,6 @@ class Spend extends Model
 {
     //
     public $timestamps = false;
+
+    
 }

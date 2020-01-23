@@ -5,17 +5,25 @@ namespace App\Services;
 use DB;
 use App\Spend;
 use App\User;
+use App\Expense;
 
 class MonelyzeDB
 {
 
     public function getUserName($id)
     {
-        // 例：$users = DB::select('select * from users where active = ?', [1000]);
         $user = User::where('id', $id)->get()->first();
         $name = $user->name;
 
         return $name;
+    }
+
+    public function getExpense()
+    {
+        $expenses = Expense::get();
+
+        return $expenses;
+
     }
 
     public function getSpends($user_id, $date)
