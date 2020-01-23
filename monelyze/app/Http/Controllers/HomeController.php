@@ -34,9 +34,9 @@ class HomeController extends Controller
         $year = date("Y", time());
 
         $spends = MonelyzeDB::getSpends($id, $date);
-        $name = MonelyzeDB::getUserName($id);
+        $username = MonelyzeDB::getUserName($id);
         $monthly_consumptions = MonelyzeDB::getExpenseConsumption($id, $year, $month);
 
-        return view('home', compact('spends', 'name', 'display_date', 'year', 'month', 'monthly_consumptions'));
+        return view('home', compact('spends', 'username', 'display_date', 'year', 'month', 'monthly_consumptions'));
     }
 }
