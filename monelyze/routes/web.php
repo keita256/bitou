@@ -15,9 +15,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/create', 'SpendController@create');
-
 Route::get('/spend', 'SpendController@spend');
+
+Route::post('/spend', 'SpendController@create');
 
 Route::get('/users/edit', 'UserController@edit');
 
