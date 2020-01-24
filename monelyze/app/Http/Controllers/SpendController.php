@@ -16,7 +16,7 @@ class SpendController extends Controller
         if ($id = Auth::id()) {
             return redirect('/spend')->with('message', '入力しました');
         }
-        return redirect('/spend')->with('message', '入力に誤りがあります')
+        return redirect('/spend')->with('message', '入力に誤りがあります');
     }
 
     public function spend()
