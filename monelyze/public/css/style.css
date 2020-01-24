@@ -42,14 +42,6 @@ nav {
     align-items: flex-end;
 }
 
-form {
-    width: 350px;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-
-}
-
 #exampleInputEmail1 {
     height: 50px;
 }
@@ -63,5 +55,3 @@ form {
     margin: 1em;
     padding: 12px 48px;
 }
-
-.container {}
