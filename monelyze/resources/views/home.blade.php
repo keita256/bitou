@@ -7,8 +7,8 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-lg-7 main-content">
+    <div class="row">
+        <div class="offset-1 col-lg-7 main-content">
             <div class="title title0 ">
                 <h3 class="heading">&nbsp;{{ $display_date }}</h3>
             </div>
