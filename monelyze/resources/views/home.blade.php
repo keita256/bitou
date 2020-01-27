@@ -8,7 +8,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-1 col-lg-7 main-content">
+        <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
             <div class="title title0 ">
                 <h3 class="heading">&nbsp;{{ $display_date }}</h3>
             </div>
@@ -44,7 +44,7 @@
 
         <div class="col-lg-3">
             <div class="row">
-                <div class="offset-1 col-lg-11 sidebar-content">
+                <div class="offset-1 col-10 offset-lg-1 col-lg-11 sidebar-content">
                     <div class="title title0">
                         <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
                     </div>
