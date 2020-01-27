@@ -106,3 +106,7 @@ header .nav {
     background-color: rgba(148, 224, 255, 0.48);
 
 }
+
+.col-xl-3.offset-xl-1 {
+    margin-left: 1em;
+}

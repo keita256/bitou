@@ -9,9 +9,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-1"></div>
-
-        <div class="col-xl-5 today">
+        <div class="col-xl-7 offset-xl-1 today">
             <div class="title title0 ">
                 <h3 class="heading">&nbsp;{{ $display_date }}</h3>
             </div>
@@ -45,9 +43,7 @@
             </div>
         </div>
 
-        <div class="col-sm-1"></div>
-
-        <div class="col-xl-4 other">
+        <div class="col-xl-3 offset-xl-1 other">
             <div class="title title0">
                 <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
             </div>
@@ -69,8 +65,6 @@
             </div>
         </div>
     </div>
-
-    <div class="col-sm-1"></div>
 
     <!-- モーダルの設定 -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
