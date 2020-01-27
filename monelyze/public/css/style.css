@@ -98,15 +98,11 @@ header .nav {
     top: 3.5px;
 }
 
-.today {
+.main-content {
     background-color: rgba(148, 224, 255, 0.48);
 }
 
-.other {
+.sidebar-content {
     background-color: rgba(148, 224, 255, 0.48);
 
-}
-
-.col-xl-3.offset-xl-1 {
-    margin-left: 1em;
 }
