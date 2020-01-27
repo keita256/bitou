@@ -8,24 +8,25 @@ use Validator;
 
 class ValiController extends Controller
 {
-    public function receiveData(Request $request)
+    public function receiveSpend(Request $request)
     {
+        \Log::debug($request);
         // バリデーションルール
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'gender' => 'required',
-            'age' => 'required|integer',
-            'file' => 'required|file|image|max:10000',
-            'comment' => 'required',
+            'spend_id' => 'required|integer',
+            'spend_content' => 'nullable|string',
+            'spend_amount' => 'required|integer',
+            'spend_date' => 'required|date',
         ]);
 
         // バリデーションエラーだった場合
         if ($validator->fails()) {
-            return redirect('')
+            return redirect('/spend')
                 ->withErrors($validator)
-                ->withInput();
+                ->with('message', '入力に誤りがあります');
         }
-
-        return view('sample_vali', ['status' => true]);
+        
+        return redirect('/spend')
+            ->with('message', '入力しました');
     }
 }
