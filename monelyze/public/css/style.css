@@ -2,13 +2,11 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: bold;
     height: 100vh;
+    background-color: rgb(235, 235, 235);
 }
-
-
 
 #layer {
     position: relative;
-
 }
 
 #background {
@@ -46,7 +44,6 @@ nav {
     height: 50px;
 }
 
-
 #exampleInputPassword1 {
     height: 50px;
 }
@@ -80,8 +77,7 @@ header .nav {
     padding-left: 30px;
 }
 
-.title0 .heading:before,
-.title0 .heading:after {
+.title0 .heading:before, .title0 .heading:after {
     content: "□";
     position: absolute;
     width: 4px;
@@ -99,9 +95,80 @@ header .nav {
 }
 
 .main-content {
-    background-color: rgba(148, 224, 255, 0.48);
+    background-color: rgb(255, 255, 255);
 }
 
 .sidebar-content {
-    background-color: rgba(148, 224, 255, 0.48);
+    background-color: rgb(255, 255, 255);
+}
+
+/*カレンダー*/
+
+#clndr {
+    text-align: center;
+}
+
+.clndr-controls {
+    display: flex;
+    font-size: 12px;
+    height: 16px;
+}
+
+.clndr-control-button {
+    width: 30%;
+}
+
+.clndr-previous-button, .clndr-next-button {
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    transition: all .8s ease;
+    background: #7fffd4;
+    color:  rgb(0, 0, 0);
+}
+
+.clndr-previous-button:hover, .clndr-next-button:hover {
+    background-position: 20% 20%;
+    background-size: 200% 200%;
+    color: rgb(255, 255, 255);
+}
+
+.month {
+    width: 40%;
+}
+
+.clndr-table {
+    width: 100%;
+}
+
+table thead tr td {
+    line-height: 40px;
+    text-align: center;
+    background-color: #7fffd4;
+}
+
+table tr .adjacent-month .day-contents {
+    display: none;
+}
+
+#clndr td:first-child {
+    color: red;
+}
+
+#clndr td:last-child {
+    color: blue;
+}
+
+.day-contents {
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    height: 36px;
+    width: 36px;
+}
+
+.today .day-contents {
+    color: #fff;
+    background-color: #ff4500;
+    border-radius: 50%;
 }
