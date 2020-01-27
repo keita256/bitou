@@ -8,8 +8,11 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-6">
-            <div class="title title0">
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-xl-5 today">
+            <div class="title title0 ">
                 <h3 class="heading">&nbsp;{{ $display_date }}</h3>
             </div>
             <div class="table-responsive">
@@ -42,8 +45,9 @@
             </div>
         </div>
 
+        <div class="col-sm-1"></div>
 
-        <div class="col-xl-6">
+        <div class="col-xl-4 other">
             <div class="title title0">
                 <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
             </div>
@@ -65,6 +69,8 @@
             </div>
         </div>
     </div>
+
+    <div class="col-sm-1"></div>
 
     <!-- モーダルの設定 -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

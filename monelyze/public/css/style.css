@@ -68,7 +68,7 @@ header .nav {
     margin: 0 auto;
     padding: 10px 0;
     font-size: 20px;
-    color: #3cb3e4;
+    color: rgb(0, 0, 0);
 }
 
 .heading {
@@ -96,4 +96,13 @@ header .nav {
 .title0 .heading:after {
     left: 5.5px;
     top: 3.5px;
+}
+
+.today {
+    background-color: rgba(148, 224, 255, 0.48);
+}
+
+.other {
+    background-color: rgba(148, 224, 255, 0.48);
+
 }
