@@ -6,6 +6,7 @@
 @include('layouts.header')
 
 @section('content')
+<script src="{{ asset('/js/clndr.js')}}"></script>
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
@@ -45,25 +46,36 @@
         <div class="col-lg-3">
             <div class="row">
                 <div class="offset-1 col-10 offset-lg-1 col-lg-11 sidebar-content">
-                    <div class="title title0">
-                        <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
+                    <!-- カレンダー-->
+                    <div class="row">
+                        <div class="col">
+                            <div id="clndr"></div>
+                        </div>
                     </div>
 
-                    <div class="table-responsive">
-                        <table class="table table-Light table-hover table-bordered">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>用途</th>
-                                    <th>金額(円)</th>
-                                </tr>
-                            </thead>
-                            @foreach($monthly_consumptions as $data)
-                            <tr>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->total }}</td>
-                            </tr>
-                            @endforeach
-                        </table>
+                    <div class="row">
+                        <div class="col">
+                            <div class="title title0">
+                                <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-Light table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>用途</th>
+                                            <th>金額(円)</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach($monthly_consumptions as $data)
+                                    <tr>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->total }}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div><!-- 入れ子col -->
             </div><!-- 入れ子row -->
@@ -116,4 +128,10 @@
         </div>
     </div>
 </div>
+
+<!-- カレンダー生成 -->
+<script type="text/javascript">
+  $('#clndr').clndr();
+</script>
+
 @endsection
