@@ -48,12 +48,14 @@
                 <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
             </div>
             <div class="table-responsive">
-                <table class="table table-Light">
+                <table class="table table-Light table-hover table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>用途</th>
+                            <th>金額(円)</th>
+                        </tr>
+                    </thead>
                     @foreach($monthly_consumptions as $data)
-                    <tr>
-                        <th>用途</th>
-                        <th>金額</th>
-                    </tr>
                     <tr>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->total }}</td>
