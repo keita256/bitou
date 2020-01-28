@@ -10,11 +10,13 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="offset-1 col-10 content-div"><!-- background-color:white -->
+            <div class="offset-1 col-10 content-div">
+                <!-- background-color:white -->
                 <h1>{{ $year }}年度、家計簿統計情報</h1>
 
                 <div class="row">
-                    <div class="offset-1 col-10 graph-div"><!-- background-color:blue -->
+                    <div class="offset-1 col-10 graph-div">
+                        <!-- background-color:blue -->
                         <h3>月毎の消費額</h3>
 
                         <div class="row">
@@ -26,8 +28,9 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <th class="align-middle text-center text-nowrap" >年間消費額</th>
-                                            <td class="align-middle text-center text-nowrap">{{ $annual_consumption }}円</td>
+                                            <th class="align-middle text-center text-nowrap">年間消費額</th>
+                                            <td class="align-middle text-center text-nowrap">{{ $annual_consumption }}円
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -84,7 +87,13 @@
 
                 <div class="row">
                     <div class="col">
-                        
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#">前へ</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+                        </ul>
                     </div>
                 </div>
 
