@@ -5,6 +5,10 @@ body {
     background-color: rgb(235, 235, 235);
 }
 
+.container.input {
+    background-color: white;
+}
+
 #layer {
     position: relative;
 }
@@ -48,10 +52,6 @@ nav {
     height: 50px;
 }
 
-.btn {
-    margin: 1em;
-    padding: 12px 48px;
-}
 
 h2 {
     font-size: 24px;
@@ -178,4 +178,12 @@ table tr .adjacent-month .day-contents {
     color: #fff;
     background-color: #ff4500;
     border-radius: 50%;
+}
+
+.cross_mark {
+    margin-left: 1em;
+}
+
+.errors ul {
+    display: none;
 }
