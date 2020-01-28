@@ -187,3 +187,61 @@ table tr .adjacent-month .day-contents {
 .errors ul {
     display: none;
 }
+
+.content-div h1 {
+    color: rgb(54, 78, 150);/*文字色*/
+    padding: 0.5em 0;/*上下の余白*/
+    border-top: solid 3px rgb(54, 78, 150);/*上線*/
+    border-bottom: solid 3px rgb(54, 78, 150);/*下線*/
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.content-div h3 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: rgb(54, 78, 150);/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #7db4e6;/*左線*/
+    border-bottom: solid 3px rgb(81, 106, 182);
+}
+
+.graph-div {
+    padding: 15px;
+    margin-top: 30px;
+    background-color: rgb(234, 243, 255);
+}
+
+.graph-div-last {
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgb(234, 243, 255);
+}
+
+.content-div {
+    margin: 15px auto;
+    background-color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 604px) and (max-width: 786px) {
+    .content-div h1 {
+        font-size: 30px;
+    }
+
+    .content-div h3 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 603px) {
+    .content-div h1 {
+        font-size: 20px;
+    }
+
+    .content-div h3 {
+        font-size: 20px;
+    }
+}
