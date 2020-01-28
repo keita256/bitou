@@ -188,7 +188,7 @@ table tr .adjacent-month .day-contents {
     display: none;
 }
 
-.content-div h1 {
+.page-div h1 {
     color: rgb(54, 78, 150);/*文字色*/
     padding: 0.5em 0;/*上下の余白*/
     border-top: solid 3px rgb(54, 78, 150);/*上線*/
@@ -200,7 +200,7 @@ table tr .adjacent-month .day-contents {
     text-align: center;
 }
 
-.content-div h3 {
+.page-div h3 {
     padding: 0.25em 0.5em;/*上下 左右の余白*/
     color: rgb(54, 78, 150);/*文字色*/
     background: transparent;/*背景透明に*/
@@ -208,20 +208,20 @@ table tr .adjacent-month .day-contents {
     border-bottom: solid 3px rgb(81, 106, 182);
 }
 
-.graph-div {
+.content-div {
     padding: 15px;
     margin-top: 30px;
     background-color: rgb(234, 243, 255);
 }
 
-.graph-div-last {
+.content-div-last {
     padding: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: rgb(234, 243, 255);
 }
 
-.content-div {
+.page-div {
     margin: 15px auto;
     background-color: rgb(255, 255, 255);
 }

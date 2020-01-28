@@ -10,12 +10,12 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="offset-1 col-10 content-div">
+            <div class="offset-1 col-10 page-div">
                 <!-- background-color:white -->
                 <h1>{{ $year }}年度、家計簿統計情報</h1>
 
                 <div class="row">
-                    <div class="offset-1 col-10 graph-div">
+                    <div class="offset-1 col-10 content-div">
                         <!-- background-color:blue -->
                         <h3>月毎の消費額</h3>
 
@@ -40,7 +40,7 @@
                 </div><!-- row -->
 
                 <div class="row">
-                    <div class="offset-1 col-10 graph-div">
+                    <div class="offset-1 col-10 content-div">
                         <h3>月毎の節約額</h3>
 
                         <div class="row">
@@ -63,7 +63,7 @@
                 </div><!-- row -->
 
                 <div class="row">
-                    <div class="offset-1 col-10 graph-div-last">
+                    <div class="offset-1 col-10 content-div-last">
                         <h3>月毎の残金</h3>
 
                         <div class="row">
