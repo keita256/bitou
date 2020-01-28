@@ -247,3 +247,24 @@ table tr .adjacent-month .day-contents {
     }
 }
 /* 統計ページ　ここまで */
+
+/* 月初入力ページ　ここから */
+.monthlyInput-div {
+    background-color: rgb(255, 255, 255);
+}
+
+.monthlyInput-div h3 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: rgb(54, 78, 150);/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #7db4e6;/*左線*/
+    border-bottom: solid 3px rgb(81, 106, 182);
+    margin: 15px auto;
+}
+
+.inner-div {
+    background-color: rgb(234, 243, 255);
+    margin-bottom: 30px;
+    padding: 15px;
+}
+/* 月初入力ページ　ここまで */

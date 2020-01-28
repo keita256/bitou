@@ -8,10 +8,11 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-3 col-6 page-div">
+        <div class="offset-3 col-6 monthlyInput-div">
             <h3>月初入力</h3>
+
             <div class="row">
-                <div class="offset-2 col-8 content-div" style="background-color: rgb(234, 243, 255);">
+                <div class="offset-2 col-8 inner-div rounded">
                     <form action="">
                         <div class="form-group">
                             <label for="">収入</label>
