@@ -92,33 +92,32 @@ class MonelyzeDB
         return $spend->delete();
     }
 
-    // 指定された年の月間消費額を取得(固定費を含む)
-    public function getMonthlyConsumptionAndPayment($user_id, $year)
+    // 指定された年月の月初入力レコードが存在するか取得
+    public function getEmptyMonthlyInput($user_id, $year, $month)
     {
-        $start = $year . '0101';
-        $end = $year . '1231';
+        $user_id = 1;
+        $year = 2020;
+        $month = 1;
 
-        $monthly_total = DB::select(
-            'select st.month, (ifnull(st.total, 0) + ifnull(pt.total, 0)) as total from (select date_format(date, "%m") as month, sum(amount) as total from spends where user_id = ? and date between ? and ? group by date_format(date, "%m") order by month) st left outer join (select month, sum(amount) as total from payments where user_id = ? and year = ? group by month order by month) pt on st.month = pt.month',
+        $result = DB::select(
+            'select count(*) as emp from monthly_inputs where user_id = :user_id and year = :year and month = :month',
             [
-                $user_id,
-                $start,
-                $end,
-                $user_id,
-                $year
+                'user_id' => $user_id,
+                'year' => $year,
+                'month' => $month,
             ]
         );
-        
-        return $monthly_total;
+
+        return $result;
     }
 
-    // 指定された年の月ごとの消費額合計を取得(固定費を含まない)
-    public function getConsumption($user_id, $year)
+    // 指定された年の月ごとの消費額を取得(固定費を含まない)
+    private function getMonthlyConsumption($user_id, $year)
     {
         $start = $year . '0101';
         $end = $year . '1231';
 
-        $consumption = DB::select(
+        $monthly_consumption = DB::select(
             'select date_format(date, "%m") as month, sum(amount) as total from spends where user_id = :user_id and date between :start and :end group by date_format(date, "%m") order by month',
             [
                 'user_id' => $user_id,
@@ -127,32 +126,109 @@ class MonelyzeDB
             ]
         );
 
-        return $consumption;
+        return $monthly_consumption;
     }
 
-    // 指定された年月の消費額と目標支出の取得
-    public function getConsumptionAndTargetSpending($user_id, $year)
+    // 指定された年の月ごとの固定費を取得
+    private function getMonthlyFixedCosts($user_id, $year)
     {
-        $start = $year . '0101';
-        $end = $year . '1231';
-
-        $consumptionAndTargetSpending = DB::select(
-            'select st.month, (ifnull(st.total, 0) + ifnull(pt.total, 0)) as total, ts.target_spending from (select date_format(date, "%m") as month, sum(amount) as total from spends where user_id = ? and date between ? and ? group by date_format(date, "%m") order by month) st left outer join (select month, sum(amount) as total from payments where user_id = ? and year = ? group by month order by month) pt on st.month = pt.month, (select month, target_spending from monthly_inputs where user_id = ? and year = ?) ts where st.month = ts.month;',
+        $monthly_fixed_costs = DB::select(
+            'select month, sum(amount) as total from payments where user_id = :user_id and year = :year group by month order by month',
             [
-                $user_id,
-                $start,
-                $end,
-                $user_id,
-                $year,
-                $user_id,
-                $year
+                'user_id' => $user_id,
+                'year' => $year
             ]
         );
 
-        return $consumptionAndTargetSpending;
+        return $monthly_fixed_costs;
     }
 
-    // 指定された月の費目ごとの消費額を取得
+    // 指定された年の月ごとの目標支出の取得
+    private function getMonthlyTargetSpending($user_id, $year)
+    {
+        $monthly_target_spending = DB::select(
+            'select month, target_spending from monthly_inputs where user_id = :user_id and year = :year',
+            [
+                'user_id' => $user_id,
+                'year' => $year
+            ]
+        );
+
+        return $monthly_target_spending;
+    }
+
+    // 指定された年の月ごとの手取り収入を取得
+    private function getMonthlyTakeAmount($user_id, $year)
+    {
+        $monthly_take_amount = DB::select(
+            'select month, take_amount from monthly_inputs where user_id = :user_id and year = :year',
+            [
+                'user_id' => $user_id,
+                'year' => $year
+            ]
+        );
+
+        return $monthly_take_amount;
+    }
+
+    // 指定された年の月ごとの消費額(固定費を含む)を取得し配列で返す
+    public function getTotalMonthlyConsumption($user_id, $year)
+    {
+        $total_monthly_consumption = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1月から12月のデータ
+        
+        $monthly_consumption = $this->getMonthlyConsumption($user_id, $year);
+        $monthly_fixed_costs = $this->getMonthlyFixedCosts($user_id, $year);
+
+        foreach($monthly_consumption as $mc) {
+            $total_monthly_consumption[((int)$mc->month) - 1] += $mc->total;
+        }
+
+        foreach($monthly_fixed_costs as $mfc) {
+            $total_monthly_consumption[$mfc->month - 1] += $mfc->total;
+        }
+
+        return $total_monthly_consumption;
+    }
+
+    // 指定された年の月ごとの節約額を取得( 目標支出 - 消費額(固定費を含む) )
+    public function getMonthlySavings($user_id, $year)
+    {
+        $monthly_savings = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1月から12月のデータ
+
+        $total_monthly_consumption = $this->getTotalMonthlyConsumption($user_id, $year); // 月ごとの消費額(固定費を含む)
+        $monthly_target_spending = $this->getMonthlyTargetSpending($user_id, $year);     // 月ごとの目標支出
+
+        foreach($monthly_target_spending as $mts) {
+            $monthly_savings[$mts->month -1] += $mts->target_spending;
+        }
+
+        for($i = 0; $i < count($total_monthly_consumption); $i++) {
+            $monthly_savings[$i] -= $total_monthly_consumption[$i];
+        }
+
+        return $monthly_savings;
+    }
+
+    // 指定された年の月ごとの残金を取得( 手取り収入 - 消費額(固定費を含む) )
+    public function getMonthlyBalance($user_id, $year)
+    {
+        $monthly_balance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1月から12月のデータ
+
+        $monthly_take_amount = $this->getMonthlyTakeAmount($user_id, $year);             // 月ごとの手取り収入を取得
+        $total_monthly_consumption = $this->getTotalMonthlyConsumption($user_id, $year); // 月ごとの消費額を取得(固定費を含む)
+
+        foreach($monthly_take_amount as $mta) {
+            $monthly_balance[$mta->month -1] += $mta->take_amount;
+        }
+
+        for($i = 0; $i < count($total_monthly_consumption); $i++) {
+            $monthly_balance[$i] -= $total_monthly_consumption[$i];
+        }
+
+        return $monthly_balance;
+    }
+
+    // 指定された年月の費目ごとの消費額を取得
     public function getExpenseConsumption($user_id, $year, $month)
     {
         $expenseConsumption = DB::select(
