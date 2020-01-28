@@ -17,11 +17,16 @@ $(function(){
 
 //form増加
 $(document).on("click", ".add", function() {
-    $(this).parent().clone(true).insertAfter($(this).parent());
+    var clonecode = $("#template").clone(true, false);
+    clonecode.css("display", "inline-flex");
+    clonecode.insertAfter($(this).parent());
+    console.log($(this).parent().children());
 });
+
+//form減少
 $(document).on("click", ".del", function() {
     var target = $(this).parent();
-    if (target.parent().children().length > 1) {
+    if (target.parent().children().length > 0) {
         target.remove();
     }
 });

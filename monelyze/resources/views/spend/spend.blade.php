@@ -32,39 +32,48 @@
             <div class="col-4">金額</div>
         </div>
 
-        <div class="row" style="display:inline-flex">
+        <!--フォーム増加用-->
+        <div class="row" id="template" style="display:none">
             <div class="col-4">
-                <select id="name_list">
+                <select name="spend_id" id="name_list">
                     @foreach($expenses as $expense)
                     <option name="spend_id" value="{{ $expense->expense_id }}">{{ $expense->name }}</option>
-                        @endforeach
+                    @endforeach
                 </select>
             </div>
             <div class="col-4">
-                <input type="text" name="spend_content" id="items_content">
+                <input type="text" name="spend_content" id="items_content" autocomplete="off" value="">
             </div>
             <div class="col-4">
-                <input type="text" name="spend_amount" id="items_amount">
+                <input type="text" name="spend_amount" class="keyword" id="items_amount" autocomplete="off" value="">
+            </div>
+            <input type="button" value="＋" class="add pluralBtn">
+            <input type="button" value="－" class="del pluralBtn">
+        </div>
+
+        <div class="row" style="display:inline-flex">
+            <div class="col-4">
+                <select name="spend_id" id="name_list">
+                    @foreach($expenses as $expense)
+                    <option name="spend_id" value="{{ $expense->expense_id }}">{{ $expense->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-4">
+                <input type="text" name="spend_content" id="items_content" autocomplete="off" value="">
+            </div>
+            <div class="col-4">
+                <input type="text" name="spend_amount" class="keyword" id="items_amount" autocomplete="off" value="">
             </div>
             <input type="button" value="＋" class="add pluralBtn">
             <input type="button" value="－" class="del pluralBtn">
         </div>
 
         <div class="row">
-            <div class="total-amount">
-                <label>合計金額</label>
-                <div class="col-9">
-                    <div class="val"></div>
-                    ￥
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                        <input type="text" name="spend_date" class="form-control datetimepicker-input" data-target="#datetimepicker4" />
+                        <input type="text" name="spend_date" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off"/>
                         <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
@@ -85,6 +94,5 @@
     </form>
 </div>
 
-
-<script src="monelyze\resources\views\js\spend.js">
-    @endsection
+<script src="{{ asset('js/spend.js') }}"></script>
+@endsection

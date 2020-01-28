@@ -11,6 +11,8 @@ class ValiController extends Controller
     public function receiveSpend(Request $request)
     {
         \Log::debug($request);
+
+        
         // バリデーションルール
         $validator = Validator::make($request->all(), [
             'spend_id' => 'required|integer',
