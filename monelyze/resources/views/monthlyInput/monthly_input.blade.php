@@ -8,7 +8,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col content-div-last">
+        <div class="col">
             <div class="row">
                 <div class="offset-3 col-6">
                     <form action="">

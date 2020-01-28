@@ -188,6 +188,7 @@ table tr .adjacent-month .day-contents {
     display: none;
 }
 
+/* 統計ページ　ここから */
 .page-div h1 {
     color: rgb(54, 78, 150);/*文字色*/
     padding: 0.5em 0;/*上下の余白*/
@@ -245,3 +246,4 @@ table tr .adjacent-month .day-contents {
         font-size: 20px;
     }
 }
+/* 統計ページ　ここまで */
