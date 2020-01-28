@@ -19,7 +19,7 @@ class StatisticsController extends Controller
     {
         $user_id = Auth::id();
         $year = date("Y", time());
-        $name = MonelyzeDB::getUserName($user_id);
+        $user_name = Auth::user()->name;;
 
         $total_monthly_consumption = MonelyzeDB::getTotalMonthlyConsumption($user_id, $year); // 月ごとの消費額
         $monthly_savings = MonelyzeDB::getMonthlySavings($user_id, $year);                    // 月ごとの節約額を取得
@@ -36,7 +36,7 @@ class StatisticsController extends Controller
                 'annual_savings',
                 'annual_balance',
                 'year',
-                'name',
+                'user_name',
         ));
     }
 }
