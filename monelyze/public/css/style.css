@@ -57,6 +57,10 @@ h2 {
     font-size: 24px;
 }
 
+.text {
+    font-size: 36px;
+}
+
 header .nav {
     margin-bottom: 1em;
 }
@@ -74,10 +78,11 @@ header .nav {
 
 .title0 .heading {
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
 }
 
-.title0 .heading:before, .title0 .heading:after {
+.title0 .heading:before,
+.title0 .heading:after {
     content: "□";
     position: absolute;
     width: 4px;
@@ -106,6 +111,7 @@ header .nav {
 
 #clndr {
     text-align: center;
+    cursor: default;
 }
 
 .clndr-controls {
@@ -118,19 +124,20 @@ header .nav {
     width: 30%;
 }
 
-.clndr-previous-button, .clndr-next-button {
+.clndr-previous-button,
+.clndr-next-button {
     width: 100%;
     cursor: pointer;
     display: block;
-    transition: all .8s ease;
-    background: #7fffd4;
-    color:  rgb(0, 0, 0);
+    transition: all .2s ease;
+    color: rgb(0, 0, 0);
 }
 
-.clndr-previous-button:hover, .clndr-next-button:hover {
+.clndr-previous-button:hover,
+.clndr-next-button:hover {
     background-position: 20% 20%;
     background-size: 200% 200%;
-    color: rgb(255, 255, 255);
+    color: rgb(167, 155, 255);
 }
 
 .month {

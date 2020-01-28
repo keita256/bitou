@@ -11,7 +11,7 @@
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
             <div class="title title0 ">
-                <h3 class="heading">&nbsp;{{ $display_date }}</h3>
+                <h3 class="heading">{{ $display_date }}</h3>
             </div>
             <div class="table-responsive">
                 @if($spends != null)
@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
-                                <h3 class="heading">&nbsp;{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
+                                <h3 class="heading">{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
                             </div>
 
                             <div class="table-responsive">
@@ -85,8 +85,7 @@
 </div><!-- container -->
 
 <!-- モーダルの設定 -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,7 +130,8 @@
 
 <!-- カレンダー生成 -->
 <script type="text/javascript">
-  $('#clndr').clndr();
+    $('#clndr').clndr();
+
 </script>
 
 @endsection

@@ -22,7 +22,9 @@
     @endif
 
     <div class="row">
-        <h1>家計簿入力画面</h1>
+        <div class="title title0 ">
+            <div class="heading text">家計簿入力画面</div>
+        </div>
     </div>
 
     <form action="/spend" method="post" accept-charset="UTF-8">
@@ -71,6 +73,7 @@
                         format: 'L'
                     });
                 });
+
             </script>
         </div>
         <div class="row">
