@@ -6,6 +6,8 @@ use DB;
 use App\Spend;
 use App\User;
 use App\Expense;
+use Payment;
+use Monthly_input;
 
 class MonelyzeDB
 {
@@ -41,29 +43,127 @@ class MonelyzeDB
         return $spends;
     }
 
-    public function insertSpends($spends)
+    public function getPayments($user_id, $year, $month)
     {
-        foreach($spends as $spend) {
+        $payments = DB::select(
+            'select content, amount from payments where user_id = :user_id and year = :year and month = :month',
+            [
+                'user_id' => $user_id,
+                'year' =>$year,
+                'month' => $month
+            ]
+        );
+
+        return $payments;
+    }
+
+    public function getTotalPayment($user_id, $year, $month)
+    {
+        $total_payment = 0;
+        $payments = $this->getPayments($user_id, $year, $month);
+
+        foreach($payments as $payment) {
+            $total_payment += $payment->amount;
+        }
+        
+        return $total_payment;
+    }
+
+    public function getMonthlyInput($user_id, $year, $month)
+    {
+        $user_id = 1;
+        $year = 2020;
+        $month = 1;
+        
+        $monthly_input = DB::select(
+            'select take_amount, target_spending from monthly_inputs where user_id = :user_id and year = :year and month = :month',
+            [
+                'user_id' => $user_id,
+                'year' => $year,
+                'month' => $month
+            ]
+        );
+
+        return $monthly_input;
+    }
+
+    public function insertSpends($user_id, $date, $spends)
+    {
+        $expense = $spends->expesne_id;
+        $content = $spends->content;
+        $amount = $spends->amount;
+
+        $date = str_replace('/', '-', $date);
+
+        for($i = 0; $i < count($expense); $i++) {
             // 次のレコードに付与する連番の取得
             $num = DB::select(
                 'select ifnull(max(number) + 1, 1) as num from spends where user_id = :user_id and date = :date',
                 [
-                    'user_id' => $spend->user_id,
-                    'date' => $spend->date
+                    'user_id' => $user_id,
+                    'date' => $date
                 ]
-            )[0]->num;
+            );
+            $num = array_shift($num)->num;
 
             // データの登録
             $new_spend = new Spend();
-            $new_spend->user_id = $spend->user_id;
-            $new_spend->date = $spend->date;
+            $new_spend->user_id = $user_id;
+            $new_spend->date = $date;
             $new_spend->number = $num;
-            $new_spend->expense_id = $spend->expense_id;
-            $new_spend->content = $spend->content;
-            $new_spend->amount = $spend->amount;
+            $new_spend->expense_id = $expense[$i];
+            $new_spend->content = $content[$i];
+            $new_spend->amount = $amount[$i];
 
             $new_spend->save();
         }
+    }
+
+    public function insertPayments($user_id, $date, $payments)
+    {
+        $year = (int)substr($date, 0, 4);
+        $month = (int)substr($date, 5);  
+        $content = $payments->content;
+        $amount = $payments->amount;
+        
+        for($i = 0; $i < count($content); $i++) {
+            // 次のレコードに付与する連番の取得
+            $num = DB::select(
+                'select ifnull(max(number) + 1, 1) as num from payments where user_id = :user_id and year = :year and month = :month',
+                [
+                    'user_id' => $user_id,
+                    'year' => $year,
+                    'month' => $month
+                ]
+            );
+            $num = array_shift($num)->num;
+
+            // データの登録
+            $new_payment = new Spend();
+            $new_payment->user_id = $user_id;
+            $new_payment->year = $year;
+            $new_payment->month = $month;
+            $new_payment->number = $num;
+            $new_payment->content = $content[$i];
+            $new_payment->amount = $amount[$i];
+
+            $new_payment->save();
+        }
+    }
+
+    public function insertMonthlyInput($user_id, $date, $monthly_input)
+    {
+        $year = (int)substr($date, 0, 4);
+        $month = (int)substr($date, 5);
+
+        $new_monthly_input = new Monthly_input();
+        $new_monthly_input->user_id = $user_id;
+        $new_monthly_input->year = $year;
+        $new_monthly_input->month = $month;
+        $new_monthly_input->taket_amount = $monthly_input->take_amount;
+        $new_monthly_input->target_spending = $monthly_input->target_spending;
+
+        $new_monthly_input->save();
     }
 
     public function updateSpend($new_spend)
