@@ -17,9 +17,11 @@ $(function(){
 
 //form増加
 $(document).on("click", ".add", function() {
-    var clonecode = $("#template").clone(true, false);
+    var count = 1;
+    var clonecode = $("#template").clone(true);
     clonecode.css("display", "inline-flex");
-    clonecode.insertBefore($("#template"));
+    clonecode.attr("id", "form_row" + count);
+    clonecode.insertBefore($("#fixed"));
 });
 
 //form減少

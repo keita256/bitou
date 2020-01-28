@@ -50,25 +50,7 @@
             <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
         </div>
 
-        <!--フォーム増加用-->
-        <div class="row" id="template" style="display:none">
-            <div class="col-4">
-                <select name="spend_id" id="name_list">
-                    @foreach($expenses as $expense)
-                    <option name="spend_id" value="{{ $expense->expense_id }}">{{ $expense->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-4">
-                <input type="text" name="spend_content" id="items_content" autocomplete="off" value="">
-            </div>
-            <div class="col-4">
-                <input type="text" name="spend_amount" class="keyword" id="items_amount" autocomplete="off" value="">
-            </div>
-            <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
-        </div>
-
-        <div>
+        <div id="fixed">
             <input type="button" value="フォームの追加" class="add pluralBtn">
         </div>
 
@@ -95,6 +77,25 @@
             <button type="submit">入力</button>
         </div>
     </form>
+
+    <!--フォーム増加用-->
+    <div class="row" id="template" style="display:none">
+        <div class="col-4">
+            <select name="spend_id" id="name_list">
+                @foreach($expenses as $expense)
+                <option name="spend_id" value="{{ $expense->expense_id }}">{{ $expense->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-4">
+            <input type="text" name="spend_content" id="items_content" autocomplete="off" value="">
+        </div>
+        <div class="col-4">
+            <input type="text" name="spend_amount" class="keyword" id="items_amount" autocomplete="off" value="">
+        </div>
+        <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
+    </div>
+
 </div>
 
 <script src="{{ asset('js/spend.js') }}"></script>
