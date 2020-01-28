@@ -22,6 +22,7 @@ Route::post('/spend', 'ValiController@receiveSpend');
 Route::get('/users/edit', 'UserController@edit');
 
 Route::get('/statistics', 'StatisticsController@index');
+Route::get('/statistics/{year}', 'StatisticsController@show');
 
 Route::get('/', function () {
     return view('welcome');
