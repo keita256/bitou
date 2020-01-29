@@ -40,7 +40,7 @@
                 <input type="text" required placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
             </div>
             <div class="col-4">
-                <input type="text" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+                <input type="number" min="1" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
             </div>
             <input type="button" class="cross_mark button btn btn-outline-primary btn-sm" value="項目削除" onClick="form_remove(this);">
         </div>
@@ -86,7 +86,7 @@
             <input type="text" required placeholder="内容" 　name="spends[content][]" id="items_content" autocomplete="off" value="">
         </div>
         <div class="col-4">
-            <input type="text" required placeholder="金額" 　name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+            <input type="number" min="1" required placeholder="金額" 　name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
         </div>
         <input type="button" class="cross_mark btn btn-outline-primary btn-sm" value="項目削除" onClick="form_remove(this);">
     </div>
