@@ -16,7 +16,7 @@ class MonthlyDataLogic
         $monthly_array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1月から12月
 
         foreach($data_obj as $data) {
-            $monthly_array[(int)$data_obj->month - 1] = $data->total;
+            $monthly_array[(int)$data->month - 1] = $data->total;
         }
 
         return $monthly_array;
