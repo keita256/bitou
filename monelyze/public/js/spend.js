@@ -1,6 +1,6 @@
 //全角→半角
 $(function(){
-    $(".keyword").blur(function(){
+    $("#item_amount").blur(function(){
         charChange($(this));
     });
  
