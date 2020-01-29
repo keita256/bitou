@@ -213,6 +213,7 @@ return [
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'MonelyzeDB' => App\Facades\MonelyzeDB::class,
+        'MonthlyDataLogic' => App\Services\MonthlyDataLogic::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
