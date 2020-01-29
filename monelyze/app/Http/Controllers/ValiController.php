@@ -15,7 +15,7 @@ class ValiController extends Controller
     {
         \Log::debug($request->all());
 
-        
+
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
@@ -60,8 +60,8 @@ class ValiController extends Controller
                 ->withErrors($validator)
                 ->with('message', '入力に誤りがあります');
         }
-        
-        HomeController::index();
 
+        return redirect('/payment')
+            ->with('message', '入力しました');
     }
 }
