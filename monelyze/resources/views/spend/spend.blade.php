@@ -10,7 +10,6 @@
     @if (Session::has('message'))
     <p>{{ session('message') }}</p>
     @endif
-
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

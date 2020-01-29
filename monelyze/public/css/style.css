@@ -9,6 +9,10 @@ body {
     background-color: white;
 }
 
+.container.input {
+    background-color: white;
+}
+
 #layer {
     position: relative;
 }
@@ -107,6 +111,14 @@ header .nav {
     background-color: rgb(255, 255, 255);
 }
 
+.cross_mark {
+    margin-left: 1em;
+}
+
+.alert-danger {
+    display: none;
+}
+
 /*カレンダー*/
 
 #clndr {
@@ -190,10 +202,14 @@ table tr .adjacent-month .day-contents {
 
 /* 統計ページ　ここから */
 .page-div h1 {
-    color: rgb(54, 78, 150);/*文字色*/
-    padding: 0.5em 0;/*上下の余白*/
-    border-top: solid 3px rgb(54, 78, 150);/*上線*/
-    border-bottom: solid 3px rgb(54, 78, 150);/*下線*/
+    color: rgb(54, 78, 150);
+    /*文字色*/
+    padding: 0.5em 0;
+    /*上下の余白*/
+    border-top: solid 3px rgb(54, 78, 150);
+    /*上線*/
+    border-bottom: solid 3px rgb(54, 78, 150);
+    /*下線*/
     margin-top: 30px;
     margin-left: 10%;
     margin-right: 10%;
@@ -202,10 +218,14 @@ table tr .adjacent-month .day-contents {
 }
 
 .page-div h3 {
-    padding: 0.25em 0.5em;/*上下 左右の余白*/
-    color: rgb(54, 78, 150);/*文字色*/
-    background: transparent;/*背景透明に*/
-    border-left: solid 5px #7db4e6;/*左線*/
+    padding: 0.25em 0.5em;
+    /*上下 左右の余白*/
+    color: rgb(54, 78, 150);
+    /*文字色*/
+    background: transparent;
+    /*背景透明に*/
+    border-left: solid 5px #7db4e6;
+    /*左線*/
     border-bottom: solid 3px rgb(81, 106, 182);
 }
 
@@ -246,6 +266,7 @@ table tr .adjacent-month .day-contents {
         font-size: 20px;
     }
 }
+
 /* 統計ページ　ここまで */
 
 /* 月初入力ページ　ここから */
@@ -254,10 +275,14 @@ table tr .adjacent-month .day-contents {
 }
 
 .monthlyInput-div h3 {
-    padding: 0.25em 0.5em;/*上下 左右の余白*/
-    color: rgb(54, 78, 150);/*文字色*/
-    background: transparent;/*背景透明に*/
-    border-left: solid 5px #7db4e6;/*左線*/
+    padding: 0.25em 0.5em;
+    /*上下 左右の余白*/
+    color: rgb(54, 78, 150);
+    /*文字色*/
+    background: transparent;
+    /*背景透明に*/
+    border-left: solid 5px #7db4e6;
+    /*左線*/
     border-bottom: solid 3px rgb(81, 106, 182);
     margin: 15px auto;
 }
@@ -267,6 +292,7 @@ table tr .adjacent-month .day-contents {
     margin-bottom: 30px;
     padding: 15px;
 }
+
 /* 月初入力ページ　ここまで */
 
 /* 固定長ページ　ここから */
@@ -275,17 +301,22 @@ table tr .adjacent-month .day-contents {
 }
 
 .payment-div h3 {
-    padding: 0.25em 0.5em;/*上下 左右の余白*/
-    color: rgb(54, 78, 150);/*文字色*/
-    background: transparent;/*背景透明に*/
-    border-left: solid 5px #7db4e6;/*左線*/
+    padding: 0.25em 0.5em;
+    /*上下 左右の余白*/
+    color: rgb(54, 78, 150);
+    /*文字色*/
+    background: transparent;
+    /*背景透明に*/
+    border-left: solid 5px #7db4e6;
+    /*左線*/
     border-bottom: solid 3px rgb(81, 106, 182);
     margin: 15px auto;
 }
 
-.payment-inner-div  {
+.payment-inner-div {
     background-color: rgb(234, 243, 255);
     margin-bottom: 30px;
     padding: 15px;
 }
+
 /* 固定費ページ　ここまで */
