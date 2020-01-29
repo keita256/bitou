@@ -5,7 +5,7 @@
 @include('layouts.header')
 
 @section('content')
-<div class="container">
+<div class="container input">
 
     @if (Session::has('message'))
     <p>{{ session('message') }}</p>
@@ -29,8 +29,6 @@
         @csrf
         <div class="row text-left">
             <div class="col-4">費目名</div>
-            <div class="col-4">内容</div>
-            <div class="col-4">金額</div>
         </div>
 
         <div class="row" style="display:inline-flex">
@@ -42,16 +40,16 @@
                 </select>
             </div>
             <div class="col-4">
-                <input type="text" name="spends[content][]" id="items_content" autocomplete="off" value="">
+                <input type="text" placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
             </div>
             <div class="col-4">
-                <input type="text" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+                <input type="text" placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
             </div>
-            <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
+            <input type="button" class="cross_mark button btn btn-outline-primary btn-sm" value="項目削除" onClick="form_remove(this);">
         </div>
 
         <div id="fixed">
-            <input type="button" value="フォームの追加" class="add pluralBtn">
+            <input type="button" value="フォームの追加" class="add pluralBtn btn btn-outline-primary btn-sm">
         </div>
 
         <div class="row">
@@ -71,11 +69,11 @@
                         format: 'L'
                     });
                 });
+
             </script>
         </div>
         <div class="row">
-            <button type="submit">入力</button>
-        </div>
+            <button type="submit" class="btn btn-outline-primary">入力</button> </div>
     </form>
 
     <!--フォーム増加用-->
@@ -88,12 +86,12 @@
             </select>
         </div>
         <div class="col-4">
-            <input type="text" name="spends[content][]" id="items_content" autocomplete="off" value="">
+            <input type="text" placeholder="内容" 　name="spends[content][]" id="items_content" autocomplete="off" value="">
         </div>
         <div class="col-4">
-            <input type="text" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+            <input type="text" placeholder="金額" 　name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
         </div>
-        <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
+        <input type="button" class="cross_mark btn btn-outline-primary btn-sm" value="項目削除" onClick="form_remove(this);">
     </div>
 
 </div>
