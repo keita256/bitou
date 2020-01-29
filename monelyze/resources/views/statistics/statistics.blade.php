@@ -105,21 +105,21 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // 変数宣言、初期化
-let monthlyTotal = @json($total_monthly_consumption);
+let monthlyFixedCosts = @json($monthly_fixed_costs);
+let monthlyConsumption = @json($monthly_consumption);
 let monthlySavings = @json($monthly_savings);
 let monthlyBalance = @json($monthly_balance);
 let year = @json($year);
-let month = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-let ctx1 = $('#consumptionChart');
-let ctx2 = $('#savingChart');
-let ctx3 = $('#balanceChart');
+let consumptionChart = $('#consumptionChart');
+let savingChart = $('#savingChart');
+let balanceChart = $('#balanceChart');
 
-createChart(ctx1, monthlyTotal, '消費額');
-createChart(ctx2, monthlySavings, '節約額');
-createChart(ctx3, monthlyBalance, '残金');
+createStackedBarChart(consumptionChart, monthlyFixedCosts, monthlyConsumption, '固定費', '消費額');
+createBarChart(savingChart, monthlySavings, '節約額');
+createBarChart(balanceChart, monthlyBalance, '残金');
 
 // functions
-function createChart(ctx, monthData, barName) {
+function createBarChart(ctx, monthData, barName) {
     let month = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
 
     let barChart = new Chart(ctx, {
@@ -142,6 +142,47 @@ function createChart(ctx, monthData, barName) {
                             return value + '円';
                         }
                     }
+                }]
+            }
+        }
+    });
+}
+
+function createStackedBarChart(ctx, paymentData, consumptionData, label1, label2) {
+    let month = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+
+    let barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: month,
+            datasets: [{
+                    label: label1,
+                    data: paymentData,
+                    backgroundColor: "green"
+                },
+                {
+                    label: label2,
+                    data: consumptionData,
+                    backgroundColor: "rgba(153, 255, 51, 1)"
+                }
+            ]
+        },
+
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 0,
+                        callback: function(value, index, values) {
+                            return value + '円';
+                        }
+                    },
+
+                    stacked: true
                 }]
             }
         }
