@@ -58,18 +58,6 @@ class MonelyzeDB
         return $payments;
     }
 
-    public function getTotalPayment($user_id, $year, $month)
-    {
-        $total_payment = 0;
-        $payments = $this->getPayments($user_id, $year, $month);
-
-        foreach($payments as $payment) {
-            $total_payment += $payment->amount;
-        }
-        
-        return $total_payment;
-    }
-
     public function getMonthlyInput($user_id, $year, $month)
     {
         $user_id = 1;
@@ -208,6 +196,12 @@ class MonelyzeDB
         );
 
         return $result;
+    }
+
+    // user_idをもとにデータ入力のある年を取得
+    public function get()
+    {
+
     }
 
     // 指定された年の月ごとの消費額を取得(固定費を含まない)

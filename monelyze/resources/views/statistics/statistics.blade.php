@@ -114,6 +114,7 @@ let consumptionChart = $('#consumptionChart');
 let savingChart = $('#savingChart');
 let balanceChart = $('#balanceChart');
 
+// グラフ生成
 createStackedBarChart(consumptionChart, monthlyFixedCosts, monthlyConsumption, '固定費', '消費額');
 createBarChart(savingChart, monthlySavings, '節約額');
 createBarChart(balanceChart, monthlyBalance, '残金');
