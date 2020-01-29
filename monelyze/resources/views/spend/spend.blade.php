@@ -37,7 +37,7 @@
                 </select>
             </div>
             <div class="col-4">
-                <input type="text" required placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
+                <input type="text" placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
             </div>
             <div class="col-4">
                 <input type="number" min="1" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
@@ -83,7 +83,7 @@
             </select>
         </div>
         <div class="col-4">
-            <input type="text" required placeholder="内容" 　name="spends[content][]" id="items_content" autocomplete="off" value="">
+            <input type="text" placeholder="内容" 　name="spends[content][]" id="items_content" autocomplete="off" value="">
         </div>
         <div class="col-4">
             <input type="number" min="1" required placeholder="金額" 　name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
