@@ -35,7 +35,7 @@
 
                         <div class="form-row">
                             <input class="form-sm6" name="payments[content][]" type="text" autocomplete="off">
-                            <input class="form-sm6" name="payments[amount][]" id="item_amount" type="text" autocomplete="off">
+                            <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off">
                             <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
                         </div>
 
@@ -72,7 +72,7 @@
 <!--フォーム増加用-->
 <div class="form-row" id="template" style="display:none">
     <input class="form-sm6" name="payments[content][]" type="text" autocomplete="off">
-    <input class="form-sm6" name="payments[amount][]" id="item_amount" type="text" autocomplete="off">
+    <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off">
     <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
 </div>
 <script src="{{ asset('js/spend.js') }}"></script>
