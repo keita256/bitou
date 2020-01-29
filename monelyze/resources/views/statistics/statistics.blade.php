@@ -12,7 +12,7 @@
         <div class="row">
             <div class="offset-1 col-10 page-div">
                 <!-- background-color:white -->
-                <h1>{{ $year }}年度、家計簿統計情報</h1>
+                <h1>{{ $year }}年、家計簿統計情報</h1>
 
                 <div class="row">
                     <div class="offset-1 col-10 content-div">
