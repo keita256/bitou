@@ -198,10 +198,18 @@ class MonelyzeDB
         return $result;
     }
 
-    // user_idをもとにデータ入力のある年を取得
-    public function get()
+    // user_idをもとにデータが存在するか取得
+    public function existMonthlyInputData($user_id, $year)
     {
+        $result = DB::select(
+            'select count(*) as num from monthly_inputs where user_id = :user_id and year = :year',
+            [
+                'user_id' => $user_id,
+                'year' => $year
+            ]
+        );
 
+        return $result;
     }
 
     // 指定された年の月ごとの消費額を取得(固定費を含まない)
