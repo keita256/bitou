@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Validator;
+use Auth;
 use Illuminate\Support\Facades\MonelyzeDB;
+use App\Http\Controllers\HomeController;
 
 class ValiController extends Controller
 {
@@ -30,10 +32,36 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        
+        $id = Auth::id();
+        MonelyzeDB::insertSpends($request, $id);
 
-        
+
         return redirect('/spend')
             ->with('message', '入力しました');
+    }
+
+    public function receivePayment(Request $request)
+    {
+        \Log::debug($request->all());
+
+        $username = Auth::user()->name;
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'payments.content.*' => 'required|string',
+            'payments.amount.*' => 'required|integer',
+            'payment_date' => 'required|date_format:"Y/m"',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+        
+        HomeController::index();
+
     }
 }

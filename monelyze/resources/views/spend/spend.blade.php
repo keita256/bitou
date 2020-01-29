@@ -45,7 +45,7 @@
                 <input type="text" name="spends[content][]" id="items_content" autocomplete="off" value="">
             </div>
             <div class="col-4">
-                <input type="text" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+                <input type="text" name="spends[amount][]" id="items_amount" autocomplete="off" value="">
             </div>
             <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
         </div>
@@ -91,7 +91,7 @@
             <input type="text" name="spends[content][]" id="items_content" autocomplete="off" value="">
         </div>
         <div class="col-4">
-            <input type="text" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+            <input type="text" name="spends[amount][]" id="items_amount" autocomplete="off" value="">
         </div>
         <input type="button" class="cross_mark" value="×" onClick="form_remove(this);">
     </div>
