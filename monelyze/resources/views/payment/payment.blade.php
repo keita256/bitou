@@ -105,8 +105,7 @@
                                     </thead>
                                     @for ($i = 0; $i < 12; $i++) <tr data-href="/payment/{{ $year }}{{ $monthArray[$i] }}">
                                         <td>{{ $i + 1 }}</td>
-                                        <!-- 改修必要 -->
-                                        <td></td>
+                                        <td>{{ $totalAmount[$i] }}</td>
                                         </tr>
                                         @endfor
                                 </table>
@@ -143,9 +142,9 @@
                         </div>
 
                         <div class="pull-left">
-                            <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete')">削除する</button>
+                            <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}{{ $month }}/')">削除する</button>
                         </div>
-                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit')">変更を確定</button>
+                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit/{{ $year }}{{ $month }}/')">変更を確定</button>
                     </form>
                 </div>
             </div>

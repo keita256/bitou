@@ -33,8 +33,8 @@ Route::post('/monthlyInput/{year}/{month}', 'MonthlyInputController@create');
 Route::get('/payment', 'PaymentController@index');
 Route::get('payment/{yearmonth}', 'PaymentController@show');
 Route::post('/payment', 'ValiController@receivePayment');
-Route::post('/payment/edit', 'ValiController@receivePayment');
-Route::post('/payment/delete', 'PaymentController@delete');
+Route::post('/payment/edit/{yearmonth}/{serialNum}', 'ValiController@receivePayment');
+Route::post('/payment/delete/{yearmonth}/{serialNum}', 'PaymentController@delete');
 
 Route::get('/', function () {
     return view('welcome');
