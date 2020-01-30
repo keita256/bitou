@@ -115,10 +115,12 @@ header .nav {
 }
 
 .main-content {
+    margin-bottom: 15px;
     background-color: rgb(255, 255, 255);
 }
 
 .sidebar-content {
+    margin-bottom: 15px;
     background-color: rgb(255, 255, 255);
 }
 

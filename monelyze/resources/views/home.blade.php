@@ -63,14 +63,14 @@
                                 <table class="table table-Light table-hover table-bordered">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>用途</th>
-                                            <th>金額(円)</th>
+                                            <th class="text-center">費目</th>
+                                            <th class="text-center">金額</th>
                                         </tr>
                                     </thead>
                                     @foreach($monthly_consumptions as $data)
                                     <tr>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->total }}</td>
+                                        <td class="text-center">{{ $data->name }}</td>
+                                        <td class="text-center">{{ $data->total }}円</td>
                                     </tr>
                                     @endforeach
                                 </table>
