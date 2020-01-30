@@ -39,5 +39,10 @@ class MonthlyDataLogic
 
         return $array_1;
     }
+
+    public static function monthlyInputDataFormatter($monthly_input_data)
+    {
+        
+    }
 }
 ?>

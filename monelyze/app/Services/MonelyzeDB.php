@@ -101,7 +101,7 @@ class MonelyzeDB
             $new_spend->content = $content[$i];
             $new_spend->amount = $amount[$i];
 
-            $new_spend->save();
+            return $new_spend->save();
         }
     }
 
@@ -133,29 +133,29 @@ class MonelyzeDB
             $new_payment->content = $content[$i];
             $new_payment->amount = $amount[$i];
 
-            $new_payment->save();
+            return $new_payment->save();
         }
     }
 
-    public function insertMonthlyInput($user_id, $year, $month, $monthly_input)
+    public function insertMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
     {
         $new_monthly_input = new Monthly_input();
         $new_monthly_input->user_id = $user_id;
         $new_monthly_input->year = $year;
         $new_monthly_input->month = $month;
-        $new_monthly_input->taket_amount = $monthly_input->take_amount;
-        $new_monthly_input->target_spending = $monthly_input->target_spending;
+        $new_monthly_input->taket_amount = $take_amount;
+        $new_monthly_input->target_spending = $target_spending;
 
-        $new_monthly_input->save();
+        return $new_monthly_input->save();
     }
 
     /*************************************** update ****************************************/
 
-    public function updateSpend($new_spend)
+    public function updateSpend($user_id, $date, $number, $exepense_id, $content, $amount)
     {
-        $spend = Spend::where('user_id', $new_spend->id)->
-                        where('date', $new_spend->date)->
-                        where('number', $new_Spend->number)->
+        $spend = Spend::where('user_id', $userid)->
+                        where('date', $date)->
+                        where('number', $number)->
                         get()->
                         first();
         
@@ -166,9 +166,33 @@ class MonelyzeDB
         return $spend->save();
     }
 
-    public function updateFixesCost()
+    public function updatePayment($user_id, $year, $month, $content, $amount)
     {
+        $payment = Payment::where('user_id', $user_id)->
+                            where('year', $year)->
+                            where('month', $month)->
+                            where('number', $number)->
+                            get()->
+                            first();
 
+        $payment->content = $content;
+        $payment->amount = $amount;
+
+        return $payment->save();
+    }
+
+    public function updateMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
+    {
+        $monthly_input = Monthly_input::where('user_id', $user_id)->
+                                        where('year', $year)->
+                                        where('month', $month)->
+                                        get()->
+                                        first();
+        
+        $monthly_input->take_amount = $take_amount;
+        $monthly_input->target_spending = $target_spending;
+
+        return $monthly_input;
     }
 
     /*************************************** delete ****************************************/
@@ -184,9 +208,16 @@ class MonelyzeDB
         return $spend->delete();
     }
 
-    public function deletePayments()
+    public function deletePayment($user_id, $year, $month, $number)
     {
+        $payment = Payment::where('user_id', $user_id)->
+                            where('year', $year)->
+                            where('month', $month)->
+                            where('number', $number)->
+                            get()->
+                            first();
 
+        return $Payment->delete();
     }
 
     /*************************************** データが存在するか ****************************************/
