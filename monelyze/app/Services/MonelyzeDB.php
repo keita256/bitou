@@ -140,11 +140,8 @@ class MonelyzeDB
         }
     }
 
-    public function insertMonthlyInput($user_id, $date, $monthly_input)
+    public function insertMonthlyInput($user_id, $year, $month, $monthly_input)
     {
-        $year = (int)substr($date, 0, 4);
-        $month = (int)substr($date, 5);
-
         $new_monthly_input = new Monthly_input();
         $new_monthly_input->user_id = $user_id;
         $new_monthly_input->year = $year;
@@ -210,6 +207,21 @@ class MonelyzeDB
         );
 
         return $result;
+    }
+
+    // 指定された年月の月初入力データ取得
+    public function getMonthlyInputData($user_id, $year, $month)
+    {
+        $monthly_input_data = DB::select(
+            'select take_amount, target_spending from monthly_inputs where user_id = :user_id and year = :year and month = :month',
+            [
+                'user_id' => $user_id,
+                'year' => $year,
+                'month' => $month
+            ]
+        );
+
+        return $monthly_input_data;
     }
 
     // 指定された年の月ごとの消費額を取得(固定費を含まない)
