@@ -212,6 +212,11 @@ table tr .adjacent-month .day-contents {
 }
 
 /* 統計ページ　ここから */
+.page-div {
+    margin: 15px auto;
+    background-color: rgb(255, 255, 255);
+}
+
 .page-div h1 {
     color: rgb(54, 78, 150);
     /*文字色*/
@@ -251,11 +256,6 @@ table tr .adjacent-month .day-contents {
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: rgb(234, 243, 255);
-}
-
-.page-div {
-    margin: 15px auto;
-    background-color: rgb(255, 255, 255);
 }
 
 @media screen and (min-width: 604px) and (max-width: 786px) {

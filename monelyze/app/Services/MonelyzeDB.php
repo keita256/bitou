@@ -199,7 +199,7 @@ class MonelyzeDB
     }
 
     // user_idをもとにデータが存在するか取得
-    public function existMonthlyInputData($user_id, $year)
+    public function monthlyDataIsEmpty($user_id, $year)
     {
         $result = DB::select(
             'select count(*) as num from monthly_inputs where user_id = :user_id and year = :year',

@@ -6,16 +6,17 @@ use MonelyzeDB;
 
 class StatisticsLogic
 {
-    public static function existData($user_id, $year)
+    public static function monthlyDataIsEmpty($user_id, $year)
     {
-        $existData = false;
-        $is_empty = array_shift(MonelyzeDB::existMonthlyInputData($user_id, $year))->num;
+        $result = false;
+        $data = MonelyzeDB::monthlyDataIsEmpty($user_id, $year);
+        $is_empty = array_shift($data)->num;
 
         if(0 < $is_empty) {
-            $existData = true;
+            $result = true;
         }
 
-        return $existData;
+        return $result;
     }
 }
 
