@@ -64,4 +64,54 @@ class ValiController extends Controller
         return redirect('/payment')
             ->with('message', '入力しました');
     }
+
+    public function receiveMonthlyInput(Request $request)
+    {
+        \Log::debug($request->all());
+
+        $username = Auth::user()->name;
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'take_amount' => 'required|integer',
+            'target_spenging' => 'required|integer',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        return redirect('/mothlyInput')
+            ->with('message', '入力しました');
+    }
+
+    public function receiveUser(Request $request)
+    {
+        \Log::debug($request->all());
+
+        $username = Auth::user()->name;
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'name' => 'required|string',
+            'email' => 'required|email',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        return redirect('/user/edit')
+            ->with('message', '入力しました');
+    }
+
+
 }

@@ -11,10 +11,21 @@
             <div class="title title0 ">
                 <h3 class="heading">固定費一覧</h3>
             </div>
-            <div class="">
-                <h3 class="">{{ $year }}年{{ $month }}月</h3>
-                <i class=""></i>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+            @endif
+            @if (Session::has('message'))
+            <p>{{ session('message') }}</p>
+            @endif
+            <section class="">
+                <h3 class="">{{ $year }}年{{ $month }}月</h3>
+            </section>
             <div class="table-responsive">
                 @if($payments != null)
                 <table class="table table-sm table-bordered table-striped table-hover">
@@ -92,7 +103,7 @@
                                         </tr>
                                     </thead>
                                     @for ($i = 0; $i < 12; $i++) <tr data-href="/payment/{{ $year }}{{ $monthArray[$i] }}">
-                                        <td>{{ $monthArray[$i] }}</td>
+                                        <td>{{ $i + 1 }}</td>
                                         <!-- 改修必要 -->
                                         <td></td>
                                         </tr>
