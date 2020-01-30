@@ -24,11 +24,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-3 col-6 monthlyInput-div">
+        <div class="offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
             <h3>家計簿入力</h3>
 
             <div class="row">
-                <div class="offset-2 col-8 inner-div rounded">
+                <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10  inner-div rounded">
                     <form action="">
                         <div class="form-group">
                             <select class="form-controll" name="spends[expense_id][]" id="name_list">
@@ -48,18 +48,20 @@
                         </div>
                         <div id="fixed">
                             <hr>
-                            <input type="button" value="フォームの追加" class="add pluralBtn btn btn-outline-primary btn-sm float-left">
+                            <input type="button" value="フォームの追加" class="add pluralBtn btn btn-outline-primary btn-sm float-left" style="margin-bottom:1em;">
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                        <input type="text" name="spend_date" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off" />
-                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                <input type="text" name="spend_date" placeholder="日付を選択" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off">
+                                <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                         <script type="text/javascript">
                             $(function() {
                                 $('#datetimepicker4').datetimepicker({
