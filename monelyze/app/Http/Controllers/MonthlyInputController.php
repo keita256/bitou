@@ -49,7 +49,14 @@ class MonthlyInputController extends Controller
     {
         $user_id = Auth::id();
         $username = Auth::user()->name;
+        $take_amount = $request->take_amount;
+        $target_spending = $request->target_spending;
+
+        // 登録
+        MonelyzeDB::insertPayment();
         
-        
+        return view('/monthly_input/index',compact(
+            ''
+        ));
     }
 }
