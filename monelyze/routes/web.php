@@ -25,6 +25,8 @@ Route::get('/statistics', 'StatisticsController@index');
 Route::get('/statistics/{year}', 'StatisticsController@show');
 
 Route::get('/monthlyInput', 'MonthlyInputController@index');
+Route::get('/monthlyInput/{year}/{month}', 'MonthlyInputController@show');
+Route::post('/monthlyInput', 'MonthlyInputController@create');
 
 Route::get('/payment', 'PaymentController@index');
 Route::get('payment/{yearmonth}', 'PaymentController@show');
