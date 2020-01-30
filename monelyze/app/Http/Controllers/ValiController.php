@@ -51,7 +51,6 @@ class ValiController extends Controller
 
             'payments.content.*' => 'required|string',
             'payments.amount.*' => 'required|integer',
-            'payment_date' => 'required|date_format:"Y/m"',
         ]);
 
         // バリデーションエラーだった場合
@@ -60,6 +59,9 @@ class ValiController extends Controller
                 ->withErrors($validator)
                 ->with('message', '入力に誤りがあります');
         }
+
+        //ここ
+
 
         return redirect('/payment')
             ->with('message', '入力しました');

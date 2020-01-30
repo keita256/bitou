@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\PaymentController;
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -31,6 +33,8 @@ Route::post('/monthlyInput/{year}/{month}', 'MonthlyInputController@create');
 Route::get('/payment', 'PaymentController@index');
 Route::get('payment/{yearmonth}', 'PaymentController@show');
 Route::post('/payment', 'ValiController@receivePayment');
+Route::post('/payment/edit', 'ValiController@receivePayment');
+Route::post('/payment/delete', 'PaymentController@delete');
 
 Route::get('/', function () {
     return view('welcome');

@@ -62,16 +62,17 @@
                         <div class="offset-1 col-10 inner-div rounded">
                             <form class="" action="/payment" method="post" accept-charset="UTF-8">
                                 @csrf
-                                <div class="form-row">
-                                    <input class="form-sm6" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
-                                    <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
-                                    <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
+                                <div class="form-group">
+                                    <input class="form-controll" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
                                 </div>
 
+                                <div class="form-group">
+                                    <input class="form-controll keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
+                                </div>
                                 <div id="fixed">
-                                    <input type="button" value="フォームの追加" class="add pluralBtn">
+                                    <hr>
+                                    <input type="button" value="フォームの追加" class="add pluralBtn btn btn-outline-primary btn-sm float-left">
                                 </div>
-
                                 <button type="submit" class="btn btn-primary float-right">送信する</button>
                             </form>
                         </div>
@@ -129,33 +130,41 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="/payment">
-                        @method('PUT')
+                    <form action="/payment" method="post" id="form" accept-charset="UTF-8">
+                        @csrf
                         <div class="form-group">
                             <label for="Input1">内容</label>
-                            <input type="text" class="form-control" id="Input1" placeholder="内容を記入">
+                            <input type="text" class="form-control" id="Input1" name="content" placeholder="内容を記入">
                         </div>
 
                         <div class="form-group">
                             <label for="Input2">金額</label>
-                            <input type="text" class="form-control" id="Input2" placeholder="金額を記入">
+                            <input type="text" class="form-control" id="Input2" name="amount" placeholder="金額を記入">
                         </div>
-                    </form>
-                </div>
 
-                <div class="modal-footer">
-                    <a class="float-left">削除する</a>
-                    <button type="button" class="btn btn-primary">変更を確定</button>
+                        <div class="pull-left">
+                            <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete')">削除する</button>
+                        </div>
+                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit')">変更を確定</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
     <!--フォーム増加用-->
-    <div class="form-row" id="template" style="display:none">
-        <input class="form-sm6" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
-        <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off" required placeholder="金額">
-        <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
+    <div id="template" style="display:none">
+        <hr>
+        <div class="form-group">
+            <input class="form-controll" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
+        </div>
+
+        <div class="form-group">
+            <input class="form-controll keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
+        </div>
+        <div class="form-group clearfix">
+            <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除" onClick="form_remove(this);">
+        </div>
     </div>
 
     <script src="{{ asset('js/form.js') }}"></script>
