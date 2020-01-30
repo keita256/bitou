@@ -43,7 +43,7 @@ class MonelyzeDB
         return $spends;
     }
 
-    public function getFixedCosts($user_id, $year, $month)
+    public function getPayments($user_id, $year, $month)
     {
         $fixedConsts = DB::select(
             'select number, content, amount from payments where user_id = :user_id and year = :year and month = :month',
@@ -166,6 +166,11 @@ class MonelyzeDB
         return $spend->save();
     }
 
+    public function updateFixesCost()
+    {
+
+    }
+
     /*************************************** delete ****************************************/
 
     public function deleteSpend($user_id, $date, $number)
@@ -177,6 +182,11 @@ class MonelyzeDB
                         first();
 
         return $spend->delete();
+    }
+
+    public function deletePayments()
+    {
+
     }
 
     /*************************************** データが存在するか ****************************************/
