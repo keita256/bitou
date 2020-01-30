@@ -12,7 +12,7 @@ use App\Services\MonthlyDataLogic;
 
 class MonelyzeDB
 {
-
+    /*************************************** get ****************************************/
     public function getUserName($id)
     {
         $user = User::where('id', $id)->get()->first();
@@ -31,7 +31,6 @@ class MonelyzeDB
 
     public function getSpends($user_id, $date)
     {
-        // 例：$users = DB::select('select * from users where active = ?', [1000]);
         $spends = DB::select(
             'select date, name, content, amount from spends st inner join expenses et on st.expense_id = et.expense_id
             where user_id = :user_id and date = :date',
@@ -44,10 +43,10 @@ class MonelyzeDB
         return $spends;
     }
 
-    public function getPayments($user_id, $year, $month)
+    public function getFixedCosts($user_id, $year, $month)
     {
-        $payments = DB::select(
-            'select content, amount from payments where user_id = :user_id and year = :year and month = :month',
+        $fixedConsts = DB::select(
+            'select number, content, amount from payments where user_id = :user_id and year = :year and month = :month',
             [
                 'user_id' => $user_id,
                 'year' =>$year,
@@ -55,15 +54,11 @@ class MonelyzeDB
             ]
         );
 
-        return $payments;
+        return $fixedConsts;
     }
 
     public function getMonthlyInput($user_id, $year, $month)
-    {
-        $user_id = 1;
-        $year = 2020;
-        $month = 1;
-        
+    { 
         $monthly_input = DB::select(
             'select take_amount, target_spending from monthly_inputs where user_id = :user_id and year = :year and month = :month',
             [
@@ -75,6 +70,8 @@ class MonelyzeDB
 
         return $monthly_input;
     }
+
+    /*************************************** insert ****************************************/
 
     public function insertSpends($user_id, $date, $spends)
     {
@@ -152,6 +149,8 @@ class MonelyzeDB
         $new_monthly_input->save();
     }
 
+    /*************************************** update ****************************************/
+
     public function updateSpend($new_spend)
     {
         $spend = Spend::where('user_id', $new_spend->id)->
@@ -167,6 +166,8 @@ class MonelyzeDB
         return $spend->save();
     }
 
+    /*************************************** delete ****************************************/
+
     public function deleteSpend($user_id, $date, $number)
     {
         $spend = Spend::where('user_id', $user_id)->
@@ -177,6 +178,24 @@ class MonelyzeDB
 
         return $spend->delete();
     }
+
+    /*************************************** データが存在するか ****************************************/
+
+    // user_idをもとにデータが存在するか取得
+    public function monthlyDataIsEmpty($user_id, $year)
+    {
+        $result = DB::select(
+            'select count(*) as num from monthly_inputs where user_id = :user_id and year = :year',
+            [
+                'user_id' => $user_id,
+                'year' => $year
+            ]
+        );
+
+        return $result;
+    }
+
+    /*************************************** 複雑なget ****************************************/
 
     // 指定された年月の月初入力レコードが存在するか取得(middlewareで使用)
     public function getEmptyMonthlyInput($user_id, $year, $month)
@@ -189,20 +208,6 @@ class MonelyzeDB
                 'user_id' => $user_id,
                 'year' => $year,
                 'month' => $month,
-            ]
-        );
-
-        return $result;
-    }
-
-    // user_idをもとにデータが存在するか取得
-    public function monthlyDataIsEmpty($user_id, $year)
-    {
-        $result = DB::select(
-            'select count(*) as num from monthly_inputs where user_id = :user_id and year = :year',
-            [
-                'user_id' => $user_id,
-                'year' => $year
             ]
         );
 
