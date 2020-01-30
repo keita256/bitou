@@ -19,12 +19,12 @@ $(function(){
 $(document).on("click", ".add", function() {
     var count = 1;
     var clonecode = $("#template").clone(true);
-    clonecode.css("display", "inline-flex");
+    clonecode.css("display", "block");
     clonecode.attr("id", "form_row" + count);
     clonecode.insertBefore($("#fixed"));
 });
 
 //form減少
 function form_remove(cross_mark_el){
-    $(cross_mark_el).parent().remove();
+    $(cross_mark_el).parent().parent().remove();
 }
