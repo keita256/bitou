@@ -262,11 +262,11 @@ table tr .adjacent-month .day-contents {
 
 @media screen and (min-width: 604px) and (max-width: 786px) {
     .page-div h1 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .page-div h3 {
-        font-size: 30px;
+        font-size: 28px;
     }
 }
 
