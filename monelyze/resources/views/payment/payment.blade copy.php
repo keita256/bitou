@@ -75,5 +75,5 @@
     <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off">
     <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
 </div>
-<script src="{{ asset('js/spend.js') }}"></script>
+<script src="{{ asset('js/form.js') }}"></script>
 @endsection

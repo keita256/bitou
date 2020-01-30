@@ -93,5 +93,5 @@
 
 </div>
 
-<script src="{{ asset('js/spend.js') }}"></script>
+<script src="{{ asset('js/form.js') }}"></script>
 @endsection

@@ -9,6 +9,11 @@ use MonelyzeDB;
 
 class SpendController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Tokyo');
+        $this->middleware('auth');
+    }
 
     public function spend()
     {
