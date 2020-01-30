@@ -64,7 +64,7 @@
                                 @csrf
                                 <div class="form-row">
                                     <input class="form-sm6" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
-                                    <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off" required placeholder="金額">
+                                    <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
                                     <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
                                 </div>
 
@@ -129,18 +129,8 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleSelect1exampleFormControlSelect1">費目の選択</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>食費</option>
-                                <option>生活費</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-
+                    <form action="/payment">
+                        @method('PUT')
                         <div class="form-group">
                             <label for="Input1">内容</label>
                             <input type="text" class="form-control" id="Input1" placeholder="内容を記入">
@@ -154,8 +144,8 @@
                 </div>
 
                 <div class="modal-footer">
+                    <a class="float-left">削除する</a>
                     <button type="button" class="btn btn-primary">変更を確定</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                 </div>
             </div>
         </div>
@@ -167,6 +157,7 @@
         <input class="form-sm6 keyword" name="payments[amount][]" id="item_amount" type="text" autocomplete="off" required placeholder="金額">
         <input type="button" class="form-sm6" value="×" onClick="form_remove(this);">
     </div>
+
     <script src="{{ asset('js/form.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>
     @endsection
