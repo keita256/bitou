@@ -30,7 +30,7 @@
                     <tbody data-placement="right">
                         @foreach($spends as $spend)
                         <tr class="modal-event" data-toggle="modal" data-target="#staticBackdrop">
-                            <td class="align-middle text-center text-nowrap">{{ $spend->name }}</td>
+                            <td class="align-middle text-center text-nowrap" value="{{ $spend->expense_id }}">{{ $spend->name }}</td>
                             <td class="align-middle">{{ $spend->content }}</td>
                             <td class="align-middle text-center text-nowrap">{{ $spend->amount }}円</td>
                         </tr>
@@ -130,7 +130,7 @@
                         <label for="input1">費目の選択</label>
                         <select class="form-control" id="input1">
                             @foreach($expenses as $e)
-                            <option>{{ $e->name }}</option>
+                            <option value="{{ $e->expense_id }}">{{ $e->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -157,13 +157,12 @@
 
 <script>
     $(".modal-event").click(function() {
-        const expense = this.children[0].textContent;
+        const expense = this.children[0].getAttribute("value");
         const content = this.children[1].textContent;
         const amount = this.children[2].textContent;
-        cosole.dir()
 
         //設定
-        $("#input1").selectIndex = 4;
+        $("#input1").val(expense);
         $("#input2").val(content);
         $("#input3").val(amount);
     });
