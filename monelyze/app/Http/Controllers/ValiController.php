@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 use Auth;
-use Illuminate\Support\Facades\MonelyzeDB;
+use MonelyzeDB;
 use App\Http\Controllers\HomeController;
 
 class ValiController extends Controller
@@ -32,9 +32,9 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        $id = Auth::id();
-        MonelyzeDB::insertSpends($request, $id);
-
+        // 登録処理
+        $user_id = Auth::id();
+        MonelyzeDB::insertSpends($user_id, $request->spend_date, $request->spends);
 
         return redirect('/spend')
             ->with('message', '入力しました');
