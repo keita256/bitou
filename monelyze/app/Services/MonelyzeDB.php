@@ -131,7 +131,7 @@ class MonelyzeDB
             $new_payment->content = $content[$i];
             $new_payment->amount = $amount[$i];
 
-            return $new_payment->save();
+            $new_payment->save();
         }
     }
 

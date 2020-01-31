@@ -134,12 +134,12 @@
                         @csrf
                         <div class="form-group">
                             <label for="Input1">内容</label>
-                            <input type="text" class="form-control" id="Input1" name="content" placeholder="内容を記入" value="">
+                            <input type="text" class="form-control" id="Input1" name="content" placeholder="内容を記入" required value="">
                         </div>
 
                         <div class="form-group">
                             <label for="Input2">金額</label>
-                            <input type="text" class="form-control" id="Input2" name="amount" placeholder="金額を記入" value="">
+                            <input type="number" class="form-control" id="Input2" name="amount" placeholder="金額を記入" required value="">
                         </div>
 
                         <input type="hidden" name="number" id="Input3" value="">

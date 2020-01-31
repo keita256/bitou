@@ -17,19 +17,21 @@
 
             <div class="row">
                 <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10 inner-div rounded">
-                    <form action="/user/edit" method="post" accept-charset="UTF-8">
-                        <div class="form-group">
-                            <label for="">ユーザー名</label>
-                            <input class="form-control" required type="text" value="">
+                        <div class="">
+                            <label class="float-left">現在のユーザー名：</label>
+                            <label>{{$username}}</label>
+                            <a class="btn btn-link" href="/users/nameSetting">
+                                変更
+                            </a>
                         </div>
 
-                        <div class="form-group">
-                            <label for="">新しいメールアドレス</label>
-                            <input class="form-control" required type="email" value="">
+                        <div class="clearfix">
+                            <label class="float-left">現在のメールアドレス：</label>
+                            <label>{{$mail}}</label>
+                            <a class="btn btn-link" href="/users/mailSetting">
+                                変更
+                            </a>
                         </div>
-
-                        <button type="submit" class="btn btn-primary float-right">送信する</button>
-                    </form>
                 </div>
             </div>
         </div><!-- col -->

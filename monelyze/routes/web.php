@@ -20,7 +20,11 @@ Route::get('/home', 'HomeController@index');
 Route::get('/spend', 'SpendController@spend');
 Route::post('/spend', 'ValiController@insertSpend');
 
-Route::get('/users/edit', 'UserController@edit');
+Route::get('/users/edit', 'UserController@index');
+Route::get('/users/nameSetting', 'UserController@nameSetting');
+Route::post('/users/nameSetting', 'UserController@nameSetting');
+Route::get('/users/mailSetting', 'UserController@mailSetting');
+Route::post('/users/mailSetting', 'UserController@mailSetting');
 
 Route::get('/statistics', 'StatisticsController@index');
 Route::get('/statistics/{year}', 'StatisticsController@show');
