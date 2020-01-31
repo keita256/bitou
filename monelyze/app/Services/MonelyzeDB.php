@@ -168,17 +168,16 @@ class MonelyzeDB
 
     public function updatePayment($user_id, $year, $month, $number, $content, $amount)
     {
-        $payment = Payment::where('user_id', $user_id)->
+        return $payment = Payment::where('user_id', $user_id)->
                             where('year', $year)->
                             where('month', $month)->
                             where('number', $number)->
-                            get()->
-                            first();
-
-        $payment->content = $content;
-        $payment->amount = $amount;
-
-        return $payment->save();
+                            update(
+                                [
+                                    'content' => $content,
+                                    'amount' => $amount
+                                ]
+                            );
     }
 
     public function updateMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
