@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use DB;
-use App\Spend;
 use App\User;
+use App\Spend;
 use App\Expense;
 use App\Payment;
 use App\Monthly_input;
@@ -193,6 +193,24 @@ class MonelyzeDB
         $monthly_input->target_spending = $target_spending;
 
         return $monthly_input;
+    }
+
+    public function updateUserName($user_id, $new_name)
+    {
+        $user = User::find($user_id);
+
+        $user->name = $new_name;
+
+        return $user->save();
+    }
+
+    public function updateUserMail($user_id, $new_email)
+    {
+        $user = User::find($user_id);
+
+        $user->name = $new_email;
+
+        return $user->save();
     }
 
     /*************************************** delete ****************************************/
