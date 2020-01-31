@@ -6,6 +6,20 @@
 @include('layouts.header')
 
 @section('content')
+
+@if (Session::has('message'))
+<p>⚠{{ session('message') }}</p>
+@endif
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="container-fluid">
     <div class="row">
         <div class="offset-3 col-6 monthlyInput-div">
@@ -14,12 +28,13 @@
             <div class="row">
                 <div class="offset-2 col-8 inner-div rounded">
                     <h2>{{ $year }}年{{ $month }}月</h2>
+
                     <form action="/monthlyInput/{{ $year }}/{{ $month }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
                             <label for="">収入</label>
-                            <input class="form-control" type="text" nama="take_amount">
+                            <input class="form-control" type="text" name="take_amount">
                             <small class="text-muted">今月の収入を入力してください。</small>
                         </div>
 
@@ -33,6 +48,7 @@
                     </form>
                 </div>
             </div>
+            
         </div><!-- col -->
     </div><!-- row -->
 </div><!-- container -->
