@@ -127,8 +127,8 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label id="input1" for="exampleSelect1exampleFormControlSelect1">費目の選択</label>
-                        <select id="select-1" class="form-control" id="exampleFormControlSelect1">
+                        <label for="input1">費目の選択</label>
+                        <select class="form-control" id="input1">
                             @foreach($expenses as $e)
                             <option>{{ $e->name }}</option>
                             @endforeach
@@ -136,12 +136,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="1nput2">内容</label>
+                        <label for="input2">内容</label>
                         <input type="text" class="form-control" id="input2" placeholder="内容を記入">
                     </div>
 
                     <div class="form-group">
-                        <label for="1nput3">金額</label>
+                        <label for="input3">金額</label>
                         <input type="text" class="form-control" id="input3" placeholder="金額を記入">
                     </div>
                 </form>
@@ -160,7 +160,8 @@
         const expense = this.children[0].textContent;
         const content = this.children[1].textContent;
         const amount = this.children[2].textContent;
-        
+        cosole.dir()
+
         //設定
         $("#input1").selectIndex = 4;
         $("#input2").val(content);
