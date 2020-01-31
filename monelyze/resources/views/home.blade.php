@@ -60,23 +60,6 @@
                             </div>
 
                             <div class="table-responsive">
-                                <table class="table table-Light table-hover table-bordered">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th class="text-center">費目</th>
-                                            <th class="text-center">金額</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach($monthly_expense_consumptions as $mec)
-                                    <tr>
-                                        <td class="text-center">{{ $mec->name }}</td>
-                                        <td class="text-center">{{ $mec->total }}円</td>
-                                    </tr>
-                                    @endforeach
-                                </table>
-                            </div>
-
-                            <div class="table-responsive">
                                 <table class="table  table-bordered table-striped table-hover">
                 
                                     <thead class="thead-light">
@@ -98,6 +81,24 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-Light table-hover table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th class="text-center">費目</th>
+                                            <th class="text-center">金額</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach($monthly_expense_consumptions as $mec)
+                                    <tr>
+                                        <td class="text-center">{{ $mec->name }}</td>
+                                        <td class="text-center">{{ $mec->total }}円</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div><!-- 入れ子col -->
