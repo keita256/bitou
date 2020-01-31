@@ -61,7 +61,7 @@
 
                     <div class="row">
                         <div class="offset-1 col-10 inner-div rounded">
-                            <form class="" action="/payment" method="post" accept-charset="UTF-8">
+                            <form class="" action="/payment/insert/{{ $year }}/{{ $month }}" method="post" accept-charset="UTF-8">
                                 @csrf
                                 <div class="form-group">
                                     <input class="form-controll" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">

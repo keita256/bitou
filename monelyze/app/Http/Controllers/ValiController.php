@@ -61,10 +61,8 @@ class ValiController extends Controller
         }
 
         $user_id = Auth::id();
-        $content = $request->content;
-        $amount = $request->amount;
 
-        MonelyzeDB::insertPayments($user_id, $year, $month, $number, $content, $amount);
+        MonelyzeDB::insertPayments($user_id, $year, $month, $request->payments);
 
         return redirect('/payment')
             ->with('message', '入力しました');

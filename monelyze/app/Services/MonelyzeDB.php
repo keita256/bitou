@@ -123,7 +123,7 @@ class MonelyzeDB
             $num = array_shift($num)->num;
 
             // データの登録
-            $new_payment = new Spend();
+            $new_payment = new Payment();
             $new_payment->user_id = $user_id;
             $new_payment->year = $year;
             $new_payment->month = $month;
