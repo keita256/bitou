@@ -32,5 +32,15 @@ function form_remove(cross_mark_el){
 
 //action属性変更
 function setAction(url) {
-    $('#form').attr('action', url);
+    $('#paymentForm').attr('action', url);
 }
+
+$(function() {
+	$(".dateChange").click(function() {
+        // value値を取得
+        const year = $("#selectYear").val();
+		const month = $("#selectMonth").val();
+        const url = "/payment/" + year + "/" + month;
+        $('.dateForm').attr('action', url);
+	});
+});
