@@ -36,12 +36,20 @@ nav {
     background-color: rgb(111, 216, 255);
 }
 
+ul {
+    text-align: center;
+}
+
 .nav-link.disabled {
     color: rgb(0, 0, 0)
 }
 
 .nav-link {
     color: rgb(0, 0, 0)
+}
+
+.nav-item {
+    display: block;
 }
 
 .logo-wrapper {
