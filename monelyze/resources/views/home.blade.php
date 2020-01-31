@@ -10,9 +10,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
-            <div class="title title0 ">
-                <h3 class="heading">{{ $display_date }}</h3>
-            </div>
+            <h3 class="heading">{{ $display_date }}</h3>
             <div class="table-responsive">
                 @if($spends != null)
                 <table class="table table-sm table-bordered table-striped table-hover">

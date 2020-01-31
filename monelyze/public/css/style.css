@@ -80,40 +80,6 @@ header .nav {
     margin-bottom: 1em;
 }
 
-.title {
-    margin: 0 auto;
-    padding: 10px 0;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-}
-
-.heading {
-    margin: 10px 0
-}
-
-.title0 .heading {
-    position: relative;
-    padding-left: 40px;
-}
-
-.title0 .heading:before,
-.title0 .heading:after {
-    content: "□";
-    position: absolute;
-    width: 4px;
-    height: 4px;
-}
-
-.title0 .heading:before {
-    left: 0;
-    top: -3px;
-}
-
-.title0 .heading:after {
-    left: 5.5px;
-    top: 3.5px;
-}
-
 .main-content {
     margin-bottom: 15px;
     background-color: rgb(255, 255, 255);
@@ -286,6 +252,20 @@ table tr .adjacent-month .day-contents {
 /* 月初入力ページ　ここから */
 .monthlyInput-div {
     background-color: rgb(255, 255, 255);
+}
+
+h3 {
+    padding: 0.25em 0.5em;
+    /*上下 左右の余白*/
+    color: rgb(54, 78, 150);
+    /*文字色*/
+    background: transparent;
+    /*背景透明に*/
+    border-left: solid 5px #7db4e6;
+    /*左線*/
+    border-bottom: solid 3px rgb(81, 106, 182);
+    margin: 15px auto;
+}
 }
 
 .monthlyInput-div h3 {
