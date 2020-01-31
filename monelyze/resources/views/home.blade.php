@@ -13,29 +13,6 @@
             <a href="/monthlyInput/{{ $year }}/{{ $month }}">月初入力</a>
             <h3 class="heading">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
 
-            <div class="table-responsive">
-                <table class="table table-sm table-bordered table-striped table-hover">
-
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col" class="align-middle text-nowrap text-center">収入</th>
-                            <th scope="col" class="align-middle text-nowrap text-center">目標支出</th>
-                        </tr>
-                    </thead>
-
-                    <!-- 月初入力データ -->
-
-                    <tbody data-placement="right">
-                        @foreach($monthly_input as $mi)
-                        <tr data-toggle="modal" data-target="#staticBackdrop">
-                            <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}</td>
-                            <td class="align-middle">{{ $mi->target_spending }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
             @if($spends != null)
             <div class="table-responsive">
                 <table class="table table-sm table-bordered table-striped table-hover">
@@ -96,6 +73,29 @@
                                         <td class="text-center">{{ $mec->total }}円</td>
                                     </tr>
                                     @endforeach
+                                </table>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table  table-bordered table-striped table-hover">
+                
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="align-middle text-nowrap text-center">収入</th>
+                                            <th scope="col" class="align-middle text-nowrap text-center">目標支出</th>
+                                        </tr>
+                                    </thead>
+                
+                                    <!-- 月初入力データ -->
+                
+                                    <tbody data-placement="right">
+                                        @foreach($monthly_input as $mi)
+                                        <tr data-toggle="modal" data-target="#staticBackdrop">
+                                            <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}</td>
+                                            <td class="align-middle">{{ $mi->target_spending }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
