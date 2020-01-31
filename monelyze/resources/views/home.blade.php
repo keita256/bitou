@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
-                                <h3 class="heading">{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
+                                <h3 class="heading">{{ $year }}年{{ $month }}月の費目ごとの<br>消費額</h3>
                             </div>
 
                             <div class="table-responsive">

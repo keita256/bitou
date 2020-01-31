@@ -68,6 +68,7 @@
                                     format: 'L'
                                 });
                             });
+
                         </script>
 
                         <button type="submit" class="btn btn-primary float-right">送信する</button>
