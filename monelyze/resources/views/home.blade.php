@@ -32,7 +32,7 @@
                         <tr data-toggle="modal" data-target="#staticBackdrop">
                             <td class="align-middle text-center text-nowrap">{{ $spend->name }}</td>
                             <td class="align-middle">{{ $spend->content }}</td>
-                            <td class="align-middle text-right text-nowrap">{{ $spend->amount }}</td>
+                            <td class="align-middle text-center text-nowrap">{{ $spend->amount }}円</td>
                         </tr>
                         @endforeach
                     </tbody>
