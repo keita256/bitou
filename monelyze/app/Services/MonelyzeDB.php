@@ -75,9 +75,9 @@ class MonelyzeDB
 
     public function insertSpends($user_id, $date, $spends)
     {
-        $expense = $spends->expesne_id;
-        $content = $spends->content;
-        $amount = $spends->amount;
+        $expense = $spends['expense_id'];
+        $content = $spends['content'];
+        $amount = $spends['amount'];
 
         $date = str_replace('/', '-', $date);
 
