@@ -20,12 +20,12 @@
                     <form action="/user/edit" method="post" accept-charset="UTF-8">
                         <div class="form-group">
                             <label for="">ユーザー名</label>
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" required type="text" value="">
                         </div>
 
                         <div class="form-group">
                             <label for="">新しいメールアドレス</label>
-                            <input class="form-control" type="email" value="">
+                            <input class="form-control" required type="email" value="">
                         </div>
 
                         <button type="submit" class="btn btn-primary float-right">送信する</button>
