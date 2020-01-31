@@ -6,8 +6,8 @@
 @section('content')
 <div class="container-fluid ">
     <div class="row">
-        <div class="col-10 offset-1 col-lg-4 offset-lg-4">
-            <h1 class="text-center">Monelyze</h1>
+        <div class="col-10 offset-1 col-lg-4 offset-lg-4 mt-5">
+            <img src="images/pigLogo.png" class="img-fluid mx-auto d-block mb-3" style="filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
 
             <form action="{{ url('/login') }}" method="POST">
                 {{ csrf_field() }}
@@ -15,7 +15,7 @@
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label for="email" class="control-label text-center">メールアドレス</label>
 
-                    <div class="justy-content-center">
+                    <div class="justify-content-center">
                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                         @if ($errors->has('email'))
@@ -29,7 +29,7 @@
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="password">パスワード</label>
 
-                    <div class="justy-content-center">
+                    <div class="justify-content-center">
                         <input id="password" type="password" class="form-control" name="password" required>
 
                         @if ($errors->has('password'))
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="justy-content-center">
+                    <div class="justify-content-center">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> 記憶する
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="justy-content-center">
+                    <div class="justify-content-center">
                         <a class="btn btn-link" href="{{ url('/register') }}">
                             アカウントを作成
                         </a>
@@ -66,7 +66,6 @@
                     </div>
                 </div>
             </form>
-            
         </div>
     </div><!-- row -->
 </div><!-- container -->
