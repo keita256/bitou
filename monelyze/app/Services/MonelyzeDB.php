@@ -105,10 +105,8 @@ class MonelyzeDB
         }
     }
 
-    public function insertPayments($user_id, $date, $payments)
-    {
-        $year = (int)substr($date, 0, 4);
-        $month = (int)substr($date, 5);  
+    public function insertPayments($user_id, $year, $month, $payments)
+    { 
         $content = $payments->content;
         $amount = $payments->amount;
         
