@@ -143,7 +143,7 @@ class MonelyzeDB
         $new_monthly_input->user_id = $user_id;
         $new_monthly_input->year = $year;
         $new_monthly_input->month = $month;
-        $new_monthly_input->taket_amount = $take_amount;
+        $new_monthly_input->take_amount = $take_amount;
         $new_monthly_input->target_spending = $target_spending;
 
         return $new_monthly_input->save();
@@ -235,7 +235,7 @@ class MonelyzeDB
                             get()->
                             first();
 
-        return $Payment->delete();
+        return $payment->delete();
     }
 
     /*************************************** データが存在するか ****************************************/
