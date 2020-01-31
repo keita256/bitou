@@ -36,6 +36,9 @@ class HomeController extends Controller
         // 家計簿データ取得
         $spends = MonelyzeDB::getSpends($user_id, $date);
 
+        // 費目の取得
+        $expenses = MonelyzeDB::getExpense();
+
         // 当月の費目ごとの消費額を取得
         $monthly_expense_consumptions = MonelyzeDB::getExpenseConsumption($user_id, $year, $month);
 
@@ -44,6 +47,7 @@ class HomeController extends Controller
 
         return view('home', compact(
             'spends',
+            'expenses',
             'year',
             'month',
             'day',
