@@ -12,9 +12,9 @@
                 <li><a class="nav-item nav-link button hvr-underline-reveal" href="/users/edit">ユーザー設定</a></li>
                 <li><a class="nav-item nav-link button hvr-underline-reveal" href="/monthlyInput">月初入力</a></li>
                 <li><a class="nav-item nav-link button hvr-underline-reveal" href="/payment">固定費入力</a></li>
-                @if(Auth::check())
-                <li><p class="nav-item">{{ Auth::user()->name }}さん</p></li>
-                @endif
+                <li>
+                    <p class="nav-item">{{ $username }}さん</p>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
