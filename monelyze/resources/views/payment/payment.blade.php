@@ -8,6 +8,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
+            <section class="">
+                <h3 class="" data-toggle="modal" data-target="#dateChange">{{ $year }}年{{ $month }}月</h3>
+            </section>
             <div class="title title0 ">
                 <h3 class="heading">固定費一覧</h3>
             </div>
@@ -23,9 +26,6 @@
             @if (Session::has('message'))
             <p>{{ session('message') }}</p>
             @endif
-            <section class="">
-                <h3 class="" data-toggle="modal" data-target="#dateChange">{{ $year }}年{{ $month }}月</h3>
-            </section>
             <div class="table-responsive">
                 @if($payments != null)
                 <table class="table table-sm table-bordered table-striped table-hover">
@@ -99,13 +99,13 @@
                                 <table class="table table-Light table-hover table-bordered">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>月</th>
-                                            <th>合計金額(円)</th>
+                                            <th class="text-center">月</th>
+                                            <th class="text-center">合計金額</th>
                                         </tr>
                                     </thead>
-                                    @for ($i = 0; $i < 12; $i++) <tr data-href="/payment/{{ $year }}{{ $monthArray[$i] }}">
-                                        <td>{{ $i + 1 }}</td>
-                                        <td>{{ $totalAmount[$i] }}</td>
+                                    @for ($i = 0; $i < 12; $i++) <tr data-href="/payment/{{ $year }}/{{ $i + 1 }}">
+                                        <td class="text-center">{{ $i + 1 }}</td>
+                                        <td class="text-center">{{ $totalAmount[$i] }}円</td>
                                         </tr>
                                         @endfor
                                 </table>
@@ -142,9 +142,9 @@
                         </div>
 
                         <div class="pull-left">
-                            <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}{{ $month }}/')">削除する</button>
+                            <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}/{{ $month }}/')">削除する</button>
                         </div>
-                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit/{{ $year }}{{ $month }}/')">変更を確定</button>
+                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit/{{ $year }}/{{ $month }}/')">変更を確定</button>
                     </form>
                 </div>
             </div>
@@ -164,15 +164,28 @@
                 <div class="modal-body">
                     <form action="/payment" method="get" id="" accept-charset="UTF-8">
                         @csrf
-                        <div class="form-group">
-                            
+                        <div class="form-row">
+                            <select class="form-controlle">
+                                @for ($i = -3; $i < 0; $i++)
+                                <option>{{ $year + $i }}</option>
+                                @endfor
+                                <option selected>{{ $year }}</option>
+                                @for ($i = 0; $i < 4; $i++)
+                                <option>{{ $year + $i }}</option>
+                                @endfor
+                            </select>
+                            <select class="form-controlle">
+                            @for ($i = 0; $i < $month -1 ; $i++) 
+                                <option>{{ $i + 1 }}</option>
+                                @endfor
+                                <option selected>{{ $month }}</option>
+                                @for ($i = $month + 1; $i < 13; $i++)
+                                <option>{{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
 
-                        <div class="form-group">
-                            
-                        </div>
-
-                        <button class="btn btn-primary pull-right">表示</button>
+                        <button class="btn btn-primary pull-right" onclick="setAction('/payment/{{ $year }}/{{ $month }}')">表示</button>
                     </form>
                 </div>
             </div>

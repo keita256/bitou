@@ -40,7 +40,7 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
-    public function receivePayment(Request $request)
+    public function receivePayment(Request $request, $yaer, $month)
     {
         \Log::debug($request->all());
 
@@ -60,7 +60,7 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        //ここ
+        //ここinsert
 
 
         return redirect('/payment')
