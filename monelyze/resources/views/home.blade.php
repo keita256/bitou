@@ -11,8 +11,9 @@
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
             <h3 class="heading">{{ $display_date }}</h3>
+
+            @if($spends != null)
             <div class="table-responsive">
-                @if($spends != null)
                 <table class="table table-sm table-bordered table-striped table-hover">
 
                     <thead class="thead-light">
@@ -35,10 +36,10 @@
                         @endforeach
                     </tbody>
                 </table>
-                @else
-                <h2>本日の入力データはありません。</h2>
-                @endif
             </div>
+            @else
+            <h2 class="text-center">本日の入力データはありません。</h2>
+            @endif
         </div><!-- col -->
 
         <div class="col-lg-3">
@@ -83,7 +84,8 @@
 </div><!-- container -->
 
 <!-- モーダルの設定 -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
