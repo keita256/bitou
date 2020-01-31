@@ -5,22 +5,19 @@
 @include('layouts.header')
 
 @section('content')
-<!--
-    @if (Session::has('message'))
-    <p>⚠{{ session('message') }}</p>
-    @endif
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <form action="/spend" method="post" accept-charset="UTF-8">
-        @csrf
--->
+
+@if (Session::has('message'))
+<p>⚠{{ session('message') }}</p>
+@endif
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 <div class="container-fluid">
     <div class="row">
@@ -33,7 +30,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <select class="form-controll" name="spends[expense_id][]" id="name_list">
+                            <select class="form-controll" name="spends[expense_id][]" id="name_list" accept-charset="UTF-8">
                                 <option selected disabled>費目名を選択してください。</option>
                                 @foreach($expenses as $expense)
                                 <option name="spends[expense_id][]" value="{{ $expense->expense_id }}">{{ $expense->name }}</option>
