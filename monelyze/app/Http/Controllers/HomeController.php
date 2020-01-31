@@ -27,16 +27,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
+        $user_id = Auth::id();
         $date = date("Y-m-d", time());
-        $display_date = date("Y年m月d日", time());
         $month = date("m", time());
         $year = date("Y", time());
+        $day = date("d", time());
 
-        $spends = MonelyzeDB::getSpends($id, $date);
-        $username = Auth::user()->name;
-        $monthly_consumptions = MonelyzeDB::getExpenseConsumption($id, $year, $month);
+        // 家計簿データ取得
+        $spends = MonelyzeDB::getSpends($user_id, $date);
 
-        return view('home', compact('spends', 'username', 'display_date', 'year', 'month', 'monthly_consumptions'));
+        // 当月の費目ごとの消費額を取得
+        $monthly_expense_consumptions = MonelyzeDB::getExpenseConsumption($user_id, $year, $month);
+
+        // 月初入力データの取得
+        $monthly_input = MonelyzeDB::getMonthlyInput($user_id, $year, $month);
+
+        return view('home', compact(
+            'spends',
+            'year',
+            'month',
+            'day',
+            'monthly_expense_consumptions',
+            'monthly_input'
+        ));
     }
 }
