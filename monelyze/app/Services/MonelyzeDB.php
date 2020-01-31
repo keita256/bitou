@@ -228,14 +228,11 @@ class MonelyzeDB
 
     public function deletePayment($user_id, $year, $month, $number)
     {
-        $payment = Payment::where('user_id', $user_id)->
+        return $payment = Payment::where('user_id', $user_id)->
                             where('year', $year)->
                             where('month', $month)->
                             where('number', $number)->
-                            get()->
-                            first();
-
-        return $payment->delete();
+                            delete();
     }
 
     /*************************************** データが存在するか ****************************************/
