@@ -56,8 +56,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
-                                <h3 class="heading">{{ $year }}年{{ $month }}月の費目ごとの消費額</h3>
+                                <h3 class="heading">{{ $year }}年{{ $month }}月の統計</h3>
                             </div>
+
+                            <h4>月初入力情報</h4>
 
                             <div class="table-responsive">
                                 <table class="table  table-bordered table-striped table-hover">
@@ -74,13 +76,15 @@
                                     <tbody data-placement="right">
                                         @foreach($monthly_input as $mi)
                                         <tr data-toggle="modal" data-target="#staticBackdrop">
-                                            <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}</td>
-                                            <td class="align-middle">{{ $mi->target_spending }}</td>
+                                            <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}円</td>
+                                            <td class="align-middle text-center text-nowrap">{{ $mi->target_spending }}円</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
+
+                            <h4>費目ごとの消費額</h4>
 
                             <div class="table-responsive">
                                 <table class="table table-Light table-hover table-bordered">
