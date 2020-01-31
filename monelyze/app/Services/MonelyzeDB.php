@@ -153,17 +153,16 @@ class MonelyzeDB
 
     public function updateSpend($user_id, $date, $number, $exepense_id, $content, $amount)
     {
-        $spend = Spend::where('user_id', $user_id)->
+        return $spend = Spend::where('user_id', $user_id)->
                         where('date', $date)->
                         where('number', $number)->
-                        get()->
-                        first();
-        
-        $spend->expense_id = $new_spend->expense_id;
-        $spend->content = $new_spend->content;
-        $spend->amount = $new_spend->amount;
-
-        return $spend->save();
+                        update(
+                            [
+                                'expense_id' => $expense_id,
+                                'content' => $content,
+                                'amount' => $amount
+                            ]
+                        );
     }
 
     public function updatePayment($user_id, $year, $month, $number, $content, $amount)
@@ -182,16 +181,15 @@ class MonelyzeDB
 
     public function updateMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
     {
-        $monthly_input = Monthly_input::where('user_id', $user_id)->
+        return $monthly_input = Monthly_input::where('user_id', $user_id)->
                                         where('year', $year)->
                                         where('month', $month)->
-                                        get()->
-                                        first();
-        
-        $monthly_input->take_amount = $take_amount;
-        $monthly_input->target_spending = $target_spending;
-
-        return $monthly_input;
+                                        update(
+                                            [
+                                                'take_amount' => $take_amount,
+                                                'target_speending' => $target_speending
+                                            ]
+                                        );
     }
 
     public function updateUserName($user_id, $new_name)
