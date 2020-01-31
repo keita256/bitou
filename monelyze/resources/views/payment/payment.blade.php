@@ -24,7 +24,7 @@
             <p>{{ session('message') }}</p>
             @endif
             <section class="">
-                <h3 class="">{{ $year }}年{{ $month }}月</h3>
+                <h3 class="" data-toggle="modal" data-target="#dateChange">{{ $year }}年{{ $month }}月</h3>
             </section>
             <div class="table-responsive">
                 @if($payments != null)
@@ -145,6 +145,34 @@
                             <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}{{ $month }}/')">削除する</button>
                         </div>
                         <button class="btn btn-primary pull-right" onclick="setAction('/payment/edit/{{ $year }}{{ $month }}/')">変更を確定</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="dateChange" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">日付変更</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="/payment" method="get" id="" accept-charset="UTF-8">
+                        @csrf
+                        <div class="form-group">
+                            
+                        </div>
+
+                        <div class="form-group">
+                            
+                        </div>
+
+                        <button class="btn btn-primary pull-right">表示</button>
                     </form>
                 </div>
             </div>
