@@ -44,3 +44,17 @@ $(function() {
         $('.dateForm').attr('action', url);
 	});
 });
+
+
+//値挿入
+$(function() {
+	$(".insertVal").click(function(value) {
+        const content = value.target.parentNode.children[0].textContent;
+        const amount = value.target.parentNode.children[1].textContent;
+        const number = value.target.parentNode.children[2].textContent;
+        //設定
+        $("#Input1").val(content);
+        $("#Input2").val(amount);
+        $("#Input3").val(number);
+	});
+});

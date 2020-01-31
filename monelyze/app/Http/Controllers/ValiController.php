@@ -11,7 +11,7 @@ use App\Http\Controllers\HomeController;
 
 class ValiController extends Controller
 {
-    public function receiveSpend(Request $request)
+    public function insertSpend(Request $request)
     {
         \Log::debug($request->all());
 
@@ -40,7 +40,7 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
-    public function receivePayment(Request $request, $yaer, $month)
+    public function insertPayment(Request $request, $year, $month)
     {
         \Log::debug($request->all());
 
@@ -60,14 +60,49 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        //ここinsert
+        $user_id = Auth::id();
+        $content = $request->content;
+        $amount = $request->amount;
 
+        MonelyzeDB::insertPayments($user_id, $year, $month, $number, $content, $amount);
 
         return redirect('/payment')
             ->with('message', '入力しました');
     }
 
-    public function receiveMonthlyInput(Request $request, $year, $month)
+    public function updatePayment(Request $request, $year, $month)
+    {
+        \Log::debug($request->all());
+
+        $username = Auth::user()->name;
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'payments.content.*' => 'required|string',
+            'payments.amount.*' => 'required|integer',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        $user_id = Auth::id();
+        $number = $request->number;
+        $content = $request->content;
+        $amount = $request->amount;
+
+        MonelyzeDB::updatePayment($user_id, $year, $month, $number, $content, $amount);
+
+        return redirect('/payment')
+            ->with('message', '更新しました');
+    }
+
+
+    public function insertMonthlyInput(Request $request, $year, $month)
     {
         \Log::debug($request->all());
 
@@ -93,7 +128,7 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
-    public function receiveUser(Request $request)
+    public function updateUser(Request $request)
     {
         \Log::debug($request->all());
 

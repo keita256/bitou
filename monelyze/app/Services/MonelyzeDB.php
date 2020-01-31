@@ -153,7 +153,7 @@ class MonelyzeDB
 
     public function updateSpend($user_id, $date, $number, $exepense_id, $content, $amount)
     {
-        $spend = Spend::where('user_id', $userid)->
+        $spend = Spend::where('user_id', $user_id)->
                         where('date', $date)->
                         where('number', $number)->
                         get()->

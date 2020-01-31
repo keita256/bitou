@@ -41,9 +41,10 @@
 
                     <tbody data-placement="right">
                         @foreach($payments as $payment)
-                        <tr data-toggle="modal" data-target="#staticBackdrop">
+                        <tr data-toggle="modal" data-target="#staticBackdrop" class="insertVal">
                             <td class="align-middle text-center">{{ $payment->content }}</td>
                             <td class="align-middle text-center text-nowrap">{{ $payment->amount }}</td>
+                            <td style="display:none">{{ $payment->number}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -133,13 +134,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="Input1">内容</label>
-                            <input type="text" class="form-control" id="Input1" name="content" placeholder="内容を記入">
+                            <input type="text" class="form-control" id="Input1" name="content" placeholder="内容を記入" value="">
                         </div>
 
                         <div class="form-group">
                             <label for="Input2">金額</label>
-                            <input type="text" class="form-control" id="Input2" name="amount" placeholder="金額を記入">
+                            <input type="text" class="form-control" id="Input2" name="amount" placeholder="金額を記入" value="">
                         </div>
+
+                        <input type="hidden" name="number" id="Input3" value="">
 
                         <div class="pull-left">
                             <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}/{{ $month }}')">削除する</button>
@@ -170,7 +173,7 @@
                                 <option value="{{ $year + $i }}">{{ $year + $i }}</option>
                                 @endfor
                                 <option value="{{ $year + $i }}" selected>{{ $year }}</option>
-                                @for ($i = 0; $i < 4; $i++)
+                                @for ($i = 1; $i < 4; $i++)
                                 <option value="{{ $year + $i }}">{{ $year + $i }}</option>
                                 @endfor
                             </select>
@@ -179,11 +182,11 @@
 
                         <div class="form-group">
                             <select class="form-controlle" id="selectMonth">
-                            @for ($i = 1; $i < $month; $i++) 
+                                @for ($i = 1; $i < $month; $i++) 
                                 <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                                 <option value="{{ $i }}" selected>{{ $month }}</option>
-                                @for ($i = $month + 1; $i < 13; $i++)
+                                @for ($i = $month; $i < 13; $i++)
                                 <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>

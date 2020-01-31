@@ -54,13 +54,18 @@ class PaymentController extends Controller
         ]);
     }
 
-    public function delete($year, $month)
+    public function delete(Request $request, $year, $month)
     {
         $id = Auth::id();
         $username = Auth::user()->name;
+        $number = $request->number;
 
-        //削除処理
+        MonelyzeDB::deletePayment($id, $year, $month, $number);
+        $payments = MonelyzeDB::getPayments($id, $year, $month);
+        $totalAmount = MonelyzeDB::getMonthlyFixedCosts($id, $year);
+        $totalAmount = MonthlyDataLogic::monthlyDataToArray($totalAmount);
 
-        return redirect();
+        return redirect('/payment/')
+            ->with('message', '入力しました');
     }
 }
