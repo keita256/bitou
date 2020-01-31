@@ -12,8 +12,8 @@
                 <li><a class="nav-item nav-link button" href="/monthlyInput">月初入力</a></li>
                 <li><a class="nav-item nav-link button" href="/payment">固定費入力</a></li>
                 <li><a class="nav-item nav-link button" href="/statistics">年度別統計</a></li>
-                @if(Auth::check())
             </ul>
+            @if(Auth::check())
             <ul class="navbar-nav">{{ Auth::user()->name }}さん</ul>
             @endif
         </div><!-- /.navbar-collapse -->
