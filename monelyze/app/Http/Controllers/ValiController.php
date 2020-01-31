@@ -19,15 +19,15 @@ class ValiController extends Controller
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'spends.expense_id.*' => 'required|integer',
-            'spends.content.*' => 'nullable|string',
-            'spends.amount.*' => 'required|integer',
+            'spends.expense_id.*' => 'required|integer|min:1|max:15',
+            'spends.content.*' => 'nullable|string|max:100',
+            'spends.amount.*' => 'required|integer|digits_between:1,11',
             'spend_date' => 'required|date',
         ]);
 
         // バリデーションエラーだった場合
         if ($validator->fails()) {
-            return redirect('/spend')
+            return back()
                 ->withErrors($validator)
                 ->with('message', '入力に誤りがあります');
         }
@@ -36,7 +36,7 @@ class ValiController extends Controller
         $user_id = Auth::id();
         MonelyzeDB::insertSpends($user_id, $request->spend_date, $request->spends);
 
-        return redirect('/spend')
+        return back()
             ->with('message', '入力しました');
     }
 
@@ -49,8 +49,8 @@ class ValiController extends Controller
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'payments.content.*' => 'required|string',
-            'payments.amount.*' => 'required|integer',
+            'payments.content.*' => 'required|string|max:100',
+            'payments.amount.*' => 'required|integer|digits_between:1,11',
         ]);
 
         // バリデーションエラーだった場合
@@ -64,7 +64,7 @@ class ValiController extends Controller
 
         MonelyzeDB::insertPayments($user_id, $year, $month, $request->payments);
 
-        return redirect('/payment')
+        return back()
             ->with('message', '入力しました');
     }
 
@@ -77,8 +77,8 @@ class ValiController extends Controller
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'payments.content.*' => 'required|string',
-            'payments.amount.*' => 'required|integer',
+            'payments.content.*' => 'required|string|max:100',
+            'payments.amount.*' => 'required|integer|digits_between:1,11',
         ]);
 
         // バリデーションエラーだった場合
@@ -95,7 +95,7 @@ class ValiController extends Controller
 
         MonelyzeDB::updatePayment($user_id, $year, $month, $number, $content, $amount);
 
-        return redirect('/payment')
+        return back()
             ->with('message', '更新しました');
     }
 
@@ -107,8 +107,8 @@ class ValiController extends Controller
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'take_amount' => 'required|integer',
-            'target_spending' => 'required|integer',
+            'take_amount' => 'required|integer|digits_between:1,11',
+            'target_spending' => 'required|integer|digits_between:1,11',
         ]);
 
         // バリデーションエラーだった場合
@@ -126,7 +126,7 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
-    public function updateUser(Request $request)
+    public function updateUserName(Request $request)
     {
         \Log::debug($request->all());
 
@@ -135,7 +135,6 @@ class ValiController extends Controller
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'name' => 'required|string',
             'email' => 'required|email',
         ]);
 
@@ -146,9 +145,31 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        return redirect('/user/edit')
-            ->with('message', '入力しました');
+        return back()
+            ->with('message', '更新しました');
     }
 
+    public function updateUserMail(Request $request)
+    {
+        \Log::debug($request->all());
+
+        $username = Auth::user()->name;
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+            
+            'email' => 'required|email',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        return back()
+            ->with('message', '更新しました');
+    }
 
 }
