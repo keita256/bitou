@@ -166,7 +166,7 @@ class MonelyzeDB
         return $spend->save();
     }
 
-    public function updatePayment($user_id, $year, $month, $content, $amount)
+    public function updatePayment($user_id, $year, $month, $number, $content, $amount)
     {
         $payment = Payment::where('user_id', $user_id)->
                             where('year', $year)->
