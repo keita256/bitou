@@ -29,7 +29,7 @@
 
                     <tbody data-placement="right">
                         @foreach($spends as $spend)
-                        <tr data-toggle="modal" data-target="#staticBackdrop">
+                        <tr class="modal-event" data-toggle="modal" data-target="#staticBackdrop">
                             <td class="align-middle text-center text-nowrap">{{ $spend->name }}</td>
                             <td class="align-middle">{{ $spend->content }}</td>
                             <td class="align-middle text-center text-nowrap">{{ $spend->amount }}円</td>
@@ -62,7 +62,7 @@
                             <h4>月初入力情報</h4>
 
                             <div class="table-responsive">
-                                <table class="table  table-bordered table-striped table-hover">
+                                <table class="table table-bordered table-hover">
                 
                                     <thead class="thead-light">
                                         <tr>
@@ -87,7 +87,7 @@
                             <h4>費目ごとの消費額</h4>
 
                             <div class="table-responsive">
-                                <table class="table table-Light table-hover table-bordered">
+                                <table class="table table-bordered">
                                     <thead class="thead-light">
                                         <tr>
                                             <th class="text-center">費目</th>
@@ -127,24 +127,22 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="exampleSelect1exampleFormControlSelect1">費目の選択</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>食費</option>
-                            <option>生活費</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label id="input1" for="exampleSelect1exampleFormControlSelect1">費目の選択</label>
+                        <select id="select-1" class="form-control" id="exampleFormControlSelect1">
+                            @foreach($expenses as $e)
+                            <option>{{ $e->name }}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="Input1">内容</label>
-                        <input type="text" class="form-control" id="Input1" placeholder="内容を記入">
+                        <label for="1nput2">内容</label>
+                        <input type="text" class="form-control" id="input2" placeholder="内容を記入">
                     </div>
 
                     <div class="form-group">
-                        <label for="Input2">金額</label>
-                        <input type="text" class="form-control" id="Input2" placeholder="金額を記入">
+                        <label for="1nput3">金額</label>
+                        <input type="text" class="form-control" id="input3" placeholder="金額を記入">
                     </div>
                 </form>
             </div>
@@ -156,6 +154,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(".modal-event").click(function() {
+        const expense = this.children[0].textContent;
+        const content = this.children[1].textContent;
+        const amount = this.children[2].textContent;
+        
+        //設定
+        $("#input1").selectIndex = 4;
+        $("#input2").val(content);
+        $("#input3").val(amount);
+    });
+</script>
 
 <!-- カレンダー生成 -->
 <script type="text/javascript">
