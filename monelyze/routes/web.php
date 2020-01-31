@@ -18,7 +18,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/spend', 'SpendController@spend');
-
 Route::post('/spend', 'ValiController@receiveSpend');
 
 Route::get('/users/edit', 'UserController@edit');

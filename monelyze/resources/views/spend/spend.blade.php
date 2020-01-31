@@ -29,7 +29,9 @@
 
             <div class="row">
                 <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10  inner-div rounded">
-                    <form action="">
+                    <form action="/spend" method="post">
+                        {{ csrf_field() }}
+
                         <div class="form-group">
                             <select class="form-controll" name="spends[expense_id][]" id="name_list">
                                 <option selected disabled>費目名を選択してください。</option>
