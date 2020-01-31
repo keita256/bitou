@@ -219,7 +219,7 @@ class MonelyzeDB
     {
         $spend = Spend::where('user_id', $user_id)->
                         where('date', $date)->
-                        where('number', $number)->
+                        where('number', (int)$number)->
                         get()->
                         first();
 
