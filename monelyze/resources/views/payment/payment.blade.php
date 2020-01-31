@@ -8,9 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
-            <section class="">
-                <h3 class="" data-toggle="modal" data-target="#dateChange">{{ $year }}年{{ $month }}月</h3>
-            </section>
+            <h3 class="">{{ $year }}年{{ $month }}月 <button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
             <div class="title title0 ">
                 <h3 class="heading">固定費一覧</h3>
             </div>
@@ -169,26 +167,22 @@
                         @csrf
                         <div class="form-row">
                             <select class="form-controlle" id="selectYear">
-                                @for ($i = -3; $i < 0; $i++)
-                                <option value="{{ $year + $i }}">{{ $year + $i }}</option>
-                                @endfor
-                                <option value="{{ $year + $i }}" selected>{{ $year }}</option>
-                                @for ($i = 1; $i < 4; $i++)
-                                <option value="{{ $year + $i }}">{{ $year + $i }}</option>
-                                @endfor
+                                @for ($i = -3; $i < 0; $i++) <option value="{{ $year + $i }}">{{ $year + $i }}</option>
+                                    @endfor
+                                    <option value="{{ $year + $i }}" selected>{{ $year }}</option>
+                                    @for ($i = 1; $i < 4; $i++) <option value="{{ $year + $i }}">{{ $year + $i }}</option>
+                                        @endfor
                             </select>
                             <div>年</div>
                         </div>
 
                         <div class="form-group">
                             <select class="form-controlle" id="selectMonth">
-                                @for ($i = 1; $i < $month; $i++) 
-                                <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                                <option value="{{ $i }}" selected>{{ $month }}</option>
-                                @for ($i = $month; $i < 13; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
+                                @for ($i = 1; $i < $month; $i++) <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                    <option value="{{ $i }}" selected>{{ $month }}</option>
+                                    @for ($i = $month; $i < 13; $i++) <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
                             </select>
                             <div>月</div>
                         </div>
