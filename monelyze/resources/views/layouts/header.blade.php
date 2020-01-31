@@ -6,16 +6,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="Navber">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="active"><a class="nav-item nav-link active button" href="/home">ホーム</a></li>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mr-auto">
                 <li><a class="nav-item nav-link button" href="/spend">入力</a></li>
                 <li><a class="nav-item nav-link button" href="/users/edit">ユーザー設定</a></li>
                 <li><a class="nav-item nav-link button" href="/monthlyInput">月初入力</a></li>
                 <li><a class="nav-item nav-link button" href="/payment">固定費入力</a></li>
                 @if(Auth::check())
-                <li><p class="nav-item">{{ Auth::user()->name }}さん</p></li>
-                @endif
             </ul>
+            <ul class="navbar-nav">{{ Auth::user()->name }}さん</ul>
+            @endif
         </div><!-- /.navbar-collapse -->
     </nav>
 </header>
