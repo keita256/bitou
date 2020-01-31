@@ -67,17 +67,15 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
-    public function receiveMonthlyInput(Request $request)
+    public function receiveMonthlyInput(Request $request, $year, $month)
     {
         \Log::debug($request->all());
-
-        $username = Auth::user()->name;
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
             'take_amount' => 'required|integer',
-            'target_spenging' => 'required|integer',
+            'target_spending' => 'required|integer',
         ]);
 
         // バリデーションエラーだった場合
@@ -87,7 +85,11 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        return redirect('/mothlyInput')
+        // 登録処理
+        $user_id = Auth::id();
+        MonelyzeDB::insertMonthlyInput($user_id, $year, $month, $request->take_amount, $request->target_spending);
+
+        return redirect('/monthlyInput/' . $year . '/' . $month)
             ->with('message', '入力しました');
     }
 
