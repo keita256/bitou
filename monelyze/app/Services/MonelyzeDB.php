@@ -107,8 +107,8 @@ class MonelyzeDB
 
     public function insertPayments($user_id, $year, $month, $payments)
     { 
-        $content = $payments->content;
-        $amount = $payments->amount;
+        $content = $payments['content'];
+        $amount = $payments['amount'];
         
         for($i = 0; $i < count($content); $i++) {
             // 次のレコードに付与する連番の取得
