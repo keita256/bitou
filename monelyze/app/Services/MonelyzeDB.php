@@ -32,7 +32,7 @@ class MonelyzeDB
     public function getSpends($user_id, $date)
     {
         $spends = DB::select(
-            'select date, name, content, amount from spends st inner join expenses et on st.expense_id = et.expense_id
+            'select st.expense_id, date, name, content, amount from spends st inner join expenses et on st.expense_id = et.expense_id
             where user_id = :user_id and date = :date',
             [
                 'user_id' => $user_id,
