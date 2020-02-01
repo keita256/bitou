@@ -157,7 +157,7 @@ class ValiController extends Controller
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
-            
+
             'email' => 'required|email',
         ]);
 
@@ -167,6 +167,8 @@ class ValiController extends Controller
                 ->withErrors($validator)
                 ->with('message', '入力に誤りがあります');
         }
+
+        
 
         return back()
             ->with('message', '更新しました');

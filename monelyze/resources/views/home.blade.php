@@ -63,19 +63,19 @@
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover">
-                
+
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col" class="align-middle text-nowrap text-center">収入</th>
                                             <th scope="col" class="align-middle text-nowrap text-center">目標支出</th>
                                         </tr>
                                     </thead>
-                
+
                                     <!-- 月初入力データ -->
-                
+
                                     <tbody data-placement="right">
                                         @foreach($monthly_input as $mi)
-                                        <tr data-toggle="modal" data-target="#staticBackdrop">
+                                        <tr class="modalMonthly" data-toggle="modal" data-target="#monthlyInput">
                                             <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}円</td>
                                             <td class="align-middle text-center text-nowrap">{{ $mi->target_spending }}円</td>
                                         </tr>
@@ -113,8 +113,7 @@
 </div><!-- container -->
 
 <!-- モーダルの設定 -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -126,6 +125,7 @@
 
             <div class="modal-body">
                 <form action="" method="post">
+                    @csrf
                     <div class="form-group">
                         <label for="input1">費目の選択</label>
                         <select class="form-control" id="input1">
@@ -150,11 +150,43 @@
                 </form>
             </div>
 
-            
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="monthlyInput" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">月初入力編集</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/monthlyInput/{{ $year }}/{{ $month }}" method="post">
+                @method('PUT')
+                @csrf
+                    <div class="form-group">
+                        <label for="income">収入</label>
+                        <input type="text" class="form-control" id="income">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">目標支出</label>
+                        <input type="text" class="form-control" id="target">
+                    </div>
+
+                    <button class="btn btn-primary">変更を確定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
 <script>
     $(".modal-event").click(function() {
         const expense = this.children[0].getAttribute("value");
@@ -166,12 +198,22 @@
         $("#input2").val(content);
         $("#input3").val(amount);
     });
+
+    $(".modalMonthly").click(function() {
+        const income = this.children[0].textContent;
+        const target = this.children[1].textContent;
+
+        const setIncome = income.replace('円', '');
+        const setTarget = target.replace('円', '');
+        //設定
+        $("#income").val(setIncome);
+        $("#target").val(setTarget);
+    });
 </script>
 
 <!-- カレンダー生成 -->
 <script type="text/javascript">
     $('#clndr').clndr();
-
 </script>
 
 @endsection

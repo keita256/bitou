@@ -40,6 +40,14 @@ class ExpensesTableSeeder extends Seeder
                 'name' => '娯楽費',
                 'description' => '余暇時間・自由時間にまつわる費用',
             ],
+            [
+                'name' => '美容・被服費',
+                'description' => '美容院や洋服などにかかる費用',
+            ],
+            [
+                'name' => 'その他',
+                'description' => '他のカテゴリに当てはまらない費用',
+            ],
         ];
 
         // 登録
