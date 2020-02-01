@@ -7,13 +7,16 @@
         </button>
         <div class="collapse navbar-collapse" id="Navber">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mr-auto">
-                <li><a class="nav-item nav-link button" href="/spend">入力</a></li>
-                <li><a class="nav-item nav-link button" href="/users/edit">ユーザー設定</a></li>
+                <li><a class="nav-item nav-link button" href="/spend">家計簿入力</a></li>
                 <li><a class="nav-item nav-link button" href="/payment">固定費入力</a></li>
                 <li><a class="nav-item nav-link button" href="/statistics">年度別統計</a></li>
+                <li><a class="nav-item nav-link button" href="/users/edit">ユーザー設定</a></li>
             </ul>
             @if(Auth::check())
             <ul class="navbar-nav">{{ Auth::user()->name }}さん</ul>
+            @endif
+            @if(Auth::check())
+            <ul class="navbar-nav ml-3"><a href="/logout">ログアウト</a></ul>
             @endif
         </div><!-- /.navbar-collapse -->
     </nav>
