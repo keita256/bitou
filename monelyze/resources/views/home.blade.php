@@ -147,7 +147,7 @@
                     </div>
 
                     <input type="hidden" name="number" id="setVal" value="">
-                    <input type="hidden" name="date" value="{{ $year }}-{{ $month }}-{{ $day }}">
+                    <input type="hidden" name="spend_date" value="{{ $year }}-{{ $month }}-{{ $day }}">
 
                     <div class="pull-left">
                         <button class="btn btn-primary btn-sm" onclick="setAction('/spend/delete')">削除する</button>

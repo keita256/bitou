@@ -44,7 +44,6 @@ class ValiController extends Controller
     {
         \Log::debug($request->all());
 
-
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
@@ -64,9 +63,9 @@ class ValiController extends Controller
         $user_id = Auth::id();
         $date = $request->spend_date;
         $number = $request->number;
-        $expense_id = $request->spends->expense_id;
-        $content = $request->spends->content;
-        $amount = $request->spends->amount;
+        $expense_id = $request->expense_id;
+        $content = $request->content;
+        $amount = $request->amount;
 
         // 登録処理
         MonelyzeDB::updateSpend($user_id, $date, $number, $expense_id, $content, $amount);
