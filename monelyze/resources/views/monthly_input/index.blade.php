@@ -22,11 +22,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-3 col-6 monthlyInput-div">
+        <div class="offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
             <h3>月初入力</h3>
 
             <div class="row">
-                <div class="offset-2 col-8 inner-div rounded">
+                <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10 inner-div rounded">
                     <h2>{{ $year }}年{{ $month }}月</h2>
 
                     <form action="/monthlyInput/{{ $year }}/{{ $month }}" method="post">
@@ -48,7 +48,6 @@
                     </form>
                 </div>
             </div>
-            
         </div><!-- col -->
     </div><!-- row -->
 </div><!-- container -->
