@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/home/{year}/{month}/{day}', 'HomeController@show');
 
 Route::get('/logout', 'LogoutController@logout');
 
