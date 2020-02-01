@@ -18,6 +18,7 @@ class HomeController extends Controller
     {
         date_default_timezone_set('Asia/Tokyo');
         $this->middleware('auth');
+        $this->middleware('checkMonth');
     }
 
     /**
