@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/logout', 'LogoutController@logout');
+
 Route::get('/spend', 'SpendController@spend');
 Route::post('/spend', 'ValiController@insertSpend');
 Route::post('/spend/edit', 'ValiController@updateSpend');
