@@ -212,13 +212,10 @@ class MonelyzeDB
 
     public function deleteSpend($user_id, $date, $number)
     {
-        $spend = Spend::where('user_id', $user_id)->
+        return $spend = Spend::where('user_id', $user_id)->
                         where('date', $date)->
                         where('number', (int)$number)->
-                        get()->
-                        first();
-
-        return $spend->delete();
+                        delete();
     }
 
     public function deletePayment($user_id, $year, $month, $number)
