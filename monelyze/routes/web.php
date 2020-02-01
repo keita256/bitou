@@ -15,6 +15,10 @@ use App\Http\Controllers\PaymentController;
 
 Auth::routes();
 
+Route::get('/', function () {
+    return view('/auth/login');
+});
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/spend', 'SpendController@spend');
@@ -38,6 +42,4 @@ Route::post('/payment/insert/{year}/{month}', 'ValiController@insertPayment');
 Route::post('/payment/edit/{year}/{month}/', 'ValiController@updatePayment');
 Route::post('/payment/delete/{year}/{month}/', 'PaymentController@delete');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
