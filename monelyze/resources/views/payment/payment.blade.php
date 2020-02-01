@@ -8,10 +8,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
-            <h3 class="">{{ $year }}年{{ $month }}月 <button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
-            <div class="title title0 ">
-                <h3 class="heading">固定費一覧</h3>
-            </div>
+            <h3 class="">{{ $year }}年{{ $month }}月 固定費一覧<button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
