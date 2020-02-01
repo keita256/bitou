@@ -12,7 +12,9 @@
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
             <!-- 月初入力されてない場合、入力を促す文字列表示 -->
             @if(!$monthly_input_data_is_empty)
-            <p>月初入力情報を<a href="/monthlyInput/{{ $year }}/{{ $month }}">ここから</a>入力してください。</p>
+            <u>
+                <p class="text-center" style="border-color: red;">※月初入力情報を<a href="/monthlyInput/{{ $year }}/{{ $month }}">ここから</a>入力してください。</p>
+            </u>
             @endif
 
             <h3 class="heading">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
