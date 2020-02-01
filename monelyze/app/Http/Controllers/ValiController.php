@@ -40,6 +40,41 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
+    public function updateSpend(Request $request)
+    {
+        \Log::debug($request->all());
+
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'spends.expense_id.*' => 'required|integer|min:1|max:15',
+            'spends.content.*' => 'nullable|string|max:100',
+            'spends.amount.*' => 'required|integer|digits_between:1,11',
+            'spend_date' => 'required|date',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        $user_id = Auth::id();
+        $date = $request->spend_date;
+        $number = $request->number;
+        $expense_id = $request->spends->expense_id;
+        $content = $request->spends->content;
+        $amount = $request->spends->amount;
+
+        // 登録処理
+        MonelyzeDB::insertSpends($user_id, $date, $number, $expense_id, $content,$amount);
+
+        return back()
+            ->with('message', '入力しました');
+    }
+
     public function insertPayment(Request $request, $year, $month)
     {
         \Log::debug($request->all());

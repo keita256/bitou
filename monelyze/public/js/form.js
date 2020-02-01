@@ -32,7 +32,7 @@ function form_remove(cross_mark_el){
 
 //action属性変更
 function setAction(url) {
-    $('#paymentForm').attr('action', url);
+    $('.changeAction').attr('action', url);
 }
 
 $(function() {

@@ -23,4 +23,16 @@ class SpendController extends Controller
 
         return view('spend/spend', compact('username', 'expenses'));
     }
+
+    public function delete(Request $request)
+    {
+        $id = Auth::id();
+        $date = $request->date;
+        $number = $request->number;
+
+        MonelyzeDB::deleteSpend($id, $date, $number);
+
+        return back()
+            ->with('message', '削除しました');
+    }
 }

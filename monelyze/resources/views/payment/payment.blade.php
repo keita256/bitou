@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="/payment" method="post" class="changeAction" id="paymentForm" accept-charset="UTF-8">
+                    <form action="/payment" method="post" class="changeAction" accept-charset="UTF-8">
                         @csrf
                         <div class="form-group">
                             <label for="Input1">内容</label>
