@@ -45,6 +45,10 @@ class HomeController extends Controller
         // 月初入力データの取得
         $monthly_input = MonelyzeDB::getMonthlyInput($user_id, $year, $month);
 
+        // 月初入力データが存在するか
+        $monthly_input_data_is_empty = MonelyzeDB::isEmptyMonthlyInput($user_id, $year, $month);
+        $monthly_input_data_is_empty = array_shift($monthly_input_data_is_empty)->emp;
+
         return view('home', compact(
             'spends',
             'expenses',
@@ -52,7 +56,8 @@ class HomeController extends Controller
             'month',
             'day',
             'monthly_expense_consumptions',
-            'monthly_input'
+            'monthly_input',
+            'monthly_input_data_is_empty'
         ));
     }
 
@@ -72,6 +77,10 @@ class HomeController extends Controller
 
         // 月初入力データの取得
         $monthly_input = MonelyzeDB::getMonthlyInput($user_id, $year, $month);
+
+        // 月初入力データが存在するか
+        $monthly_input_data_is_empty = MonelyzeDB::isEmptyMonthlyInput($user_id, $year, $month);
+        $monthly_input_data_is_empty = array_shift($monthly_input_data_is_empty)->emp;
 
         return view('home', compact(
             'spends',
