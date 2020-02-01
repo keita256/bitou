@@ -246,13 +246,9 @@ class MonelyzeDB
         return $result;
     }
 
-    /*************************************** 複雑なget ****************************************/
-
     // 指定された年月の月初入力レコードが存在するか取得(middlewareで使用)
-    public function getEmptyMonthlyInput($user_id, $year, $month)
+    public function isEmptyMonthlyInput($user_id, $year, $month)
     {
-        $month = 1;
-
         $result = DB::select(
             'select count(*) as emp from monthly_inputs where user_id = :user_id and year = :year and month = :month',
             [
@@ -264,6 +260,8 @@ class MonelyzeDB
 
         return $result;
     }
+
+    /*************************************** 複雑なget ****************************************/
 
     // 指定された年月の月初入力データ取得
     public function getMonthlyInputData($user_id, $year, $month)
