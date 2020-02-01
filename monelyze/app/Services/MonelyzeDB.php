@@ -185,7 +185,7 @@ class MonelyzeDB
                                         update(
                                             [
                                                 'take_amount' => $take_amount,
-                                                'target_speending' => $target_speending
+                                                'target_spending' => $target_spending
                                             ]
                                         );
     }

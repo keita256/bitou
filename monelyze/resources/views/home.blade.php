@@ -124,7 +124,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="" method="post">
+                <form action="/spend" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="input1">費目の選択</label>
@@ -145,8 +145,12 @@
                         <input type="text" class="form-control" id="input3" placeholder="金額を記入">
                     </div>
 
-                    <button type="button" class="btn btn-primary">変更を確定</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <div class="pull-left">
+                        <button class="btn btn-primary btn-sm" onclick="setAction('/payment/delete/{{ $year }}/{{ $month }}')">削除する</button>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary">変更を確定</button>
+                    </div>
                 </form>
             </div>
 
@@ -166,20 +170,21 @@
 
             <div class="modal-body">
                 <form action="/monthlyInput/{{ $year }}/{{ $month }}" method="post">
-                @method('PUT')
-                @csrf
+                    @method('PUT')
+                    @csrf
                     <div class="form-group">
                         <label for="income">収入</label>
-                        <input type="text" class="form-control" id="income">
+                        <input type="number" class="form-control" id="income" name="take_amount" require>
                     </div>
 
                     <div class="form-group">
                         <label for="">目標支出</label>
-                        <input type="text" class="form-control" id="target">
+                        <input type="number" class="form-control" id="target" name="target_spending" require>
                     </div>
 
-                    <button class="btn btn-primary">変更を確定</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <div class="pull-right">
+                        <button class="btn btn-primary">変更を確定</button>
+                    </div>
                 </form>
             </div>
 

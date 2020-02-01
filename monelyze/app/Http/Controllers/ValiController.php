@@ -126,6 +126,32 @@ class ValiController extends Controller
             ->with('message', '入力しました');
     }
 
+    public function updateMonthlyInput(Request $request, $year, $month)
+    {
+        \Log::debug($request->all());
+
+        // バリデーションルール
+        $validator = Validator::make($request->all(), [
+
+            'take_amount' => 'required|integer|digits_between:1,11',
+            'target_spending' => 'required|integer|digits_between:1,11',
+        ]);
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力に誤りがあります');
+        }
+
+        // 更新処理
+        $user_id = Auth::id();
+        MonelyzeDB::updateMonthlyInput($user_id, $year, $month, $request->take_amount, $request->target_spending);
+
+        return back()
+            ->with('message', '更新しました');
+    }
+
     public function updateUserName(Request $request)
     {
         \Log::debug($request->all());
@@ -168,7 +194,7 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        
+
 
         return back()
             ->with('message', '更新しました');
