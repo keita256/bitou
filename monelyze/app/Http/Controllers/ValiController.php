@@ -69,7 +69,7 @@ class ValiController extends Controller
         $amount = $request->spends->amount;
 
         // 登録処理
-        MonelyzeDB::insertSpends($user_id, $date, $number, $expense_id, $content,$amount);
+        MonelyzeDB::updateSpend($user_id, $date, $number, $expense_id, $content, $amount);
 
         return back()
             ->with('message', '入力しました');

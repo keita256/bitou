@@ -33,6 +33,7 @@
                             <td class="align-middle text-center text-nowrap" value="{{ $spend->expense_id }}">{{ $spend->name }}</td>
                             <td class="align-middle">{{ $spend->content }}</td>
                             <td class="align-middle text-center text-nowrap">{{ $spend->amount }}円</td>
+                            <td style="display:none">{{ $spend->number}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -128,7 +129,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="input1">費目の選択</label>
-                        <select class="form-control" id="input1">
+                        <select class="form-control" id="input1" name="expense_id">
                             @foreach($expenses as $e)
                             <option value="{{ $e->expense_id }}">{{ $e->name }}</option>
                             @endforeach
@@ -137,22 +138,22 @@
 
                     <div class="form-group">
                         <label for="input2">内容</label>
-                        <input type="text" class="form-control" id="input2" placeholder="内容を記入">
+                        <input type="text" class="form-control" id="input2" name="content" placeholder="内容を記入">
                     </div>
 
                     <div class="form-group">
                         <label for="input3">金額</label>
-                        <input type="text" class="form-control" id="input3" placeholder="金額を記入">
+                        <input type="text" class="form-control" id="input3" name="amount" placeholder="金額を記入">
                     </div>
 
-                    <input type="hidden" name="number" id="" value="">
+                    <input type="hidden" name="number" id="setVal" value="">
                     <input type="hidden" name="date" value="{{ $year }}-{{ $month }}-{{ $day }}">
 
                     <div class="pull-left">
                         <button class="btn btn-primary btn-sm" onclick="setAction('/spend/delete')">削除する</button>
                     </div>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-primary" onclick="setAction('/spend/edit')">変更を確定</button>
+                        <button class="btn btn-primary" onclick="setAction('/spend/edit')">変更を確定</button>
                     </div>
                 </form>
             </div>
@@ -200,12 +201,14 @@
         const expense = this.children[0].getAttribute("value");
         const content = this.children[1].textContent;
         const amount = this.children[2].textContent;
+        const number = this.children[3].textContent;
 
         const setAmount = amount.replace('円', '');
         //設定
         $("#input1").val(expense);
         $("#input2").val(content);
         $("#input3").val(setAmount);
+        $("#setVal").val(number);
     });
 
     $(".modalMonthly").click(function() {
