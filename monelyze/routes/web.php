@@ -16,6 +16,10 @@ use App\Http\Controllers\PaymentController;
 Auth::routes();
 
 Route::get('/', function () {
+    if(Auth::check()) {
+        return redirect('/home');
+    }
+
     return view('/auth/login');
 });
 
