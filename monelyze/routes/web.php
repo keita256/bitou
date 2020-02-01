@@ -33,12 +33,6 @@ Route::post('/users/mailSetting', 'UserController@mailSetting');
 Route::get('/statistics', 'StatisticsController@index');
 Route::get('/statistics/{year}', 'StatisticsController@show');
 
-Route::get('/monthlyInput', function () {
-    $year = date('Y', time());
-    $month = date('m', time());
-
-    return view('/monthly_input/index', compact('year', 'month'));
-});
 Route::get('/monthlyInput/{year}/{month}', 'MonthlyInputController@index');
 Route::post('/monthlyInput/{year}/{month}', 'ValiController@insertMonthlyInput');
 
