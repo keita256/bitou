@@ -118,14 +118,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">編集</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">家計簿編集</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form>
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="input1">費目の選択</label>
                         <select class="form-control" id="input1">
@@ -144,13 +144,13 @@
                         <label for="input3">金額</label>
                         <input type="text" class="form-control" id="input3" placeholder="金額を記入">
                     </div>
+
+                    <button type="button" class="btn btn-primary">変更を確定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                 </form>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">変更を確定</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-            </div>
+            
         </div>
     </div>
 </div>
