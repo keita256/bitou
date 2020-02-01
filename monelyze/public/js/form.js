@@ -34,7 +34,7 @@ function form_remove(cross_mark_el){
 function setAction(url) {
     $('.changeAction').attr('action', url);
 }
-
+//payment用
 $(function() {
 	$(".dateChange").click(function() {
         // value値を取得
@@ -44,7 +44,15 @@ $(function() {
         $('.dateForm').attr('action', url);
 	});
 });
-
+//statistics用
+$(function() {
+	$(".yearChange").click(function() {
+        // value値を取得
+        const year = $("#selectYear").val();
+        const url = "/statistics/" + year;
+        $('.dateForm').attr('action', url);
+	});
+});
 
 //値挿入
 $(function() {

@@ -12,7 +12,10 @@
         <div class="row">
             <div class="offset-1 col-10 page-div">
                 <!-- background-color:white -->
-                <h1>{{ $year }}年、家計簿統計情報</h1>
+                <h1>{{ $year }}年、家計簿統計情報
+                    <button class="btn btn-primary float-right" data-toggle="modal" data-target="#yearChange">年月変更</button>
+                </h1>
+                
 
                 <div class="row">
                     <div class="offset-1 col-10 content-div">
@@ -102,6 +105,41 @@
     </div><!-- container -->
 </body>
 
+<!-- モーダルの設定 -->
+<div class="modal fade" id="yearChange" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">年変更</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="" method="get" class="form-inline justify-content-between dateForm" accept-charset="UTF-8">
+                        @csrf
+                        <div class="form-row">
+                            <select class="form-controlle" id="selectYear">
+                                @for ($i = $year - 3; $i <= $year + 3; $i++)
+                                    @if ($year == $i)
+                                        <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @continue
+                                    @endif
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                            <div>年</div>
+                        </div>
+
+                        <button class="btn btn-primary pull-right yearChange">表示</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{{ asset('js/form.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // 変数宣言、初期化
