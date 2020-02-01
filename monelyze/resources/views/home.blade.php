@@ -10,7 +10,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
-            <a href="/monthlyInput/{{ $year }}/{{ $month }}">月初入力</a>
+            <!-- 月初入力されてない場合、入力を促す文字列表示 -->
+            @if(!$monthly_input_data_is_empty)
+            <p>月初入力情報を<a href="/monthlyInput/{{ $year }}/{{ $month }}">ここから</a>入力してください。</p>
+            @endif
+
             <h3 class="heading">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
 
             @if($spends != null)
@@ -75,6 +79,10 @@
                                     <!-- 月初入力データ -->
 
                                     <tbody data-placement="right">
+                                        @if($monthly_input == null)
+                                            <td class="align-middle text-center text-nowrap">0円</td>
+                                            <td class="align-middle text-center text-nowrap">0円</td>
+                                        @endif
                                         @foreach($monthly_input as $mi)
                                         <tr class="modalMonthly" data-toggle="modal" data-target="#monthlyInput">
                                             <td class="align-middle text-center text-nowrap">{{ $mi->take_amount }}円</td>
