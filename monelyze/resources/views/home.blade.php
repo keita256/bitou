@@ -17,7 +17,7 @@
             </u>
             @endif
 
-            <h3 class="heading">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
+            <h3 class="heading responsive-font-size">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
 
             @if($spends != null)
             <div class="table-responsive">
@@ -46,7 +46,7 @@
                 </table>
             </div>
             @else
-            <h2 class="text-center">本日の入力データはありません。</h2>
+            <h2 class="text-center responsive-font-size">本日の入力データはありません。</h2>
             @endif
         </div><!-- col -->
 
@@ -63,10 +63,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
-                                <h3 class="heading">{{ $year }}年{{ $month }}月の統計</h3>
+                                <h4 class="heading responsive-font-size">{{ $year }}年{{ $month }}月の統計</h4>
                             </div>
 
-                            <h4>月初入力情報</h4>
+                            <h5 class="responsive-font-size">月初入力情報</h5>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover">
@@ -95,7 +95,7 @@
                                 </table>
                             </div>
 
-                            <h4>費目ごとの消費額</h4>
+                            <h5 class="responsive-font-size">費目ごとの消費額</h5>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered">

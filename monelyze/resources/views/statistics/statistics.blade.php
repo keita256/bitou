@@ -12,7 +12,7 @@
         <div class="row">
             <div class="offset-1 col-10 page-div">
                 <!-- background-color:white -->
-                <h1>{{ $year }}年、家計簿統計情報
+                <h1 class="responsive-font-size">{{ $year }}年　家計簿統計情報
                     <button class="btn btn-primary float-right" data-toggle="modal" data-target="#yearChange">年月変更</button>
                 </h1>
                 
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="offset-1 col-10 content-div">
                         <!-- background-color:blue -->
-                        <h3>月毎の消費額</h3>
+                        <h3 class="responsive-font-size">月毎の消費額</h3>
 
                         <div class="row">
                             <div class="col-lg-8">
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="offset-1 col-10 content-div">
-                        <h3>月毎の節約額</h3>
+                        <h3 class="responsive-font-size">月毎の節約額</h3>
 
                         <div class="row">
                             <div class="col-lg-8">
@@ -67,7 +67,7 @@
 
                 <div class="row">
                     <div class="offset-1 col-10 content-div-last">
-                        <h3>月毎の残金</h3>
+                        <h3 class="responsive-font-size">月毎の残金</h3>
 
                         <div class="row">
                             <div class="col-lg-8">

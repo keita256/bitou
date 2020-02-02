@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
-            <h3 class="">{{ $year }}年{{ $month }}月 固定費一覧<button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
+            <h3 class="responsive-font-size">{{ $year }}年{{ $month }}月 固定費一覧<button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -46,14 +46,14 @@
                     </tbody>
                 </table>
                 @else
-                <h2>当該月の入力データはありません。</h2>
+                <h2 class="responsive-font-size">当該月の入力データはありません。</h2>
                 @endif
             </div>
 
 
             <div class="row">
                 <div class="col-12 payment-div">
-                    <h3>固定費入力</h3>
+                    <h3 class="responsive-font-size">固定費入力</h3>
 
                     <div class="row">
                         <div class="offset-1 col-10 inner-div rounded">
@@ -89,7 +89,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
-                                <h3 class="heading">{{ $year }}年の固定費一覧</h3>
+                                <h4 class="heading responsive-font-size">{{ $year }}年の固定費一覧</h4>
                             </div>
 
                             <div class="table-responsive">
