@@ -12,7 +12,7 @@
             </div>
             @if (session('status'))
             <div class="alert alert-success">
-                {{ session('status') }}
+                メールを送信しました。
             </div>
             @endif
 
