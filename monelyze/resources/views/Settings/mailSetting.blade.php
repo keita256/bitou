@@ -21,7 +21,7 @@
                     @csrf
                         <div class="form-group">
                             <label for="mail">新しいメールアドレス</label>
-                            <input class="form-control" id="mail" required type="email" value="">
+                            <input class="form-control" id="mail" name="userMail" required type="email" value="">
                         </div>
 
                         <button type="submit" class="btn btn-primary float-right">保存</button>

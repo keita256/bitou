@@ -89,7 +89,8 @@ class HomeController extends Controller
             'month',
             'day',
             'monthly_expense_consumptions',
-            'monthly_input'
+            'monthly_input',
+            'monthly_input_data_is_empty'
         ));
     }
 }
