@@ -66,8 +66,6 @@ class HomeController extends Controller
         $user_id = Auth::id();
         $date = $year . '-' . $month . '-' .$day;
 
-        \Log::debug("おるで");
-
         // 家計簿データ取得
         $spends = MonelyzeDB::getSpends($user_id, $date);
 

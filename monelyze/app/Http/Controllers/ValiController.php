@@ -13,9 +13,7 @@ class ValiController extends Controller
 {
     public function insertSpend(Request $request)
     {
-        \Log::debug($request->all());
-
-
+        
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
@@ -42,7 +40,6 @@ class ValiController extends Controller
 
     public function updateSpend(Request $request)
     {
-        \Log::debug($request->all());
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
@@ -76,9 +73,6 @@ class ValiController extends Controller
 
     public function insertPayment(Request $request, $year, $month)
     {
-        \Log::debug($request->all());
-
-        $username = Auth::user()->name;
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
@@ -104,7 +98,6 @@ class ValiController extends Controller
 
     public function updatePayment(Request $request, $year, $month)
     {
-        \Log::debug($request->all());
 
         $username = Auth::user()->name;
 
@@ -136,7 +129,6 @@ class ValiController extends Controller
 
     public function insertMonthlyInput(Request $request, $year, $month)
     {
-        \Log::debug($request->all());
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
@@ -162,7 +154,6 @@ class ValiController extends Controller
 
     public function updateMonthlyInput(Request $request, $year, $month)
     {
-        \Log::debug($request->all());
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
