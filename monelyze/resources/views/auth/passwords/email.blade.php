@@ -36,7 +36,7 @@
                         ログイン画面に戻る
                     </a>
                     <button type="submit" class="btn btn-primary float-right">
-                        パスワードをリセット
+                        メールを送信
                     </button>
                 </div>
             </form>

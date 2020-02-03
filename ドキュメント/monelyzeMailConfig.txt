@@ -4,3 +4,10 @@ hjiserFHsj76
 
 app-pass
 lkolcpgesytipmmq
+
+
+/**
+    * The password reset token.
+    * 
+   /** @var string */
+   public $token;
