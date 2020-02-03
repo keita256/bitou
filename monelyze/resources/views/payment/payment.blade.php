@@ -38,8 +38,8 @@
                     <tbody data-placement="right">
                         @foreach($payments as $payment)
                         <tr data-toggle="modal" data-target="#staticBackdrop" class="insertVal">
-                            <td class="align-middle text-center">{{ $payment->content }}</td>
-                            <td class="align-middle text-center text-nowrap">{{ $payment->amount }}</td>
+                            <td class="align-middle text-center table-optimisation">{{ $payment->content }}</td>
+                            <td class="align-middle text-center text-nowrap table-optimisation">{{ $payment->amount }}</td>
                             <td style="display:none">{{ $payment->number}}</td>
                         </tr>
                         @endforeach
