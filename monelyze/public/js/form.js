@@ -34,6 +34,19 @@ function form_remove(cross_mark_el){
 function setAction(url) {
     $('.changeAction').attr('action', url);
 }
+//home用
+$(function() {
+	$("#dateChange").click(function() {
+        // value値を取得
+        const date = $(".datetimepicker-input").val();
+        const dateArray = date.split("/");
+        const year = dateArray[0];
+        const month = dateArray[1];
+        const day = dateArray[2];
+        const url = "/home/" + year + "/" + month + "/" + day;
+        $('.dateForm').attr('action', url);
+	});
+});
 //payment用
 $(function() {
 	$(".dateChange").click(function() {

@@ -60,6 +60,26 @@
                         </div>
                     </div>
 
+                    <!-- datepicker -->
+                    <div class="row">
+                        <div class="form-group">
+                            <form class="dateForm" action="/home" method="get" accept-charset="UTF-8">
+                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                    <input type="text" name="date" placeholder="日付を選択"
+                                        class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                                        autocomplete="off">
+                                    <div class="input-group-append" data-target="#datetimepicker4"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right" id="dateChange">表示</button>
+                            </form>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col">
                             <div class="title title0">
@@ -230,6 +250,12 @@
         //設定
         $("#income").val(setIncome);
         $("#target").val(setTarget);
+    });
+
+    $(function() {
+        $('#datetimepicker4').datetimepicker({
+             format: 'L'
+        });
     });
 </script>
 
