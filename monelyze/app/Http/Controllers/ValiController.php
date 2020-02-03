@@ -181,12 +181,10 @@ class ValiController extends Controller
     {
         \Log::debug($request->all());
 
-        $username = Auth::user()->name;
-
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'email' => 'required|email',
+            'userName' => 'required|string',
         ]);
 
         // バリデーションエラーだった場合
@@ -196,7 +194,17 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
-        return back()
+        // 更新処理
+        $user_id = Auth::id();
+        MonelyzeDB::updateUserName($user_id, $request->userName);
+
+        $username = MonelyzeDB::getUserName($user_id);
+        $usermail = MonelyzeDB::getUserMail($user_id);
+
+        return view('/user', [
+            'username'=> $username,
+            'mail' => $usermail,
+        ])
             ->with('message', '更新しました');
     }
 
@@ -204,12 +212,10 @@ class ValiController extends Controller
     {
         \Log::debug($request->all());
 
-        $username = Auth::user()->name;
-
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
-            'email' => 'required|email',
+            'userMail' => 'required|email',
         ]);
 
         // バリデーションエラーだった場合
@@ -219,9 +225,17 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
+        // 更新処理
+        $user_id = Auth::id();
+        MonelyzeDB::updateUserMail($user_id, $request->userMail);
 
+        $username = MonelyzeDB::getUserName($user_id);
+        $usermail = MonelyzeDB::getUserMail($user_id);
 
-        return back()
+        return view('/user', [
+            'username'=> $username,
+            'mail' => $usermail,
+        ])
             ->with('message', '更新しました');
     }
 

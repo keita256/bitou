@@ -35,9 +35,9 @@ Route::post('/spend/delete', 'SpendController@delete');
 
 Route::get('/users/edit', 'UserController@index');
 Route::get('/users/nameSetting', 'UserController@nameSetting');
-Route::post('/users/nameSetting', 'UserController@nameSetting');
+Route::post('/users/nameSetting', 'ValiController@updateUserName');
 Route::get('/users/mailSetting', 'UserController@mailSetting');
-Route::post('/users/mailSetting', 'UserController@mailSetting');
+Route::post('/users/mailSetting', 'ValiController@updateUserMail');
 
 Route::get('/statistics', 'StatisticsController@index');
 Route::get('/statistics/{year}', 'StatisticsController@show');

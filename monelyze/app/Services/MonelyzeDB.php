@@ -21,6 +21,14 @@ class MonelyzeDB
         return $name;
     }
 
+    public function getUserMail($id)
+    {
+        $user = User::where('id', $id)->get()->first();
+        $mail = $user->email;
+
+        return $mail;
+    }
+
     public function getExpense()
     {
         $expenses = Expense::get();
@@ -203,7 +211,7 @@ class MonelyzeDB
     {
         $user = User::find($user_id);
 
-        $user->name = $new_email;
+        $user->email = $new_email;
 
         return $user->save();
     }

@@ -16,15 +16,6 @@
                     @if (Session::has('message'))
                     <p>{{ session('message') }}</p>
                     @endif
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
 
                     <form action="/spend" method="post">
                         {{ csrf_field() }}
