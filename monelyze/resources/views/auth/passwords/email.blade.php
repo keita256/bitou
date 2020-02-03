@@ -26,7 +26,7 @@
 
                     @if ($errors->has('email'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>入力内容に誤りがあります。</strong>
                     </span>
                     @endif
                 </div>
