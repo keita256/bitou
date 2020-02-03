@@ -65,7 +65,7 @@ class PaymentController extends Controller
         $totalAmount = MonelyzeDB::getMonthlyFixedCosts($id, $year);
         $totalAmount = MonthlyDataLogic::monthlyDataToArray($totalAmount);
 
-        return redirect('/payment')
+        return back()
             ->with('message', '削除しました');
     }
 }

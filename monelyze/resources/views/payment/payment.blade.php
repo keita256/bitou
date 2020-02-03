@@ -165,22 +165,26 @@
                         @csrf
                         <div class="form-row">
                             <select class="form-controlle" id="selectYear">
-                                @for ($i = -3; $i < 0; $i++) <option value="{{ $year + $i }}">{{ $year + $i }}</option>
-                                    @endfor
-                                    <option value="{{ $year + $i }}" selected>{{ $year }}</option>
-                                    @for ($i = 1; $i < 4; $i++) <option value="{{ $year + $i }}">{{ $year + $i }}</option>
-                                        @endfor
+                            @for ($i = $year - 3; $i <= $year + 3; $i++)
+                                    @if ($year == $i)
+                                        <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @continue
+                                    @endif
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
                             </select>
                             <div>年</div>
                         </div>
 
                         <div class="form-group">
                             <select class="form-controlle" id="selectMonth">
-                                @for ($i = 1; $i < $month; $i++) <option value="{{ $i }}">{{ $i }}</option>
-                                    @endfor
-                                    <option value="{{ $i }}" selected>{{ $month }}</option>
-                                    @for ($i = $month; $i < 13; $i++) <option value="{{ $i }}">{{ $i }}</option>
-                                        @endfor
+                            @for ($i = 1; $i <= 12; $i++)
+                                @if ($month == $i)
+                                    <option value="{{ $i }}" selected>{{ $i }}</option>
+                                    @continue
+                                @endif
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
                             </select>
                             <div>月</div>
                         </div>

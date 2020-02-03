@@ -30,8 +30,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <select class="form-controll" name="spends[expense_id][]" id="name_list"
-                                accept-charset="UTF-8">
+                            <select class="form-controll" name="spends[expense_id][]" id="name_list" accept-charset="UTF-8">
                                 <option selected disabled>費目名を選択してください。</option>
                                 @foreach($expenses as $expense)
                                 <option name="spends[expense_id][]" value="{{ $expense->expense_id }}">
@@ -41,28 +40,21 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="form-controll" type="text" placeholder="内容" name="spends[content][]"
-                                id="items_content" autocomplete="off" value="">
+                            <input class="form-controll" type="text" placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
                         </div>
 
                         <div class="form-group">
-                            <input class="form-controll" type="number" min="1" required placeholder="金額"
-                                name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
+                            <input class="form-controll" type="number" min="1" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
                         </div>
                         <div id="fixed">
                             <hr>
-                            <input type="button" value="フォームの追加"
-                                class="add pluralBtn btn btn-outline-primary btn-sm float-left"
-                                style="margin-bottom:1em;">
+                            <input type="button" value="フォームの追加" class="add pluralBtn btn btn-outline-primary btn-sm float-left" style="margin-bottom:1em;">
                         </div>
 
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                <input type="text" name="spend_date" placeholder="日付を選択"
-                                    class="form-control datetimepicker-input" data-target="#datetimepicker4"
-                                    autocomplete="off">
-                                <div class="input-group-append" data-target="#datetimepicker4"
-                                    data-toggle="datetimepicker">
+                                <input type="text" required name="spend_date" placeholder="日付を選択" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off">
+                                <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                     <div class="input-group-text">
                                         <i class="fa fa-calendar"></i>
                                     </div>
@@ -71,11 +63,11 @@
                         </div>
 
                         <script type="text/javascript">
-                        $(function() {
                             $('#datetimepicker4').datetimepicker({
-                                format: 'L'
+                                $('#datetimepicker4').datetimepicker({
+                                    format: 'L'
                             });
-                        });
+
                         </script>
 
                         <button type="submit" class="btn btn-primary float-right">送信する</button>
@@ -98,17 +90,14 @@
     </div>
 
     <div class="form-group">
-        <input class="form-controll" type="text" placeholder="内容" name="spends[content][]" id="items_content"
-            autocomplete="off" value="">
+        <input class="form-controll" type="text" placeholder="内容" name="spends[content][]" id="items_content" autocomplete="off" value="">
     </div>
 
     <div class="form-group">
-        <input class="form-controll" type="number" min="1" required placeholder="金額" name="spends[amount][]"
-            class="keyword" id="items_amount" autocomplete="off" value="">
+        <input class="form-controll" type="number" min="1" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
     </div>
     <div class="form-group clearfix">
-        <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除"
-            onClick="form_remove(this);">
+        <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除" onClick="form_remove(this);">
     </div>
 </div>
 

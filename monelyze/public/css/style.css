@@ -3,6 +3,8 @@ body {
     font-weight: bold;
     height: 100vh;
     background-color: rgb(235, 235, 235);
+    cursor: default;
+
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -253,7 +255,10 @@ table tr .adjacent-month .day-contents {
         font-size: 25px;
     }
 
-    .responsive-font-size h1, h2, h3, h4 {
+    .responsive-font-size h1,
+    h2,
+    h3,
+    h4 {
         font-size: 20px;
     }
 }
@@ -267,7 +272,8 @@ table tr .adjacent-month .day-contents {
     background-color: rgb(255, 255, 255);
 }
 
-h3, h4 {
+h3,
+h4 {
     padding: 0.25em 0.5em;
     /*上下 左右の余白*/
     color: rgb(54, 78, 150);
