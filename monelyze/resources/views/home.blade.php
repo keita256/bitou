@@ -70,8 +70,8 @@
                                             <i class="fa fa-calendar"></i>
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-primary float-right" id="dateChange">表示</button>
                                 </div>
-                                <button type="submit" class="btn btn-primary float-right" id="dateChange">表示</button>
                             </form>
                         </div>
                     </div>
