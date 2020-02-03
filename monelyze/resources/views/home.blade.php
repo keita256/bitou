@@ -6,7 +6,6 @@
 @include('layouts.header')
 
 @section('content')
-<script src="{{ asset('/js/clndr.js')}}"></script>
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
@@ -65,11 +64,8 @@
                         <div class="form-group">
                             <form class="dateForm" action="/home" method="get" accept-charset="UTF-8">
                                 <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                    <input type="text" name="date" placeholder="日付を選択"
-                                        class="form-control datetimepicker-input" data-target="#datetimepicker4"
-                                        autocomplete="off">
-                                    <div class="input-group-append" data-target="#datetimepicker4"
-                                        data-toggle="datetimepicker">
+                                    <input type="text" required name="date" placeholder="日付を選択" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off">
+                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar"></i>
                                         </div>
@@ -102,8 +98,8 @@
 
                                     <tbody data-placement="right">
                                         @if($monthly_input == null)
-                                            <td class="align-middle text-center text-nowrap">0円</td>
-                                            <td class="align-middle text-center text-nowrap">0円</td>
+                                        <td class="align-middle text-center text-nowrap">0円</td>
+                                        <td class="align-middle text-center text-nowrap">0円</td>
                                         @endif
                                         @foreach($monthly_input as $mi)
                                         <tr class="modalMonthly" data-toggle="modal" data-target="#monthlyInput">
@@ -254,16 +250,20 @@
 
     $(function() {
         $('#datetimepicker4').datetimepicker({
-             format: 'L'
+            format: 'L'
         });
     });
+
 </script>
 
 <script src="{{ asset('js/form.js') }}"></script>
+<link href="{{ asset('css/hover.css') }}" rel="stylesheet">
+<script src="{{ asset('/js/clndr.js')}}"></script>
 
 <!-- カレンダー生成 -->
 <script type="text/javascript">
     $('#clndr').clndr();
+
 </script>
 
 @endsection
