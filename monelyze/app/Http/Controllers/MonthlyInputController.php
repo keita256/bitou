@@ -15,11 +15,12 @@ class MonthlyInputController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($year, $month)
+    public function index($year, $month, $day)
     {
         return view('/monthly_input/index', compact(
             'year',
             'month',
+            'day'
         ));
     }
 }

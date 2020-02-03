@@ -42,8 +42,8 @@ Route::post('/users/mailSetting', 'ValiController@updateUserMail');
 Route::get('/statistics', 'StatisticsController@index');
 Route::get('/statistics/{year}', 'StatisticsController@show');
 
-Route::get('/monthlyInput/{year}/{month}', 'MonthlyInputController@index');
-Route::post('/monthlyInput/{year}/{month}', 'ValiController@insertMonthlyInput');
+Route::get('/monthlyInput/{year}/{month}/{day}', 'MonthlyInputController@index');
+Route::post('/monthlyInput/{year}/{month}/{day}', 'ValiController@insertMonthlyInput');
 Route::put('/monthlyInput/{year}/{month}', 'ValiController@updateMonthlyInput');
 
 Route::get('/payment', 'PaymentController@index');

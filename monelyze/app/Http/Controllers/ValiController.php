@@ -127,7 +127,7 @@ class ValiController extends Controller
     }
 
 
-    public function insertMonthlyInput(Request $request, $year, $month)
+    public function insertMonthlyInput(Request $request, $year, $month, $day)
     {
 
         // バリデーションルール
@@ -148,8 +148,7 @@ class ValiController extends Controller
         $user_id = Auth::id();
         MonelyzeDB::insertMonthlyInput($user_id, $year, $month, $request->take_amount, $request->target_spending);
 
-        return redirect('/monthlyInput/' . $year . '/' . $month)
-            ->with('message', '入力しました');
+        return redirect('/home/' . $year . '/' . $month . '/' . $day);
     }
 
     public function updateMonthlyInput(Request $request, $year, $month)

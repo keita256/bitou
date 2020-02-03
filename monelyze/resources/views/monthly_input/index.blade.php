@@ -18,20 +18,7 @@
                 <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10 inner-div rounded">
                     <h2>{{ $year }}年{{ $month }}月</h2>
 
-                    @if (Session::has('message'))
-                    <p>⚠{{ session('message') }}</p>
-                    @endif
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
-                    <form action="/monthlyInput/{{ $year }}/{{ $month }}" method="post">
+                    <form action="/monthlyInput/{{ $year }}/{{ $month }}/{{ $day }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">

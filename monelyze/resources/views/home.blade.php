@@ -12,7 +12,7 @@
             <!-- 月初入力されてない場合、入力を促す文字列表示 -->
             @if(!$monthly_input_data_is_empty)
             <u>
-                <p class="text-center" style="border-color: red;">※月初入力情報を<a href="/monthlyInput/{{ $year }}/{{ $month }}">ここから</a>入力してください。</p>
+                <p class="text-center" style="border-color: red;">※月初入力情報を<a href="/monthlyInput/{{ $year }}/{{ $month }}/{{ $day }}">ここから</a>入力してください。</p>
             </u>
             @endif
 
