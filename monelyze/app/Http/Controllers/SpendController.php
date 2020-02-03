@@ -27,7 +27,7 @@ class SpendController extends Controller
     public function delete(Request $request)
     {
         $id = Auth::id();
-        $date = $request->date;
+        $date = $request->spend_date;
         $number = $request->number;
 
         MonelyzeDB::deleteSpend($id, $date, $number);
