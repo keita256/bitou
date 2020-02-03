@@ -179,7 +179,6 @@ class ValiController extends Controller
 
     public function updateUserName(Request $request)
     {
-        \Log::debug($request->all());
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
@@ -210,12 +209,12 @@ class ValiController extends Controller
 
     public function updateUserMail(Request $request)
     {
-        \Log::debug($request->all());
 
         // バリデーションルール
         $validator = Validator::make($request->all(), [
 
             'userMail' => 'required|email',
+            'userReMail' => 'required|email',
         ]);
 
         // バリデーションエラーだった場合
@@ -223,6 +222,13 @@ class ValiController extends Controller
             return back()
                 ->withErrors($validator)
                 ->with('message', '入力に誤りがあります');
+        }
+
+        //確認処理
+        if ($request->userMail != $request->userReMail) {
+            return back()
+                ->withErrors($validator)
+                ->with('message', '入力されたメールアドレスが一致しません');
         }
 
         // 更新処理

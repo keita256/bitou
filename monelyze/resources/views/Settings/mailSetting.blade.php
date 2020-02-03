@@ -21,7 +21,12 @@
                     @csrf
                         <div class="form-group">
                             <label for="mail">新しいメールアドレス</label>
-                            <input class="form-control" id="mail" name="userMail" required type="email" value="">
+                            <input class="form-control" id="mail" name="userMail" required type="email" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remail">メールアドレスの再入力</label>
+                            <input class="form-control" id="remail" name="userReMail" required type="email" autocomplete="off">
                         </div>
 
                         <button type="submit" class="btn btn-primary float-right">保存</button>
