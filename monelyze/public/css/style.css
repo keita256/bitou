@@ -18,6 +18,10 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 26px;
 }
 
+.table-optimisation {
+    cursor: pointer;
+}
+
 .container.input {
     background-color: white;
 }
@@ -263,6 +267,9 @@ table tr .adjacent-month .day-contents {
     }
 }
 
+.modalMonthly {
+    cursor: pointer;
+}
 
 
 /* 統計ページ　ここまで */

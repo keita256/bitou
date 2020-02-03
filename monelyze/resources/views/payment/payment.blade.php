@@ -46,7 +46,7 @@
                     </tbody>
                 </table>
                 @else
-                <h2 class="responsive-font-size">当該月の入力データはありません。</h2>
+                <h2 class="responsive-font-size">固定費一覧より該当月を選択すると、ここに詳細が表示されます。</h2>
                 @endif
             </div>
 
@@ -101,8 +101,8 @@
                                         </tr>
                                     </thead>
                                     @for ($i = 0; $i < 12; $i++) <tr data-href="/payment/{{ $year }}/{{ $i + 1 }}">
-                                        <td class="text-center">{{ $i + 1 }}</td>
-                                        <td class="text-center">{{ $totalAmount[$i] }}円</td>
+                                        <td class="text-center table-optimisation">{{ $i + 1 }}</td>
+                                        <td class="text-center table-optimisation">{{ $totalAmount[$i] }}円</td>
                                         </tr>
                                         @endfor
                                 </table>
@@ -165,26 +165,22 @@
                         @csrf
                         <div class="form-row">
                             <select class="form-controlle" id="selectYear">
-                            @for ($i = $year - 3; $i <= $year + 3; $i++)
-                                    @if ($year == $i)
-                                        <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @continue
+                                @for ($i = $year - 3; $i <= $year + 3; $i++) @if ($year==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
+                                    @continue
                                     @endif
                                     <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
+                                    @endfor
                             </select>
                             <div>年</div>
                         </div>
 
                         <div class="form-group">
                             <select class="form-controlle" id="selectMonth">
-                            @for ($i = 1; $i <= 12; $i++)
-                                @if ($month == $i)
-                                    <option value="{{ $i }}" selected>{{ $i }}</option>
+                                @for ($i = 1; $i <= 12; $i++) @if ($month==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @continue
-                                @endif
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
+                                    @endif
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
                             </select>
                             <div>月</div>
                         </div>
