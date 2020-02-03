@@ -54,11 +54,11 @@
                         </div>
 
                         <script type="text/javascript">
-                            $('#datetimepicker4').datetimepicker({
+                            $(function() {
                                 $('#datetimepicker4').datetimepicker({
                                     format: 'L'
+                                });
                             });
-
                         </script>
 
                         <button type="submit" class="btn btn-primary float-right">送信する</button>
