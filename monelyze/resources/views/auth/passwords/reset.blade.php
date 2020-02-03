@@ -1,11 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.common')
+
+@section('title', 'パスワードをリセット')
+@include('layouts.head')
 
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-10 offset-1 col-lg-6 offset-lg-3 mt-5">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <div class="panel-heading"><h1 class="responsive-font-size">パスワードをリセット</h1></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -20,23 +23,23 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="control-label">現在のメールアドレス</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                            <div>
+                                <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>このパスワードリセットトークンは無効です。</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="control-label">パスワード</label>
 
-                            <div class="col-md-6">
+                            <div>
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -48,8 +51,8 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
+                            <label for="password-confirm" class="control-label">新しいパスワード</label>
+                            <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
                                 @if ($errors->has('password_confirmation'))
@@ -61,11 +64,11 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
-                            </div>
+                            
+                            <button type="submit" class="float-right btn btn-primary">
+                                変更
+                            </button>
+                            
                         </div>
                     </form>
                 </div>
