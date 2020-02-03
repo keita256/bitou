@@ -26,7 +26,7 @@
 
                     @if ($errors->has('email'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>入力内容に誤りがあります。</strong>
                     </span>
                     @endif
                 </div>
@@ -36,7 +36,7 @@
                         ログイン画面に戻る
                     </a>
                     <button type="submit" class="btn btn-primary float-right">
-                        パスワードをリセット
+                        メールを送信
                     </button>
                 </div>
             </form>
