@@ -21,7 +21,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">新しいユーザー名</label>
-                            <input class="form-control" id="name" name="userName" required type="text" value="">
+                            <input class="form-control" id="name" name="userName" required type="text" autocomplete="off">
                         </div>
 
                         <button type="submit" class="btn btn-primary float-right">保存</button>
