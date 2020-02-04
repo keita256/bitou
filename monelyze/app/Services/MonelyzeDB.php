@@ -4,14 +4,19 @@ namespace App\Services;
 
 use DB;
 use App\User;
-use App\Spend;
 use App\Expense;
 use App\Payment;
-use App\Monthly_input;
 use App\Services\MonthlyDataLogic;
+use App\Services\DAO\SpendDAO;
+use App\Services\DAO\MonthlyInputDAO;
+use App\Services\DAO\PaymentDAO;
 
 class MonelyzeDB
 {
+    private $spendDAO;
+    private $monthlyInputDAO;
+    private $paymentDAO;
+
     /**
      * Create a new controller instance.
      *
@@ -19,8 +24,9 @@ class MonelyzeDB
      */
     public function __construct()
     {
-        date_default_timezone_set('Asia/Tokyo');
-        $this->middleware('auth');
+        $this->spendDAO = new SpendDAO();
+        $this->monthlyInputDAO = new MonthlyInputDAO();
+        $this->paymentDAO = new PaymentDAO();
     }
 
     /*************************************** get ****************************************/
@@ -50,163 +56,51 @@ class MonelyzeDB
 
     public function getSpends($user_id, $date)
     {
-        $spends = DB::select(
-            'select date, number, name, content, st.expense_id, amount from spends st inner join expenses et on st.expense_id = et.expense_id
-            where user_id = :user_id and date = :date',
-            [
-                'user_id' => $user_id,
-                'date' => $date
-            ]
-        );
-
-        return $spends;
+        return $this->spendDAO->getSpends($user_id, $date);
     }
 
     public function getPayments($user_id, $year, $month)
     {
-        $fixedConsts = DB::select(
-            'select number, content, amount from payments where user_id = :user_id and year = :year and month = :month',
-            [
-                'user_id' => $user_id,
-                'year' =>$year,
-                'month' => $month
-            ]
-        );
-
-        return $fixedConsts;
+        return $this->paymentDAO->getPayments($user_id, $year, $month);
     }
 
     public function getMonthlyInput($user_id, $year, $month)
     { 
-        $monthly_input = DB::select(
-            'select take_amount, target_spending from monthly_inputs where user_id = :user_id and year = :year and month = :month',
-            [
-                'user_id' => $user_id,
-                'year' => $year,
-                'month' => $month
-            ]
-        );
-
-        return $monthly_input;
+        return $this->monthlyInputDAO->getMonthlyInput($user_id, $year, $month);
     }
 
     /*************************************** insert ****************************************/
 
     public function insertSpends($user_id, $date, $spends)
     {
-        $expense = $spends['expense_id'];
-        $content = $spends['content'];
-        $amount = $spends['amount'];
-
-        $date = str_replace('/', '-', $date);
-
-        for($i = 0; $i < count($expense); $i++) {
-            // 次のレコードに付与する連番の取得
-            $num = DB::select(
-                'select ifnull(max(number) + 1, 1) as num from spends where user_id = :user_id and date = :date',
-                [
-                    'user_id' => $user_id,
-                    'date' => $date
-                ]
-            );
-            $num = array_shift($num)->num;
-
-            // データの登録
-            $new_spend = new Spend();
-            $new_spend->user_id = $user_id;
-            $new_spend->date = $date;
-            $new_spend->number = $num;
-            $new_spend->expense_id = $expense[$i];
-            $new_spend->content = $content[$i];
-            $new_spend->amount = $amount[$i];
-
-            $new_spend->save();
-        }
+        $this->spendDAO->insertSpends($user_id, $date, $spends);
     }
 
     public function insertPayments($user_id, $year, $month, $payments)
     { 
-        $content = $payments['content'];
-        $amount = $payments['amount'];
-        
-        for($i = 0; $i < count($content); $i++) {
-            // 次のレコードに付与する連番の取得
-            $num = DB::select(
-                'select ifnull(max(number) + 1, 1) as num from payments where user_id = :user_id and year = :year and month = :month',
-                [
-                    'user_id' => $user_id,
-                    'year' => $year,
-                    'month' => $month
-                ]
-            );
-            $num = array_shift($num)->num;
-
-            // データの登録
-            $new_payment = new Payment();
-            $new_payment->user_id = $user_id;
-            $new_payment->year = $year;
-            $new_payment->month = $month;
-            $new_payment->number = $num;
-            $new_payment->content = $content[$i];
-            $new_payment->amount = $amount[$i];
-
-            $new_payment->save();
-        }
+        return $this->paymentDAO->insertPayments($user_id, $year, $month, $payments);
     }
 
     public function insertMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
     {
-        $new_monthly_input = new Monthly_input();
-        $new_monthly_input->user_id = $user_id;
-        $new_monthly_input->year = $year;
-        $new_monthly_input->month = $month;
-        $new_monthly_input->take_amount = $take_amount;
-        $new_monthly_input->target_spending = $target_spending;
-
-        return $new_monthly_input->save();
+        return $this->monthlyInputDAO->insertMonthlyInput($user_id, $year, $month, $take_amount, $target_spending);
     }
 
     /*************************************** update ****************************************/
 
     public function updateSpend($user_id, $date, $number, $expense_id, $content, $amount)
     {
-        return $spend = Spend::where('user_id', $user_id)->
-                        where('date', $date)->
-                        where('number', $number)->
-                        update(
-                            [
-                                'expense_id' => $expense_id,
-                                'content' => $content,
-                                'amount' => $amount
-                            ]
-                        );
+        return $this->spendDAO->updateSpend($user_id, $date, $number, $expense_id, $content, $amount);
     }
 
     public function updatePayment($user_id, $year, $month, $number, $content, $amount)
     {
-        return $payment = Payment::where('user_id', $user_id)->
-                            where('year', $year)->
-                            where('month', $month)->
-                            where('number', $number)->
-                            update(
-                                [
-                                    'content' => $content,
-                                    'amount' => $amount
-                                ]
-                            );
+        return $this->paymentDAO->updatePayment($user_id, $year, $month, $number, $content, $amount);
     }
 
     public function updateMonthlyInput($user_id, $year, $month, $take_amount, $target_spending)
     {
-        return $monthly_input = Monthly_input::where('user_id', $user_id)->
-                                        where('year', $year)->
-                                        where('month', $month)->
-                                        update(
-                                            [
-                                                'take_amount' => $take_amount,
-                                                'target_spending' => $target_spending
-                                            ]
-                                        );
+        return $this->monthlyInputDAO->updateMonthlyInput($user_id, $year, $month, $take_amount, $target_spending);
     }
 
     public function updateUserName($user_id, $new_name)
@@ -231,19 +125,12 @@ class MonelyzeDB
 
     public function deleteSpend($user_id, $date, $number)
     {
-        return $spend = Spend::where('user_id', $user_id)->
-                        where('date', $date)->
-                        where('number', (int)$number)->
-                        delete();
+        return $this->spendDAO->deleteSpend($user_id, $date, $number);
     }
 
     public function deletePayment($user_id, $year, $month, $number)
     {
-        return $payment = Payment::where('user_id', $user_id)->
-                            where('year', $year)->
-                            where('month', $month)->
-                            where('number', $number)->
-                            delete();
+        return $this->paymentDAO->deletePayment($user_id, $year, $month, $number);
     }
 
     /*************************************** データが存在するか ****************************************/

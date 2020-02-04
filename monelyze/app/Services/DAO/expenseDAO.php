@@ -4,7 +4,7 @@ namespace App\Services\DAO;
 
 use DB;
 
-class expenseDAO
+class ExpenseDAO
 {
     /*
     |--------------------------------------------
