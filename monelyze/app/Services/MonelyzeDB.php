@@ -5,7 +5,6 @@ namespace App\Services;
 use DB;
 use App\User;
 use App\Expense;
-use App\Payment;
 use App\Services\MonthlyDataLogic;
 use App\Services\DAO\SpendDAO;
 use App\Services\DAO\MonthlyInputDAO;
