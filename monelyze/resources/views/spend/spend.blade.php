@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <select class="form-controll" name="spends[expense_id][]" id="name_list" accept-charset="UTF-8">
-                                <option selected disabled>費目名を選択してください。</option>
+                                <option value="">費目名を選択してください</option>
                                 @foreach($expenses as $expense)
                                 <option name="spends[expense_id][]" value="{{ $expense->expense_id }}">
                                     {{ $expense->name }}</option>
@@ -59,6 +59,7 @@
                                     format: 'L'
                                 });
                             });
+
                         </script>
 
                         <button type="submit" class="btn btn-primary float-right">送信する</button>
