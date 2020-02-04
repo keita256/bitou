@@ -10,12 +10,16 @@ use App\Services\MonthlyDataLogic;
 use App\Services\DAO\SpendDAO;
 use App\Services\DAO\MonthlyInputDAO;
 use App\Services\DAO\PaymentDAO;
+use App\Services\DAO\ExpenseDAO;
+use App\Services\DAO\UserDAO;
 
 class MonelyzeDB
 {
     private $spendDAO;
     private $monthlyInputDAO;
     private $paymentDAO;
+    private $expenseDAO;
+    private $userDAO;
 
     /**
      * Create a new controller instance.
@@ -27,6 +31,8 @@ class MonelyzeDB
         $this->spendDAO = new SpendDAO();
         $this->monthlyInputDAO = new MonthlyInputDAO();
         $this->paymentDAO = new PaymentDAO();
+        $this->expenseDAO = new ExpenseDAO();
+        $this->userDAO = new UserDAO();
     }
 
     /*************************************** get ****************************************/
