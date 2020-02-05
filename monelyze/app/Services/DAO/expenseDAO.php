@@ -3,6 +3,7 @@
 namespace App\Services\DAO;
 
 use DB;
+use App\Expense;
 
 class ExpenseDAO
 {
@@ -11,6 +12,11 @@ class ExpenseDAO
     | get method
     |--------------------------------------------
     */
+
+    public function getExpense()
+    {
+        return Expense::get();
+    }
 
     /*
     |--------------------------------------------

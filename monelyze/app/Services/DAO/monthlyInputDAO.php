@@ -69,6 +69,41 @@ class MonthlyInputDAO
     | delete method
     |--------------------------------------------
     */
+
+    /*
+    |--------------------------------------------
+    | isEmpty method
+    |--------------------------------------------
+    */
+
+    // user_idとyearをもとにデータが存在するか取得
+    public function isEmptyMonthlyData($user_id, $year)
+    {
+        $result = DB::select(
+            'select count(*) as num from monthly_inputs where user_id = :user_id and year = :year',
+            [
+                'user_id' => $user_id,
+                'year' => $year
+            ]
+        );
+
+        return $result;
+    }
+
+    // 指定された年月の月初入力レコードが存在するか取得(middlewareで使用)
+    public function isEmptyMonthlyInput($user_id, $year, $month)
+    {
+        $result = DB::select(
+            'select count(*) as emp from monthly_inputs where user_id = :user_id and year = :year and month = :month',
+            [
+                'user_id' => $user_id,
+                'year' => $year,
+                'month' => $month,
+            ]
+        );
+
+        return $result;
+    }
 }
 
 ?>
