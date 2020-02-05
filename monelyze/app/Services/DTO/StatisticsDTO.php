@@ -44,7 +44,7 @@ class StatisticsDTO
 
     public function getMonthlyBalance()
     {
-        return $this->monthly_balance = $monthly_balance;
+        return $this->monthly_balance;
     }
 
     public function setMonthlyBalance($monthly_balance)
@@ -54,7 +54,7 @@ class StatisticsDTO
 
     public function getAnnualConsumption()
     {
-        return $this->annual_consumption = $annual_consumption;
+        return $this->annual_consumption;
     }
 
     public function setAnnualConsumption($annual_consumption)
@@ -74,7 +74,7 @@ class StatisticsDTO
 
     public function getAnnualBalance()
     {
-        $this->annual_balance;
+        return $this->annual_balance;
     }
 
     public function setAnnualBalance($annual_balance)

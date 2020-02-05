@@ -32,7 +32,7 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th class="align-middle text-center text-nowrap">年間消費額</th>
-                                            <td class="align-middle text-center text-nowrap">{{ $annual_consumption }}円
+                                            <td class="align-middle text-center text-nowrap">{{ $statistics_data->getAnnualConsumption() }}円
                                             </td>
                                         </tr>
                                     </table>
@@ -56,7 +56,7 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th class="align-middle text-center text-nowrap">年間節約額</th>
-                                            <td class="align-middle text-center text-nowrap">{{ $annual_savings }}円</td>
+                                            <td class="align-middle text-center text-nowrap">{{ $statistics_data->getAnnualSavings() }}円</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -79,7 +79,7 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th class="align-middle text-center text-nowrap">年間残金</th>
-                                            <td class="align-middle text-center text-nowrap">{{ $annual_balance }}円</td>
+                                            <td class="align-middle text-center text-nowrap">{{ $statistics_data->getAnnualBalance() }}円</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -131,10 +131,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // 変数宣言、初期化
-let monthlyFixedCosts = @json($monthly_fixed_costs);
-let monthlyConsumption = @json($monthly_consumption);
-let monthlySavings = @json($monthly_savings);
-let monthlyBalance = @json($monthly_balance);
+let monthlyFixedCosts = @json($statistics_data->getMonthlyFixedCosts());
+let monthlyConsumption = @json($statistics_data->getMonthlyConsumption());
+let monthlySavings = @json($statistics_data->getMonthlySavings());
+let monthlyBalance = @json($statistics_data->getMonthlyBalance());
 let year = @json($year);
 let consumptionChart = $('#consumptionChart');
 let savingChart = $('#savingChart');
