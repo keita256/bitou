@@ -65,9 +65,9 @@ class PaymentDAO
             if($result == false) {
                 return $result;
             }
-
-            return $result;
         }
+
+        return $result;
     }
 
     /*
