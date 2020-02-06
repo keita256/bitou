@@ -179,61 +179,6 @@ class MonelyzeDB
         return $this->statisticsDAO->getMonthlyTakeAmount($user_id, $year);
     }
 
-    // 指定された年の月ごとの消費額(固定費を含む)を取得し配列で返す
-    public function getTotalMonthlyConsumption($user_id, $year)
-    {
-        // 初期化
-        $total_monthly_consumption = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];    // 1月から12月のデータ
-        $monthly_consumption = $this->getMonthlyConsumption($user_id, $year); // 月ごとの消費額
-        $monthly_fixed_costs = $this->getMonthlyFixedCosts($user_id, $year);  // 月ごとの固定費
-
-        // オブジェクトを配列に変換
-        $monthly_consumption = MonthlyDataLogic::monthlyDataToArray($monthly_consumption);
-        $monthly_fixed_costs = MonthlyDataLogic::monthlyDataToArray($monthly_fixed_costs);
-
-        // 配列の要素ごとに加算
-        $total_monthly_consumption = MonthlyDataLogic::addArrayElement($total_monthly_consumption, $monthly_consumption);
-        $total_monthly_consumption = MonthlyDataLogic::addArrayElement($total_monthly_consumption, $monthly_fixed_costs);
-        
-        return $total_monthly_consumption;
-    }
-
-    // 指定された年の月ごとの節約額を取得( 目標支出 - 消費額(固定費を含む) )
-    public function getMonthlySavings($user_id, $year)
-    {
-        // 初期化
-        $monthly_savings = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];                         // 1月から12月のデータ
-        $total_monthly_consumption = $this->getTotalMonthlyConsumption($user_id, $year); // 月ごとの消費額(固定費を含む)
-        $monthly_target_spending = $this->getMonthlyTargetSpending($user_id, $year);     // 月ごとの目標支出
-
-        // オブジェクトを配列に変換
-        $monthly_target_spending = MonthlyDataLogic::monthlyDataToArray($monthly_target_spending);
-
-        // 配列の要素ごとに加算、減算
-        $monthly_savings = MonthlyDataLogic::addArrayElement($monthly_savings, $monthly_target_spending);
-        $monthly_savings = MonthlyDataLogic::subtractArrayElement($monthly_savings, $total_monthly_consumption);
-
-        return $monthly_savings;
-    }
-
-    // 指定された年の月ごとの残金を取得( 手取り収入 - 消費額(固定費を含む) )
-    public function getMonthlyBalance($user_id, $year)
-    {
-        // 初期化
-        $monthly_balance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 1月から12月のデータ
-        $monthly_take_amount = $this->getMonthlyTakeAmount($user_id, $year);             // 月ごとの手取り収入を取得
-        $total_monthly_consumption = $this->getTotalMonthlyConsumption($user_id, $year); // 月ごとの消費額を取得(固定費を含む)
-
-        // オブジェクトを配列に変換
-        $monthly_take_amount = MonthlyDataLogic::monthlyDataToArray($monthly_take_amount);
-
-        // 配列の要素ごとに加算、減算
-        $monthly_balance = MonthlyDataLogic::addArrayElement($monthly_balance, $monthly_take_amount);
-        $monthly_balance = MonthlyDataLogic::subtractArrayElement($monthly_balance, $total_monthly_consumption);
-
-        return $monthly_balance;
-    }
-
     // 指定された年月の費目ごとの消費額を取得
     public function getExpenseConsumption($user_id, $year, $month)
     {

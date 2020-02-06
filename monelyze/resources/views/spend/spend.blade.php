@@ -8,11 +8,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
+        <div class="offset-1 col-10 offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
             <h3>家計簿入力</h3>
 
             <div class="row">
-                <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10  inner-div rounded">
+                <div class="offset-1 col-10 offset-md-2 col-md-8 offset-sm-1 col-sm-10  inner-div rounded">
                     @if (Session::has('message'))
                     <p>{{ session('message') }}</p>
                     @endif
