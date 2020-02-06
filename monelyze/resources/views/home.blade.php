@@ -19,6 +19,8 @@
             <h3 class="heading responsive-font-size">{{ $year }}年{{ $month }}月{{ $day }}日</h3>
 
             @if($spends != null)
+            <h5>※項目クリックすると編集ができます。</h5>
+
             <div class="table-responsive">
                 <table class="table table-sm table-bordered table-striped table-hover">
 
@@ -52,27 +54,25 @@
         <div class="col-lg-3">
             <div class="row">
                 <div class="offset-1 col-10 offset-lg-1 col-lg-11 sidebar-content">
-                    <!-- カレンダー-->
-                    <div class="row">
-                        <div class="col">
-                            <div id="clndr"></div>
-                        </div>
-                    </div>
 
                     <!-- datepicker -->
                     <div class="row">
-                        <div class="form-group">
-                            <form class="dateForm" action="/home" method="get" accept-charset="UTF-8">
-                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                    <input type="text" required name="date" placeholder="日付を選択" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off">
-                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
+                        <div class="col">
+                            <h4>家計簿の日付選択</h4>
+
+                            <div class="form-group">
+                                <form class="dateForm" action="/home" method="get" accept-charset="UTF-8">
+                                    <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                        <input type="text" required name="date" placeholder="日付を選択" class="form-control datetimepicker-input" data-target="#datetimepicker4" autocomplete="off">
+                                        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="btn btn-primary float-right" id="dateChange">表示</button>
                                     </div>
-                                    <button type="submit" class="btn btn-primary float-right" id="dateChange">表示</button>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -259,11 +259,5 @@
 <script src="{{ asset('js/form.js') }}"></script>
 <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
 <script src="{{ asset('/js/clndr.js')}}"></script>
-
-<!-- カレンダー生成 -->
-<script type="text/javascript">
-    $('#clndr').clndr();
-
-</script>
 
 @endsection
