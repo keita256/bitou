@@ -82,6 +82,8 @@
                                 <h4 class="heading responsive-font-size">{{ $year }}年{{ $month }}月の統計</h4>
                             </div>
 
+                            <hr>
+
                             <h5 class="responsive-font-size">月初入力情報</h5>
 
                             <div class="table-responsive">
@@ -110,6 +112,8 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <hr>
 
                             <h5 class="responsive-font-size">費目ごとの消費額</h5>
 
