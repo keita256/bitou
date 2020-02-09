@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-1 col-10 offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
+        <div class="col-12 offset-md-3 col-md-6 offset-sm-1 col-sm-10 monthlyInput-div">
             <h3>家計簿入力</h3>
 
             <div class="row">

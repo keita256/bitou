@@ -10,12 +10,13 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="offset-1 col-10 page-div">
+            <div class="col-12 offset-sm-1 col-sm-10 page-div">
                 <!-- background-color:white -->
-                <h1 class="responsive-font-size">{{ $year }}年　家計簿統計情報
-                    <button class="btn btn-primary float-right" data-toggle="modal" data-target="#yearChange">年月変更</button>
+                <h1 class="responsive-font-size">
+                    {{ $year }}年 家計簿統計情報
                 </h1>
-                
+
+                <!-- <button class="float-right btn-sm btn-primary text-nowrap" data-toggle="modal" data-target="#yearChange" style="margin: 10px 0px 5px 0px;">年月変更</button> -->
 
                 <div class="row">
                     <div class="offset-1 col-10 content-div">
@@ -165,9 +166,6 @@ function createBarChart(ctx, monthData, barName) {
                 yAxes: [{
                     ticks: {
                         suggestedMin: 0,
-                        callback: function(value, index, values) {
-                            return value + '円';
-                        }
                     }
                 }]
             }
@@ -204,9 +202,6 @@ function createStackedBarChart(ctx, paymentData, consumptionData, label1, label2
                 yAxes: [{
                     ticks: {
                         suggestedMin: 0,
-                        callback: function(value, index, values) {
-                            return value + '円';
-                        }
                     },
 
                     stacked: true

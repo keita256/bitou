@@ -7,7 +7,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
+        <div class="col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-7 main-content">
             <h3 class="responsive-font-size">{{ $year }}年{{ $month }}月 固定費一覧<button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
 
             @if ($errors->any())
@@ -81,10 +81,7 @@
 
         <div class="col-lg-3">
             <div class="row">
-                <div class="offset-1 col-10 offset-lg-1 col-lg-11 sidebar-content">
-                    <div class="row">
-
-                    </div>
+                <div class="col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-11 sidebar-content">
 
                     <div class="row">
                         <div class="col">
