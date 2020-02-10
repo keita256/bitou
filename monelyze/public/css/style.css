@@ -77,9 +77,6 @@ li .nav-item {
     display: block;
 }
 
-
-.nav-item.user {}
-
 .logo-wrapper {
     display: flex;
     justify-content: center;
@@ -267,7 +264,11 @@ table tr .adjacent-month .day-contents {
 }
 
 @media screen and (min-width: 0px) and (max-width: 603px) {
-    .responsive-font-size, h2, h3, h4 {
+
+    .responsive-font-size,
+    h2,
+    h3,
+    h4 {
         font-size: 20px;
     }
 }
