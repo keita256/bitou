@@ -19,16 +19,18 @@
                 </ul>
             </div>
             @endif
+
             @if (Session::has('message'))
             <p>{{ session('message') }}</p>
             @endif
+
+            @if($payments != null)
             <div class="table-responsive">
-                @if($payments != null)
-                <table class="table table-sm table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover">
 
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="align-middle text-nowrap text-center">内容</th>
+                            <th scope="col" class="align-middle text-center">内容</th>
                             <th scope="col" class="align-middle text-nowrap text-center">金額</th>
                         </tr>
                     </thead>
@@ -45,11 +47,10 @@
                         @endforeach
                     </tbody>
                 </table>
-                @else
-                <h2 class="responsive-font-size">固定費一覧より該当月を選択すると、ここに詳細が表示されます。</h2>
-                @endif
             </div>
-
+            @else
+                <h5 class="responsive-font-size">固定費一覧より該当月を選択すると、ここに詳細が表示されます。</h5>
+            @endif
 
             <div class="row">
                 <div class="col-12 payment-div">

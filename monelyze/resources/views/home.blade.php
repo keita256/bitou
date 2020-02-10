@@ -27,7 +27,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th scope="col" class="align-middle text-nowrap text-center">費目</th>
-                            <th scope="col" class="align-middle text-nowrap text-center">内容</th>
+                            <th scope="col" class="align-middle text-center">内容</th>
                             <th scope="col" class="align-middle text-nowrap text-center">金額</th>
                         </tr>
                     </thead>
