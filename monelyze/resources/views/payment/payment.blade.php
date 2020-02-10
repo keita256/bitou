@@ -8,7 +8,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-7 main-content">
-            <h3 class="responsive-font-size">{{ $year }}年{{ $month }}月 固定費一覧<button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateChange">年月変更</button></h3>
+            <h3 class="responsive-font-size">{{ $year }}年{{ $month }}月 固定費一覧</h3>
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateModal" style="margin: 10px">年月変更</button>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -148,11 +149,11 @@
         </div>
     </div>
 
-    <div class="modal fade" id="dateChange" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
+    <div class="modal fade" id="dateModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">日付変更</h5>
+                    <h5 class="modal-title" id="dateModalLabel">日付変更</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -161,7 +162,7 @@
                 <div class="modal-body">
                     <form action="/payment" method="get" class="form-inline justify-content-between dateForm" accept-charset="UTF-8">
                         @csrf
-                        <div class="form-row">
+                        <div class="form-group d-flex">
                             <select class="form-control" id="selectYear">
                                 @for ($i = $year - 3; $i <= $year + 3; $i++) @if ($year==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @continue
@@ -169,10 +170,10 @@
                                     <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                             </select>
-                            <div>年</div>
+                            <div class="mb-auto">年</div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group d-flex">
                             <select class="form-control" id="selectMonth">
                                 @for ($i = 1; $i <= 12; $i++) @if ($month==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @continue
@@ -180,15 +181,17 @@
                                     <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                             </select>
-                            <div>月</div>
+                            <div class="mb-auto">月</div>
                         </div>
 
                         <button class="btn btn-primary pull-right dateChange">表示</button>
                     </form>
                 </div>
+                
             </div>
         </div>
     </div>
+
 
     <!--フォーム増加用-->
     <div id="template" style="display:none">
