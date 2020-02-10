@@ -49,7 +49,7 @@
                 </table>
             </div>
             @else
-                <h5 class="responsive-font-size">固定費一覧より該当月を選択すると、ここに詳細が表示されます。</h5>
+            <h5 class="responsive-font-size">固定費一覧より該当月を選択すると、ここに詳細が表示されます。</h5>
             @endif
 
             <div class="row">
@@ -61,11 +61,11 @@
                             <form class="" action="/payment/insert/{{ $year }}/{{ $month }}" method="post" accept-charset="UTF-8">
                                 @csrf
                                 <div class="form-group">
-                                    <input class="form-controll" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
+                                    <input class="form-control" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
                                 </div>
 
                                 <div class="form-group">
-                                    <input class="form-controll keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
+                                    <input class="form-control keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
                                 </div>
                                 <div id="fixed">
                                     <hr>
@@ -162,7 +162,7 @@
                     <form action="/payment" method="get" class="form-inline justify-content-between dateForm" accept-charset="UTF-8">
                         @csrf
                         <div class="form-row">
-                            <select class="form-controlle" id="selectYear">
+                            <select class="form-control" id="selectYear">
                                 @for ($i = $year - 3; $i <= $year + 3; $i++) @if ($year==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @continue
                                     @endif
@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select class="form-controlle" id="selectMonth">
+                            <select class="form-control" id="selectMonth">
                                 @for ($i = 1; $i <= 12; $i++) @if ($month==$i) <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @continue
                                     @endif
@@ -194,11 +194,11 @@
     <div id="template" style="display:none">
         <hr>
         <div class="form-group">
-            <input class="form-controll" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
+            <input class="form-control" name="payments[content][]" type="text" autocomplete="off" required placeholder="内容">
         </div>
 
         <div class="form-group">
-            <input class="form-controll keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
+            <input class="form-control keyword" name="payments[amount][]" id="item_amount" type="number" autocomplete="off" required placeholder="金額">
         </div>
         <div class="form-group clearfix">
             <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除" onClick="form_remove(this);">
