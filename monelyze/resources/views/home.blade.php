@@ -8,7 +8,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-1 col-10 offset-lg-1 col-lg-7 main-content">
+        <div class="col-12 offset-md-1 col-md-10 offset-lg-1 col-lg-7 main-content">
             <!-- 月初入力されてない場合、入力を促す文字列表示 -->
             @if(!$monthly_input_data_is_empty)
             <u>
@@ -53,7 +53,7 @@
 
         <div class="col-lg-3">
             <div class="row">
-                <div class="offset-1 col-10 offset-lg-1 col-lg-11 sidebar-content">
+                <div class="col-12 offset-md-1 col-md-10 offset-lg-1 col-lg-11 sidebar-content">
 
                     <!-- datepicker -->
                     <div class="row">
