@@ -47,7 +47,7 @@
                 </table>
             </div>
             @else
-            <h2 class="text-center responsive-font-size">本日の入力データはありません。</h2>
+            <h5 class="text-left responsive-font-size">本日の入力データはありません。</h5>
             @endif
         </div><!-- col -->
 
