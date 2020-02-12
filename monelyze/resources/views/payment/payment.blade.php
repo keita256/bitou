@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="table-responsive">
-                                <table class="table table-Light table-hover table-bordered">
+                                <table class="table table-hover table-bordered">
                                     <thead class="thead-light">
                                         <tr>
                                             <th class="text-center">月</th>
