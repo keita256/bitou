@@ -7,7 +7,7 @@
 <div class="container-fluid ">
     <div class="row">
         <div class="col-10 offset-1 col-lg-4 offset-lg-4 mt-5">
-            <img src="images/pigLogo.png" class="img-fluid mx-auto d-block mb-3" style="filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
+            <img src="images/pigLogo.png" class="img-fluid mx-auto d-block mb-3" alt="MonelyzePig" style="filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
 
             <form action="{{ url('/login') }}" method="POST">
                 {{ csrf_field() }}
