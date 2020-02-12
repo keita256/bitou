@@ -10,6 +10,7 @@
         <div class="col-12 offset-sm-1 col-sm-10 offset-lg-1 col-lg-7 main-content">
             <h3 class="responsive-font-size">{{ $year }}年{{ $month }}月 固定費一覧</h3>
             <button class="btn btn-primary float-right" data-toggle="modal" data-target="#dateModal" style="margin: 10px">年月変更</button>
+            <div class="clearfix"></div>
 
             @if ($errors->any())
             <div class="alert alert-danger">
