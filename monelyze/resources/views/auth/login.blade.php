@@ -60,7 +60,7 @@
                             アカウントを作成
                         </a>
 
-                        <button type="submit" class="btn btn-primary float-right">
+                        <button type="submit" class="btn btn-primary float-right button hvr-shadow">
                             ログイン
                         </button>
                     </div>
