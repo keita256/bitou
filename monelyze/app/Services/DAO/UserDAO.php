@@ -64,6 +64,26 @@ class UserDAO
     | delete method
     |--------------------------------------------
     */
+
+    /*
+    |--------------------------------------------
+    | other method
+    |--------------------------------------------
+    */
+
+    public function isEmptyEmail($email)
+    {
+        $num = DB::select(
+            'select count(*) as num from users where email = :email',
+             [
+                'email' => $email
+             ]
+        );
+
+        $num = array_shift($num)->num;
+
+        return $num;
+    }
 }
 
 ?>

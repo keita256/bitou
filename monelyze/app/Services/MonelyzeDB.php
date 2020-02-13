@@ -153,6 +153,12 @@ class MonelyzeDB
         return $this->monthlyInputDAO->isEmptyMonthlyInput($user_id, $year, $month);
     }
 
+    // 指定されたemailが存在するか
+    public function isEmptyEmail($email)
+    {
+        return $this->userDAO->isEmptyEmail($email);
+    }
+
     /*************************************** 統計データの取得 ****************************************/
 
     // 指定された年の月ごとの消費額を取得(固定費を含まない)

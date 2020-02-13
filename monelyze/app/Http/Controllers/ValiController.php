@@ -223,6 +223,12 @@ class ValiController extends Controller
                 ->with('message', '入力に誤りがあります');
         }
 
+        // 既に登録されているメールアドレスだったら
+        $email = $request->userMail;
+        if(MonelyzeDB::isEmptyEmail($email)) {
+            return back()->with('message', '既に登録されているメールアドレスです');
+        }
+
         //確認処理
         if ($request->userMail != $request->userReMail) {
             return back()
