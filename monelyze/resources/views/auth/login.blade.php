@@ -4,7 +4,7 @@
 @include('layouts.head')
 
 @section('content')
-<div class="container-fluid ">
+<div class="container-fluid">
     <div class="row">
         <div class="col-10 offset-1 col-lg-4 offset-lg-4 mt-5">
             <img src="images/pigLogo.png" class="img-fluid mx-auto d-block mb-3" alt="MonelyzePig" style="filter: drop-shadow(10px 10px 10px rgba(112, 101, 101, 0.4));">
@@ -19,9 +19,9 @@
                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                         @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
                         @endif
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                         <input id="password" type="password" class="form-control" name="password" required>
 
                         @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
                         @endif
 
                         <a class="btn btn-link" href="{{ url('/password/reset') }}">

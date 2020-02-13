@@ -11,7 +11,7 @@
         <div class="offset-lg-2 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10 monthlyInput-div">
             <h3>家計簿入力</h3>
 
-            <div class="row">
+            <div class="row animated tdShrinkIn">
                 <div class="offset-1 col-10 offset-md-1 col-md-10 offset-sm-1 col-sm-10  inner-div rounded">
                     @if (Session::has('message'))
                     <p>{{ session('message') }}</p>
@@ -70,7 +70,7 @@
     </div><!-- row -->
 </div><!-- container -->
 
-<div id="template" style="display:none">
+<div id="template" style="display:none" class="animated tdDropInLeft">
     <hr>
     <div class="form-group">
         <select class="form-control" name="spends[expense_id][]" id="name_list">
@@ -89,7 +89,7 @@
         <input class="form-control" type="number" min="1" required placeholder="金額" name="spends[amount][]" class="keyword" id="items_amount" autocomplete="off" value="">
     </div>
     <div class="form-group clearfix">
-        <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除" onClick="form_remove(this);">
+        <input type="button" class="cross_mark button btn btn-outline-primary btn-sm float-right" value="項目削除" onClick="form_remove(this); ">
     </div>
 </div>
 

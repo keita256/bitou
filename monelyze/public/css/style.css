@@ -331,6 +331,10 @@ h5 {
     background-color: rgb(255, 255, 255);
 }
 
+button hvr-fade {
+    color: blue;
+}
+
 .payment-div h3 {
     padding: 0.25em 0.5em;
     /*上下 左右の余白*/

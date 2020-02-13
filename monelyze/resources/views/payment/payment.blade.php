@@ -27,7 +27,7 @@
             @endif
 
             @if($payments != null)
-            <div class="table-responsive">
+            <div class="table-responsive animated tdFadeInLeft">
                 <table class="table table-bordered table-striped table-hover">
 
                     <thead class="thead-light">
@@ -58,7 +58,7 @@
                 <div class="col-12 payment-div">
                     <h3 class="responsive-font-size">固定費入力</h3>
 
-                    <div class="row">
+                    <div class="row animated tdFadeInLeft">
                         <div class="offset-1 col-10 inner-div rounded">
                             <form class="" action="/payment/insert/{{ $year }}/{{ $month }}" method="post" accept-charset="UTF-8">
                                 @csrf
@@ -188,7 +188,7 @@
                         <button class="btn btn-primary pull-right dateChange">表示</button>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
