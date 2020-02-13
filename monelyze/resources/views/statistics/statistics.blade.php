@@ -53,6 +53,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <small>※費目ごとの消費額と固定費の合計</small>
+
                     </div>
                 </div><!-- row -->
 
@@ -78,6 +81,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <small>※目標支出と消費額との差</small>
+
                     </div>
                 </div><!-- row -->
 
@@ -103,6 +109,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <small>※収入と消費額との差</small>
+
                     </div>
                 </div><!-- row -->
 
