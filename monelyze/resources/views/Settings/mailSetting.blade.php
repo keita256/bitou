@@ -16,7 +16,7 @@
             @endif
 
             <div class="row">
-                <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10 inner-div rounded">
+                <div class="offset-1 col-10 offset-md-1 col-md-10 offset-sm-1 col-sm-10 inner-div rounded">
                     <form action="/users/mailSetting" method="post" accept-charset="UTF-8">
                     @csrf
                         <div class="form-group">
